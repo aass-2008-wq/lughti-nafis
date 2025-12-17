@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منصة لغتي – مشروع نافس</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --blue:#0b2d5c;
+      --blue2:#0f3b78;
+      --gold:#d6b25e;
+      --bg:#f4f7fc;
+      --card:#ffffff;
+      --text:#0d1b2a;
+      --muted:#6b7a90;
+      --shadow:0 14px 30px rgba(11,45,92,.12);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Tajawal",sans-serif;
+      background:
+        radial-gradient(900px 500px at 80% -10%, rgba(214,178,94,.22), transparent 60%),
+        radial-gradient(800px 500px at 10% 0%, rgba(15,59,120,.18), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      min-height:100vh;
+    }
+
+    header{
+      background:#fff;
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+    .topbar{
+      height:6px;
+      background:linear-gradient(90deg,var(--gold),var(--blue2));
+    }
+    .nav{
+      max-width:1100px;
+      margin:auto;
+      padding:14px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .logos{
+      display:flex;
+      gap:10px;
+    }
+    .logo{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow:0 8px 16px rgba(0,0,0,.08);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+    .titles h1{
+      margin:0;
+      font-size:19px;
+      font-weight:800;
+      color:var(--blue);
+    }
+    .titles p{
+      margin:4px 0 0;
+      font-size:13px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:auto;
+      padding:22px 18px 40px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    @media(max-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:500px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      text-decoration:none;
+      color:inherit;
+      transition:.15s;
+      position:relative;
+    }
+    .card:hover{
+      transform:translateY(-3px);
+    }
+    .icon{
+      font-size:26px;
+      background:rgba(214,178,94,.15);
+      border:1px solid rgba(214,178,94,.4);
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      margin-bottom:10px;
+    }
+    .card strong{
+      color:var(--blue);
+      font-size:15px;
+      font-weight:800;
+    }
+    .card span{
+      display:block;
+      margin-top:6px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.7;
+      font-weight:600;
+    }
+    .tag{
+      position:absolute;
+      top:12px;
+      left:12px;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(15,59,120,.08);
+      border:1px solid rgba(15,59,120,.2);
+      color:var(--blue);
+      font-weight:800;
+    }
+
+    footer{
+      text-align:center;
+      font-size:13px;
+      color:rgba(11,45,92,.7);
+      font-weight:700;
+      padding:20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="topbar"></div>
+  <div class="nav">
+    <div class="brand">
+      <div class="logos">
+        <div class="logo">
+          <img src="https://i.postimg.cc/s2nnpyrm/O-U-O-U-U-O-U-U-3.png" alt="شعار المدرسة">
+        </div>
+        <div class="logo">
+          <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg" alt="شعار نافس">
+        </div>
+      </div>
+      <div class="titles">
+        <h1>منصة لغتي – مشروع نافس</h1>
+        <p>الصف السادس • تدريب رقمي على الفهم القرائي والمهارات اللغوية</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="grid">
+
+    <a class="card" href="#">
+      <div class="tag">قريبًا</div>
+      <div class="icon">📝</div>
+      <strong>الاختبارات</strong>
+      <span>اختبارات تدريبية على نمط نافس مع تصحيح فوري.</span>
+    </a>
+
+    <a class="card" href="#">
+      <div class="tag">قريبًا</div>
+      <div class="icon">📖</div>
+      <strong>النصوص القرائية</strong>
+      <span>نصوص متنوعة لتنمية مهارات القراءة والتحليل.</span>
+    </a>
+
+    <a class="card" href="#">
+      <div class="tag">قريبًا</div>
+      <div class="icon">🏦</div>
+      <strong>بنك الأسئلة</strong>
+      <span>أسئلة مصنفة حسب المهارات ونواتج التعلم.</span>
+    </a>
+
+    <a class="card" href="#">
+      <div class="tag">قريبًا</div>
+      <div class="icon">📊</div>
+      <strong>تقارير الأداء</strong>
+      <span>متابعة مستوى الطالب وتحسن أدائه.</span>
+    </a>
+
+  </section>
+
+</main>
+
+<footer>
+  مدرسة الإمام الشوكاني الابتدائية <br>
+  برمجة، تنفيذ: الأستاذ مقرن المطيري
+</footer>
+
+</body>
+</html>
