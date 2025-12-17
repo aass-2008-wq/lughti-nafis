@@ -104,12 +104,35 @@
     .q{margin-top:12px;padding:14px;border-radius:16px;border:1px solid rgba(11,45,92,.10);background:#fff}
     .q strong{color:var(--blue)}
     .opts{margin-top:10px;display:grid;gap:8px}
-    .opt{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid rgba(11,45,92,.10);border-radius:14px;cursor:pointer}
-    .opt input{transform:scale(1.15)}
+
+    /* ✅ إصلاح ظهور النص داخل المربعات */
+    .opt{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px 12px;
+      border:1px solid rgba(11,45,92,.10);
+      border-radius:14px;
+      cursor:pointer;
+      width:100%;
+    }
+    .opt input{
+      margin-top:4px;
+      flex:0 0 auto;
+      transform:scale(1.15);
+    }
+    .opt span{
+      flex:1 1 auto;
+      display:block;
+      line-height:1.9;
+      font-weight:800;
+      color:#22324a;
+      word-break:break-word;
+    }
+
     .result{display:none;margin-top:14px;padding:14px;border-radius:16px;background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.22);font-weight:1000}
     .danger{background:rgba(220,38,38,.08)!important;border-color:rgba(220,38,38,.18)!important}
 
-    /* Reports (قريبًا لاحقًا) */
     footer{text-align:center;font-size:13px;color:rgba(11,45,92,.7);font-weight:900;padding:20px}
     .hidden{display:none}
     .muted{color:var(--muted);font-weight:900}
@@ -123,11 +146,9 @@
   <div class="nav">
     <div class="brand">
       <div class="logos">
-        <!-- شعار المدرسة: غيّر الرابط هنا -->
         <div class="logo" title="شعار المدرسة">
           <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار المدرسة">
         </div>
-        <!-- شعار نافس: غيّر الرابط هنا -->
         <div class="logo" title="شعار نافس">
           <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg" alt="شعار نافس">
         </div>
@@ -177,7 +198,7 @@
                   <option value="">اختر الشعبة</option>
                   <option>سادس (أ)</option>
                   <option>سادس (ب)</option>
-                  <option>سادس (ج)</option>
+                  
                 </select>
               </div>
               <div>
@@ -230,7 +251,7 @@
           <div class="tag">قريبًا</div>
           <div class="icon">📊</div>
           <strong>تقارير الأداء</strong>
-          <span>سنفعّلها لاحقًا بعد تجهيز الاختبارات.</span>
+          <span>سنفعّلها لاحقًا بعد تجهيز الاختبارات والنصوص.</span>
         </div>
       </div>
 
@@ -297,7 +318,6 @@
         <div class="badge">📌 المهارات: فكرة/تفاصيل/مفردات/استنتاج</div>
       </div>
 
-      <!-- النص القرائي -->
       <div class="q" style="border-style:solid">
         <strong>النص القرائي:</strong>
         <div style="margin-top:10px; line-height:2; font-weight:700; color:#22324a">
@@ -309,7 +329,6 @@
         <div class="muted" style="margin-top:10px">اقرأ النص جيدًا ثم أجب عن الأسئلة.</div>
       </div>
 
-      <!-- الأسئلة تبنى تلقائياً -->
       <div id="examQuestions"></div>
 
       <div class="actions" style="margin-top:12px">
@@ -322,7 +341,7 @@
     </div>
   </section>
 
-  <!-- ✅ تقارير الأداء (نتركها لاحقًا) -->
+  <!-- ✅ تقارير الأداء (لاحقًا) -->
   <section id="tab-reports" class="panel hidden">
     <div class="cap">
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
@@ -335,7 +354,7 @@
       <div class="q">
         <strong>قريبًا…</strong>
         <div class="muted" style="margin-top:8px;line-height:1.9">
-          بعد ما نضيف أكثر من اختبار ونصوص متعددة، نفعّل منصة الأداء (النتائج + ترتيب + متوسط + تطور الطالب).
+          بعد ما نضيف أكثر من اختبار ونصوص متعددة، نفعّل منصة الأداء.
         </div>
       </div>
     </div>
@@ -410,7 +429,6 @@
   // ===== Exams list -> open exam =====
   function startExam(examKey){
     localStorage.setItem("currentExam", examKey);
-
     const title = document.getElementById("examTitle");
     const meta  = document.getElementById("examMeta");
 
@@ -421,16 +439,13 @@
       title.textContent = "الاختبار";
       meta.textContent  = "";
     }
-
-    // بناء الأسئلة
     buildExam(examKey);
     openTab("exam");
   }
 
-  // ===== Question bank (نموذج 1) =====
+  // ===== Question bank =====
   const EXAMS = {
     exam1: {
-      title: "الاختبار التدريبي — نموذج 1",
       questions: [
         { id: 1, skill: "فكرة رئيسة", q: "ما الفكرة الرئيسة للنص؟", choices: ["الحديث عن رحلة", "أهمية التعاون في إنجاز الأعمال", "التحذير من القراءة", "وصف لعبة جديدة"], ans: 1 },
         { id: 2, skill: "تفاصيل", q: "ما الذي تولّت إحدى المجموعات فعله؟", choices: ["زيارة المتحف", "تنظيم الفصول", "السفر", "كتابة قصة"], ans: 1 },
@@ -452,15 +467,15 @@
     const ex = EXAMS[examKey];
     if(!ex || !examWrap) return;
 
-    // مسح نتائج قديمة
-    document.getElementById("resultBox").style.display = "none";
+    // تنظيف
+    if(resultBox) resultBox.style.display = "none";
     document.querySelectorAll("#tab-exam input[type=radio]").forEach(i=>i.checked=false);
 
     examWrap.innerHTML = ex.questions.map(item => {
       const opts = item.choices.map((c, idx) => `
         <label class="opt">
           <input type="radio" name="q${item.id}" value="${idx}">
-          ${c}
+          <span>${c}</span>
         </label>
       `).join("");
 
@@ -477,7 +492,7 @@
     }).join("");
   }
 
-  // ===== Correct exam (عرض النتيجة فقط الآن) =====
+  // ===== Correct exam =====
   const submitBtn = document.getElementById("submitBtn");
   const resetBtn  = document.getElementById("resetBtn");
   const resultBox = document.getElementById("resultBox");
