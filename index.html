@@ -11,9 +11,6 @@
       --blue:#0b2d5c; --blue2:#0f3b78; --gold:#d6b25e;
       --bg:#f4f7fc; --card:#fff; --text:#0d1b2a; --muted:#6b7a90;
       --shadow:0 14px 30px rgba(11,45,92,.12); --r:18px; --line:rgba(11,45,92,.10);
-      --ok:rgba(34,197,94,.12); --okb:rgba(34,197,94,.25);
-      --bad:rgba(220,38,38,.10); --badb:rgba(220,38,38,.22);
-      --sel:rgba(214,178,94,.18); --selb:rgba(214,178,94,.55);
     }
     *{box-sizing:border-box}
     body{
@@ -61,14 +58,15 @@
     .cap span{color:var(--muted);font-weight:800;font-size:13px}
     .body{padding:16px}
 
-    /* Homepage cards */
     .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:520px){.grid{grid-template-columns:1fr}}
+
     .cardBtn{
       background:#fff;border-radius:var(--r);box-shadow:0 12px 24px rgba(11,45,92,.10);
       border:1px solid rgba(11,45,92,.08);padding:16px;text-decoration:none;color:inherit;
-      transition:.15s;position:relative;cursor:pointer
+      transition:.15s;position:relative;cursor:pointer; display:block;
+      -webkit-tap-highlight-color: transparent;
     }
     .cardBtn:hover{transform:translateY(-3px)}
     .icon{
@@ -82,9 +80,8 @@
       background:rgba(15,59,120,.06);border:1px solid rgba(15,59,120,.14);color:var(--blue);font-weight:1000
     }
 
-    /* Student box */
     .form{display:grid;gap:10px}
-    label{font-weight:1000;color:#1a2d4a;font-size:13px}
+    .form label{font-weight:1000;color:#1a2d4a;font-size:13px}
     input,select{
       width:100%;padding:12px;border-radius:14px;border:1px solid rgba(11,45,92,.14);background:#fff;
       font-family:inherit;font-size:14px;outline:none
@@ -93,75 +90,17 @@
     .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     @media(max-width:520px){.row{grid-template-columns:1fr}}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+
     .btn{
       border:0;cursor:pointer;padding:11px 12px;border-radius:12px;font-weight:1000;font-family:inherit;
       -webkit-tap-highlight-color: transparent;
     }
     .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
     .btnGhost{background:rgba(214,178,94,.12);border:1px solid rgba(214,178,94,.45);color:var(--blue)}
-    .error{display:none;padding:10px 12px;border-radius:14px;background:var(--bad);border:1px solid var(--badb);color:#991b1b;font-weight:1000}
+    .error{display:none;padding:10px 12px;border-radius:14px;background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.18);color:#991b1b;font-weight:1000}
 
-    /* Exam */
-    .badgeRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
-    .badge{
-      display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;
-      background:rgba(15,59,120,.06);border:1px solid rgba(15,59,120,.12);
-      color:var(--blue);font-weight:1000
-    }
-    .q{
-      margin-top:12px;padding:14px;border-radius:16px;border:1px solid rgba(11,45,92,.10);background:#fff
-    }
-    .q strong{color:var(--blue)}
-    .opts{margin-top:10px;display:grid;gap:10px}
-
-    /* ✅ خيارات قابلة للنقر + متوافقة مع كل الأجهزة + تمنع النص العمودي */
-    .opt{
-      display:flex;
-      align-items:flex-start;
-      gap:12px;
-      padding:12px 14px;
-      border:1px solid rgba(11,45,92,.15);
-      border-radius:14px;
-      cursor:pointer;
-      width:100%;
-      direction:rtl;
-      text-align:right;
-      background:#fff;
-      user-select:none;
-      -webkit-user-select:none;
-      touch-action:manipulation;
-    }
-    .opt:hover{border-color:rgba(214,178,94,.65); background:rgba(214,178,94,.08)}
-    .opt input{
-      margin-top:6px;
-      flex:0 0 auto;
-      transform:scale(1.2);
-      cursor:pointer;
-    }
-    .opt span{
-      display:block;
-      width:100%;
-      line-height:1.9;
-      font-weight:800;
-      color:#22324a;
-      white-space:normal;
-      word-break:normal;
-      overflow-wrap:anywhere;
-    }
-    .opt.selected{
-      background:var(--sel);
-      border-color:var(--selb);
-      box-shadow:0 10px 18px rgba(214,178,94,.12);
-    }
-
-    .result{
-      display:none;margin-top:14px;padding:14px;border-radius:16px;background:var(--ok);border:1px solid var(--okb);
-      font-weight:1000
-    }
-    .danger{background:var(--bad)!important;border-color:var(--badb)!important}
-
-    footer{text-align:center;font-size:13px;color:rgba(11,45,92,.7);font-weight:900;padding:20px}
     .hidden{display:none}
+    footer{text-align:center;font-size:13px;color:rgba(11,45,92,.7);font-weight:900;padding:20px}
     .muted{color:var(--muted);font-weight:900}
   </style>
 </head>
@@ -173,23 +112,25 @@
   <div class="nav">
     <div class="brand">
       <div class="logos">
+        <!-- شعار المدرسة -->
         <div class="logo" title="شعار المدرسة">
           <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار المدرسة">
         </div>
+        <!-- شعار نافس -->
         <div class="logo" title="شعار نافس">
           <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg" alt="شعار نافس">
         </div>
       </div>
       <div class="titles">
         <h1>منصة لغتي – مشروع نافس</h1>
-        <p>الصف السادس • تدريب رقمي على الفهم القرائي والمهارات اللغوية</p>
+        <p>الصف السادس • بوابة تدريب رقمية</p>
       </div>
     </div>
 
     <div class="tabs">
       <button class="tabBtn active" data-tab="home">الرئيسية</button>
-      <button class="tabBtn" data-tab="exams">الاختبارات</button>
       <button class="tabBtn" data-tab="reports">تقارير الأداء</button>
+      <button class="tabBtn" data-tab="about">عن المنصة</button>
     </div>
   </div>
 </header>
@@ -207,7 +148,7 @@
       <div class="panel" style="box-shadow:none;border:1px solid var(--line);margin-bottom:14px">
         <div class="cap">
           <strong>دخول الطالب</strong>
-          <span>يستخدم الاسم داخل الاختبار</span>
+          <span>يُستخدم الاسم والشعبة عند فتح الاختبارات</span>
         </div>
         <div class="body">
           <div class="error" id="errorBox"></div>
@@ -225,7 +166,7 @@
                   <option value="">اختر الشعبة</option>
                   <option>سادس (أ)</option>
                   <option>سادس (ب)</option>
-                  
+                 
                 </select>
               </div>
               <div>
@@ -252,137 +193,67 @@
         </div>
       </div>
 
+      <!-- ✅ بطاقات المنصة -->
       <div class="grid">
-        <div class="cardBtn" onclick="openTab('exams')">
+        <!-- ✅ بطاقة الاختبارات (تفتح مستودع nafis-exams وترسل البيانات) -->
+        <a class="cardBtn" href="#" id="examCard">
           <div class="tag">جاهز</div>
           <div class="icon">📝</div>
           <strong>الاختبارات</strong>
-          <span>قائمة اختبارات (مثل منصة لغتي) ثم اختيار النموذج.</span>
-        </div>
+          <span>ابدأ الاختبارات الآن (يفتح في مستودع منفصل مثل منصة لغتي)</span>
+        </a>
 
-        <div class="cardBtn">
-          <div class="tag">قريبًا</div>
-          <div class="icon">📖</div>
-          <strong>النصوص القرائية</strong>
-          <span>سنضيف مكتبة نصوص تدريبية للصف السادس.</span>
-        </div>
-
-        <div class="cardBtn">
-          <div class="tag">قريبًا</div>
-          <div class="icon">🏦</div>
-          <strong>بنك الأسئلة</strong>
-          <span>أسئلة مصنفة حسب المهارات.</span>
-        </div>
-
-        <div class="cardBtn" onclick="openTab('reports')">
+        <a class="cardBtn" href="#" onclick="openTab('reports');return false;">
           <div class="tag">قريبًا</div>
           <div class="icon">📊</div>
           <strong>تقارير الأداء</strong>
-          <span>سنفعّلها لاحقًا بعد تجهيز الاختبارات والنصوص.</span>
-        </div>
+          <span>سنفعّل التقارير بعد تجهيز نماذج متعددة من الاختبارات.</span>
+        </a>
+
+        <a class="cardBtn" href="#" onclick="openTab('about');return false;">
+          <div class="tag">معلومات</div>
+          <div class="icon">ℹ️</div>
+          <strong>عن المنصة</strong>
+          <span>تعريف مختصر بالمشروع وآلية الاستخدام.</span>
+        </a>
+
+        <a class="cardBtn" href="https://aass-2008-wq.github.io/nafis-exams/" target="_blank" rel="noopener">
+          <div class="tag">فتح مباشر</div>
+          <div class="icon">🚀</div>
+          <strong>فتح الاختبارات</strong>
+          <span>فتح صفحة الاختبارات مباشرة بدون تمرير بيانات.</span>
+        </a>
       </div>
 
     </div>
   </section>
 
-  <!-- ✅ قائمة الاختبارات -->
-  <section id="tab-exams" class="panel hidden">
-    <div class="cap">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <button class="btn btnGhost" type="button" onclick="openTab('home')">⬅ رجوع للرئيسية</button>
-        <strong>الاختبارات</strong>
-      </div>
-      <span>اختر نموذجًا لبدء الاختبار</span>
-    </div>
-
-    <div class="body">
-      <div class="grid">
-        <div class="cardBtn" onclick="startExam('exam1')">
-          <div class="tag">جاهز</div>
-          <div class="icon">📝</div>
-          <strong>نموذج 1</strong>
-          <span>نص قرائي + 10 أسئلة (فكرة/تفاصيل/مفردات/استنتاج)</span>
-        </div>
-
-        <div class="cardBtn">
-          <div class="tag">قريبًا</div>
-          <div class="icon">📝</div>
-          <strong>نموذج 2</strong>
-          <span>سيتم إضافته لاحقًا</span>
-        </div>
-
-        <div class="cardBtn">
-          <div class="tag">قريبًا</div>
-          <div class="icon">📝</div>
-          <strong>نموذج 3</strong>
-          <span>سيتم إضافته لاحقًا</span>
-        </div>
-
-        <div class="cardBtn" onclick="openTab('home')">
-          <div class="tag">عودة</div>
-          <div class="icon">🏠</div>
-          <strong>الرئيسية</strong>
-          <span>العودة إلى بوابة المنصة</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ✅ صفحة الاختبار -->
-  <section id="tab-exam" class="panel hidden">
-    <div class="cap">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <button class="btn btnGhost" type="button" onclick="openTab('exams')">⬅ رجوع للاختبارات</button>
-        <strong id="examTitle">الاختبار</strong>
-      </div>
-      <span id="examMeta">نص قرائي + أسئلة — تصحيح فوري</span>
-    </div>
-
-    <div class="body">
-      <div class="badgeRow">
-        <div class="badge" id="studentBadge">👤 الطالب: غير محدد</div>
-        <div class="badge" id="classBadge">🏫 الشعبة: غير محددة</div>
-        <div class="badge">📌 المهارات: فكرة/تفاصيل/مفردات/استنتاج</div>
-      </div>
-
-      <div class="q" style="border-style:solid">
-        <strong>النص القرائي:</strong>
-        <div style="margin-top:10px; line-height:2; font-weight:700; color:#22324a">
-          في صباحٍ مشرق، أعلن مدير المدرسة عن “يوم التعاون”. قُسِّم الطلاب إلى مجموعات،
-          وتولّت كل مجموعة مهمةً محددة: ترتيب المكتبة، وتنظيم الفصول، وزراعة شتلات في ساحة المدرسة.
-          لاحظ الطلاب أن العمل ينجز أسرع عندما يتقاسمون الأدوار ويتبادلون المساعدة. وعندما انتهى اليوم،
-          بدت المدرسة أكثر جمالًا ونظامًا، وشعر الجميع بالفخر؛ لأنهم صنعوا الفرق معًا.
-        </div>
-        <div class="muted" style="margin-top:10px">اقرأ النص جيدًا ثم أجب عن الأسئلة.</div>
-      </div>
-
-      <div id="examQuestions"></div>
-
-      <div class="actions" style="margin-top:12px">
-        <button class="btn btnPrimary" id="submitBtn">إرسال وتصحيح</button>
-        <button class="btn btnGhost" id="resetBtn" type="button">إعادة المحاولة</button>
-        <button class="btn btnGhost" type="button" onclick="openTab('exams')">⬅ رجوع للاختبارات</button>
-      </div>
-
-      <div class="result" id="resultBox"></div>
-    </div>
-  </section>
-
-  <!-- ✅ تقارير الأداء لاحقًا -->
+  <!-- ✅ تقارير الأداء -->
   <section id="tab-reports" class="panel hidden">
     <div class="cap">
-      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
-        <button class="btn btnGhost" type="button" onclick="openTab('home')">⬅ رجوع للرئيسية</button>
-        <strong>تقارير الأداء</strong>
-      </div>
-      <span>سنفعّل التقارير بعد إكمال الاختبارات والنصوص</span>
+      <strong>تقارير الأداء</strong>
+      <span>قريبًا</span>
     </div>
     <div class="body">
-      <div class="q">
-        <strong>قريبًا…</strong>
-        <div class="muted" style="margin-top:8px;line-height:1.9">
-          بعد ما نضيف أكثر من اختبار ونصوص متعددة، نفعّل منصة الأداء.
-        </div>
+      <div class="muted" style="line-height:1.9">
+        سيتم تفعيل تقارير الأداء لاحقًا بعد إضافة نماذج متعددة وربط النتائج بشكل احترافي.
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ عن المنصة -->
+  <section id="tab-about" class="panel hidden">
+    <div class="cap">
+      <strong>عن المنصة</strong>
+      <span>منصة تدريب رقمية</span>
+    </div>
+    <div class="body">
+      <div style="line-height:2;font-weight:800;color:#22324a">
+        منصة “لغتي – مشروع نافس” تهدف لتدريب طلاب الصف السادس على مهارات الفهم القرائي والمهارات اللغوية
+        عبر اختبارات رقمية قصيرة، مع تطوير تدريجي لبنك الأسئلة وتقارير الأداء.
+      </div>
+      <div class="muted" style="margin-top:10px">
+        برمجة، تنفيذ: الأستاذ مقرن المطيري
       </div>
     </div>
   </section>
@@ -402,7 +273,6 @@
     const el = document.getElementById("tab-" + name);
     if(el) el.classList.remove("hidden");
     tabBtns.forEach(b=>b.classList.toggle("active", b.dataset.tab === name));
-    if(name === "exam") refreshBadges();
     window.scrollTo({top:0, behavior:"smooth"});
   }
   tabBtns.forEach(b=>b.addEventListener("click", ()=>openTab(b.dataset.tab)));
@@ -434,152 +304,31 @@
 
     localStorage.setItem("studentData", JSON.stringify({name, classroom: cls, attempt: att}));
     alert("تم حفظ البيانات ✅");
-    refreshBadges();
   });
 
   document.getElementById("clearBtn").addEventListener("click", ()=>{
     localStorage.removeItem("studentData");
     studentName.value=""; classroom.value=""; attempt.value="1";
     hideError();
-    refreshBadges();
   });
 
-  document.getElementById("goExams").addEventListener("click", ()=>openTab("exams"));
-
-  function refreshBadges(){
+  // ✅ فتح الاختبارات مع تمرير الاسم والشعبة (مثل لغتي)
+  function goToExams(){
     const s = JSON.parse(localStorage.getItem("studentData") || "{}");
-    document.getElementById("studentBadge").textContent = "👤 الطالب: " + (s.name || "غير محدد");
-    document.getElementById("classBadge").textContent   = "🏫 الشعبة: " + (s.classroom || "غير محددة");
-  }
-  refreshBadges();
-
-  // ===== Exams list -> open exam =====
-  function startExam(examKey){
-    localStorage.setItem("currentExam", examKey);
-    const title = document.getElementById("examTitle");
-    const meta  = document.getElementById("examMeta");
-
-    if(examKey === "exam1"){
-      title.textContent = "الاختبار التدريبي — نموذج 1";
-      meta.textContent  = "نص قرائي + 10 أسئلة (فكرة/تفاصيل/مفردات/استنتاج)";
-    }else{
-      title.textContent = "الاختبار";
-      meta.textContent  = "";
-    }
-
-    buildExam(examKey);
-    openTab("exam");
+    const url =
+      "https://aass-2008-wq.github.io/nafis-exams/?" +
+      "name=" + encodeURIComponent(s.name || "") +
+      "&cls=" + encodeURIComponent(s.classroom || "");
+    window.location.href = url;
   }
 
-  // ===== Question bank =====
-  const EXAMS = {
-    exam1: {
-      questions: [
-        { id: 1, skill: "فكرة رئيسة", q: "ما الفكرة الرئيسة للنص؟", choices: ["الحديث عن رحلة", "أهمية التعاون في إنجاز الأعمال", "التحذير من القراءة", "وصف لعبة جديدة"], ans: 1 },
-        { id: 2, skill: "تفاصيل", q: "ما الذي تولّت إحدى المجموعات فعله؟", choices: ["زيارة المتحف", "تنظيم الفصول", "السفر", "كتابة قصة"], ans: 1 },
-        { id: 3, skill: "تفاصيل", q: "متى أعلن مدير المدرسة عن “يوم التعاون”؟", choices: ["في مساءٍ ممطر", "في صباحٍ مشرق", "بعد نهاية العام", "في منتصف الليل"], ans: 1 },
-        { id: 4, skill: "استنتاج", q: "لماذا شعر الطلاب بالفخر في نهاية اليوم؟", choices: ["لأنهم حصلوا على هدايا", "لأنهم صنعوا الفرق معًا", "لأن الاختبار ألغي", "لأن الدروس زادت"], ans: 1 },
-        { id: 5, skill: "مفردات", q: "معنى كلمة “قُسِّم” في النص أقرب إلى:", choices: ["جُمِع", "وُزِّع", "نُسِي", "تأخر"], ans: 1 },
-        { id: 6, skill: "تفاصيل", q: "من أعمال يوم التعاون:", choices: ["زراعة شتلات في الساحة", "سباق سيارات", "شراء ملابس", "زيارة مدينة"], ans: 0 },
-        { id: 7, skill: "استنتاج", q: "أي عبارة تؤكد أن التعاون يسرّع الإنجاز؟", choices: ["العمل ينجز أسرع عندما يتقاسمون الأدوار", "المدرسة بعيدة", "الطلاب يحبون الرياضة", "الجو بارد"], ans: 0 },
-        { id: 8, skill: "فهم عام", q: "كيف أصبحت المدرسة بعد نهاية اليوم؟", choices: ["أقل جمالًا", "أكثر جمالًا ونظامًا", "كما هي دون تغيير", "مظلمة"], ans: 1 },
-        { id: 9, skill: "تفاصيل", q: "أين تم ترتيب بعض الكتب حسب النص؟", choices: ["في الساحة", "في المكتبة", "في المقصف", "في الحافلة"], ans: 1 },
-        { id:10, skill: "تفكير ناقد", q: "أفضل عنوان للنص هو:", choices: ["يوم التعاون في المدرسة", "رحلة إلى الشاطئ", "ألعاب الشتاء", "حكاية الغابة"], ans: 0 },
-      ]
-    }
-  };
+  document.getElementById("goExams").addEventListener("click", goToExams);
 
-  // ===== Build exam UI =====
-  const examWrap = document.getElementById("examQuestions");
-  const resultBox = document.getElementById("resultBox");
-
-  function clearSelectedUI(){
-    document.querySelectorAll("#tab-exam .opt.selected").forEach(l=>l.classList.remove("selected"));
-  }
-
-  function buildExam(examKey){
-    const ex = EXAMS[examKey];
-    if(!ex || !examWrap) return;
-
-    if(resultBox) resultBox.style.display = "none";
-    clearSelectedUI();
-    document.querySelectorAll("#tab-exam input[type=radio]").forEach(i=>i.checked=false);
-    document.querySelectorAll("#tab-exam .q[data-id]").forEach(q=>q.style.outline="none");
-
-    examWrap.innerHTML = ex.questions.map(item => {
-      const opts = item.choices.map((c, idx) => `
-        <label class="opt">
-          <input type="radio" name="q${item.id}" value="${idx}">
-          <span>${c}</span>
-        </label>
-      `).join("");
-
-      return `
-        <div class="q" data-id="${item.id}" data-ans="${item.ans}">
-          <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
-            <strong>س${item.id}:</strong>
-            <span class="muted">المهارة: ${item.skill}</span>
-          </div>
-          <div style="margin-top:6px;font-weight:800;color:#22324a">${item.q}</div>
-          <div class="opts">${opts}</div>
-        </div>
-      `;
-    }).join("");
-  }
-
-  // ✅ تظليل الخيار المختار (متوافق مع Safari القديم)
-  examWrap.addEventListener("change", (e)=>{
-    if(e.target && e.target.matches('input[type="radio"]')){
-      const currentQ = e.target.closest(".q");
-      if(!currentQ) return;
-      currentQ.querySelectorAll(".opt").forEach(l=>l.classList.remove("selected"));
-      const chosenLabel = e.target.closest(".opt");
-      if(chosenLabel) chosenLabel.classList.add("selected");
-    }
+  // بطاقة الاختبارات كذلك تفتح نفس الرابط مع البيانات
+  document.getElementById("examCard").addEventListener("click", (e)=>{
+    e.preventDefault();
+    goToExams();
   });
-
-  // ===== Correct exam =====
-  const submitBtn = document.getElementById("submitBtn");
-  const resetBtn  = document.getElementById("resetBtn");
-
-  submitBtn.addEventListener("click", ()=>{
-    const qs = Array.from(document.querySelectorAll("#tab-exam .q[data-id]"));
-    let score = 0;
-    const total = qs.length;
-
-    qs.forEach(q=>{
-      q.style.outline = "none";
-      const id = q.dataset.id;
-      const ans = q.dataset.ans;
-      const chosen = (document.querySelector(`input[name="q${id}"]:checked`) || {}).value;
-
-      if(String(chosen) === String(ans)) score++;
-      else q.style.outline = "3px solid rgba(220,38,38,.35)";
-    });
-
-    const percent = Math.round((score/total)*100);
-    resultBox.style.display = "block";
-    resultBox.classList.toggle("danger", percent < 60);
-
-    const level =
-      percent >= 90 ? "ممتاز" :
-      percent >= 75 ? "جيد جدًا" :
-      percent >= 60 ? "جيد" : "يحتاج دعم";
-
-    resultBox.textContent = `✅ نتيجتك: ${score} من ${total} (${percent}٪) — المستوى: ${level}`;
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  });
-
-  resetBtn.addEventListener("click", ()=>{
-    document.querySelectorAll("#tab-exam input[type=radio]").forEach(i=>i.checked=false);
-    document.querySelectorAll("#tab-exam .q[data-id]").forEach(q=>q.style.outline="none");
-    clearSelectedUI();
-    resultBox.style.display="none";
-    window.scrollTo({top:0, behavior:"smooth"});
-  });
-
-  // (اختياري) افتح الرئيسية افتراضيًا
-  openTab("home");
 </script>
 
 </body>
