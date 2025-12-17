@@ -2,168 +2,117 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>منصة لغتي – مشروع نافس</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --blue:#0b2d5c;
-      --blue2:#0f3b78;
-      --gold:#d6b25e;
-      --bg:#f4f7fc;
-      --card:#ffffff;
-      --text:#0d1b2a;
-      --muted:#6b7a90;
-      --shadow:0 14px 30px rgba(11,45,92,.12);
-      --radius:18px;
+      --blue:#0b2d5c; --blue2:#0f3b78; --gold:#d6b25e;
+      --bg:#f4f7fc; --card:#fff; --text:#0d1b2a; --muted:#6b7a90;
+      --shadow:0 14px 30px rgba(11,45,92,.12); --r:18px; --line:rgba(11,45,92,.10);
     }
     *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family:"Tajawal",sans-serif;
+      margin:0; font-family:"Tajawal",Arial,sans-serif; color:var(--text);
       background:
         radial-gradient(900px 500px at 80% -10%, rgba(214,178,94,.22), transparent 60%),
         radial-gradient(800px 500px at 10% 0%, rgba(15,59,120,.18), transparent 55%),
         var(--bg);
-      color:var(--text);
       min-height:100vh;
     }
 
-    header{
-      background:#fff;
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-    .topbar{
-      height:6px;
-      background:linear-gradient(90deg,var(--gold),var(--blue2));
-    }
+    header{background:#fff;border-bottom:1px solid rgba(0,0,0,.08);position:sticky;top:0;z-index:10}
+    .topbar{height:6px;background:linear-gradient(90deg,var(--gold),var(--blue2))}
     .nav{
-      max-width:1100px;
-      margin:auto;
-      padding:14px 18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:14px;
+      max-width:1100px;margin:auto;padding:14px 18px;
+      display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap
     }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .logos{
-      display:flex;
-      gap:10px;
-    }
+    .brand{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .logos{display:flex;gap:10px}
     .logo{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      background:#fff;
-      border:1px solid rgba(0,0,0,.12);
-      box-shadow:0 8px 16px rgba(0,0,0,.08);
-      display:grid;
-      place-items:center;
-      overflow:hidden;
+      width:46px;height:46px;border-radius:14px;background:#fff;border:1px solid rgba(0,0,0,.12);
+      box-shadow:0 8px 16px rgba(0,0,0,.08);display:grid;place-items:center;overflow:hidden
     }
-    .logo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
-    .titles h1{
-      margin:0;
-      font-size:19px;
-      font-weight:800;
-      color:var(--blue);
-    }
-    .titles p{
-      margin:4px 0 0;
-      font-size:13px;
-      color:var(--muted);
-      font-weight:600;
-    }
+    .logo img{width:100%;height:100%;object-fit:contain}
+    .titles h1{margin:0;font-size:19px;font-weight:800;color:var(--blue)}
+    .titles p{margin:4px 0 0;font-size:13px;color:var(--muted);font-weight:700}
 
-    .wrap{
-      max-width:1100px;
-      margin:auto;
-      padding:22px 18px 40px;
+    .tabs{display:flex;gap:10px;flex-wrap:wrap}
+    .tabBtn{
+      border:1px solid rgba(11,45,92,.14); background:#fff; cursor:pointer;
+      padding:10px 12px;border-radius:12px;font-weight:900;font-family:inherit;color:var(--blue)
     }
+    .tabBtn.active{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff;border-color:transparent}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:14px;
-      margin-top:18px;
+    .wrap{max-width:1100px;margin:auto;padding:18px}
+    .panel{
+      background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);
+      border:1px solid rgba(11,45,92,.08);overflow:hidden
     }
-    @media(max-width:900px){
-      .grid{grid-template-columns:repeat(2,1fr)}
+    .cap{
+      padding:14px 16px;border-bottom:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap
     }
-    @media(max-width:500px){
-      .grid{grid-template-columns:1fr}
-    }
+    .cap strong{color:var(--blue);font-weight:1000}
+    .cap span{color:var(--muted);font-weight:800;font-size:13px}
+    .body{padding:16px}
 
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:var(--shadow);
-      text-decoration:none;
-      color:inherit;
-      transition:.15s;
-      position:relative;
+    /* Homepage cards */
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){.grid{grid-template-columns:1fr}}
+    .cardBtn{
+      background:#fff;border-radius:var(--r);box-shadow:0 12px 24px rgba(11,45,92,.10);
+      border:1px solid rgba(11,45,92,.08);padding:16px;text-decoration:none;color:inherit;
+      transition:.15s;position:relative;cursor:pointer
     }
-    .card:hover{
-      transform:translateY(-3px);
-    }
+    .cardBtn:hover{transform:translateY(-3px)}
     .icon{
-      font-size:26px;
-      background:rgba(214,178,94,.15);
-      border:1px solid rgba(214,178,94,.4);
-      width:52px;
-      height:52px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      margin-bottom:10px;
+      font-size:24px;background:rgba(214,178,94,.15);border:1px solid rgba(214,178,94,.4);
+      width:52px;height:52px;border-radius:16px;display:grid;place-items:center;margin-bottom:10px
     }
-    .card strong{
-      color:var(--blue);
-      font-size:15px;
-      font-weight:800;
-    }
-    .card span{
-      display:block;
-      margin-top:6px;
-      font-size:13px;
-      color:var(--muted);
-      line-height:1.7;
-      font-weight:600;
-    }
+    .cardBtn strong{display:block;color:var(--blue);font-weight:1000}
+    .cardBtn span{display:block;margin-top:6px;color:var(--muted);font-weight:800;font-size:13px;line-height:1.7}
     .tag{
-      position:absolute;
-      top:12px;
-      left:12px;
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(15,59,120,.08);
-      border:1px solid rgba(15,59,120,.2);
-      color:var(--blue);
-      font-weight:800;
+      position:absolute;top:12px;left:12px;font-size:12px;padding:6px 10px;border-radius:999px;
+      background:rgba(15,59,120,.06);border:1px solid rgba(15,59,120,.14);color:var(--blue);font-weight:1000
     }
 
-    footer{
-      text-align:center;
-      font-size:13px;
-      color:rgba(11,45,92,.7);
-      font-weight:700;
-      padding:20px;
+    /* Student box */
+    .form{display:grid;gap:10px}
+    label{font-weight:1000;color:#1a2d4a;font-size:13px}
+    input,select{
+      width:100%;padding:12px;border-radius:14px;border:1px solid rgba(11,45,92,.14);background:#fff;
+      font-family:inherit;font-size:14px;outline:none
     }
+    input:focus,select:focus{border-color:rgba(214,178,94,.85);box-shadow:0 0 0 4px rgba(214,178,94,.20)}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:520px){.row{grid-template-columns:1fr}}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+    .btn{
+      border:0;cursor:pointer;padding:11px 12px;border-radius:12px;font-weight:1000;font-family:inherit
+    }
+    .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
+    .btnGhost{background:rgba(214,178,94,.12);border:1px solid rgba(214,178,94,.45);color:var(--blue)}
+    .error{display:none;padding:10px 12px;border-radius:14px;background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.18);color:#991b1b;font-weight:1000}
+
+    /* Exam */
+    .badgeRow{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+    .badge{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;background:rgba(15,59,120,.06);
+      border:1px solid rgba(15,59,120,.12);color:var(--blue);font-weight:1000}
+    .q{margin-top:12px;padding:14px;border-radius:16px;border:1px solid rgba(11,45,92,.10);background:#fff}
+    .q strong{color:var(--blue)}
+    .opts{margin-top:10px;display:grid;gap:8px}
+    .opt{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid rgba(11,45,92,.10);border-radius:14px;cursor:pointer}
+    .opt input{transform:scale(1.15)}
+    .result{display:none;margin-top:14px;padding:14px;border-radius:16px;background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.22);font-weight:1000}
+    .danger{background:rgba(220,38,38,.08)!important;border-color:rgba(220,38,38,.18)!important}
+
+    /* Reports (قريبًا لاحقًا) */
+    footer{text-align:center;font-size:13px;color:rgba(11,45,92,.7);font-weight:900;padding:20px}
+    .hidden{display:none}
+    .muted{color:var(--muted);font-weight:900}
   </style>
 </head>
 
@@ -174,10 +123,12 @@
   <div class="nav">
     <div class="brand">
       <div class="logos">
-        <div class="logo">
+        <!-- شعار المدرسة: غيّر الرابط هنا -->
+        <div class="logo" title="شعار المدرسة">
           <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار المدرسة">
         </div>
-        <div class="logo">
+        <!-- شعار نافس: غيّر الرابط هنا -->
+        <div class="logo" title="شعار نافس">
           <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg" alt="شعار نافس">
         </div>
       </div>
@@ -186,49 +137,385 @@
         <p>الصف السادس • تدريب رقمي على الفهم القرائي والمهارات اللغوية</p>
       </div>
     </div>
+
+    <div class="tabs">
+      <button class="tabBtn active" data-tab="home">الرئيسية</button>
+      <button class="tabBtn" data-tab="exams">الاختبارات</button>
+      <button class="tabBtn" data-tab="reports">تقارير الأداء</button>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
 
-  <section class="grid">
+  <!-- ✅ الرئيسية -->
+  <section id="tab-home" class="panel">
+    <div class="cap">
+      <strong>بوابة المنصة</strong>
+      <span>احفظ بيانات الطالب ثم ادخل للاختبارات</span>
+    </div>
+    <div class="body">
 
-    <a class="card" href="#">
-      <div class="tag">قريبًا</div>
-      <div class="icon">📝</div>
-      <strong>الاختبارات</strong>
-      <span>اختبارات تدريبية على نمط نافس مع تصحيح فوري.</span>
-    </a>
+      <div class="panel" style="box-shadow:none;border:1px solid var(--line);margin-bottom:14px">
+        <div class="cap">
+          <strong>دخول الطالب</strong>
+          <span>يستخدم الاسم داخل الاختبار</span>
+        </div>
+        <div class="body">
+          <div class="error" id="errorBox"></div>
 
-    <a class="card" href="#">
-      <div class="tag">قريبًا</div>
-      <div class="icon">📖</div>
-      <strong>النصوص القرائية</strong>
-      <span>نصوص متنوعة لتنمية مهارات القراءة والتحليل.</span>
-    </a>
+          <div class="form">
+            <div>
+              <label for="studentName">اسم الطالب</label>
+              <input id="studentName" type="text" placeholder="مثال: عبدالله محمد" autocomplete="name">
+            </div>
 
-    <a class="card" href="#">
-      <div class="tag">قريبًا</div>
-      <div class="icon">🏦</div>
-      <strong>بنك الأسئلة</strong>
-      <span>أسئلة مصنفة حسب المهارات ونواتج التعلم.</span>
-    </a>
+            <div class="row">
+              <div>
+                <label for="classroom">الشعبة</label>
+                <select id="classroom">
+                  <option value="">اختر الشعبة</option>
+                  <option>سادس (أ)</option>
+                  <option>سادس (ب)</option>
+                  <option>سادس (ج)</option>
+                </select>
+              </div>
+              <div>
+                <label for="attempt">رقم المحاولة</label>
+                <select id="attempt">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+            </div>
 
-    <a class="card" href="#">
-      <div class="tag">قريبًا</div>
-      <div class="icon">📊</div>
-      <strong>تقارير الأداء</strong>
-      <span>متابعة مستوى الطالب وتحسن أدائه.</span>
-    </a>
+            <div class="actions">
+              <button class="btn btnPrimary" id="saveBtn">حفظ البيانات</button>
+              <button class="btn btnGhost" id="clearBtn" type="button">مسح</button>
+              <button class="btn btnGhost" id="goExams" type="button">اذهب للاختبارات</button>
+            </div>
 
+            <div class="muted" style="margin-top:6px">
+              برمجة، تنفيذ: الأستاذ مقرن المطيري
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="cardBtn" onclick="openTab('exams')">
+          <div class="tag">جاهز</div>
+          <div class="icon">📝</div>
+          <strong>الاختبارات</strong>
+          <span>قائمة اختبارات (مثل منصة لغتي) ثم اختيار النموذج.</span>
+        </div>
+
+        <div class="cardBtn">
+          <div class="tag">قريبًا</div>
+          <div class="icon">📖</div>
+          <strong>النصوص القرائية</strong>
+          <span>سنضيف مكتبة نصوص تدريبية للصف السادس.</span>
+        </div>
+
+        <div class="cardBtn">
+          <div class="tag">قريبًا</div>
+          <div class="icon">🏦</div>
+          <strong>بنك الأسئلة</strong>
+          <span>أسئلة مصنفة حسب المهارات.</span>
+        </div>
+
+        <div class="cardBtn" onclick="openTab('reports')">
+          <div class="tag">قريبًا</div>
+          <div class="icon">📊</div>
+          <strong>تقارير الأداء</strong>
+          <span>سنفعّلها لاحقًا بعد تجهيز الاختبارات.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ✅ صفحة قائمة الاختبارات -->
+  <section id="tab-exams" class="panel hidden">
+    <div class="cap">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <button class="btn btnGhost" type="button" onclick="openTab('home')">⬅ رجوع للرئيسية</button>
+        <strong>الاختبارات</strong>
+      </div>
+      <span>اختر نموذجًا لبدء الاختبار</span>
+    </div>
+
+    <div class="body">
+      <div class="grid">
+        <div class="cardBtn" onclick="startExam('exam1')">
+          <div class="tag">جاهز</div>
+          <div class="icon">📝</div>
+          <strong>نموذج 1</strong>
+          <span>نص قرائي + 10 أسئلة (فكرة/تفاصيل/مفردات/استنتاج)</span>
+        </div>
+
+        <div class="cardBtn">
+          <div class="tag">قريبًا</div>
+          <div class="icon">📝</div>
+          <strong>نموذج 2</strong>
+          <span>سيتم إضافته لاحقًا</span>
+        </div>
+
+        <div class="cardBtn">
+          <div class="tag">قريبًا</div>
+          <div class="icon">📝</div>
+          <strong>نموذج 3</strong>
+          <span>سيتم إضافته لاحقًا</span>
+        </div>
+
+        <div class="cardBtn" onclick="openTab('home')">
+          <div class="tag">عودة</div>
+          <div class="icon">🏠</div>
+          <strong>الرئيسية</strong>
+          <span>العودة إلى بوابة المنصة</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ صفحة الاختبار -->
+  <section id="tab-exam" class="panel hidden">
+    <div class="cap">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <button class="btn btnGhost" type="button" onclick="openTab('exams')">⬅ رجوع للاختبارات</button>
+        <strong id="examTitle">الاختبار</strong>
+      </div>
+      <span id="examMeta">نص قرائي + أسئلة — تصحيح فوري</span>
+    </div>
+
+    <div class="body">
+      <div class="badgeRow">
+        <div class="badge" id="studentBadge">👤 الطالب: غير محدد</div>
+        <div class="badge" id="classBadge">🏫 الشعبة: غير محددة</div>
+        <div class="badge">📌 المهارات: فكرة/تفاصيل/مفردات/استنتاج</div>
+      </div>
+
+      <!-- النص القرائي -->
+      <div class="q" style="border-style:solid">
+        <strong>النص القرائي:</strong>
+        <div style="margin-top:10px; line-height:2; font-weight:700; color:#22324a">
+          في صباحٍ مشرق، أعلن مدير المدرسة عن “يوم التعاون”. قُسِّم الطلاب إلى مجموعات،
+          وتولّت كل مجموعة مهمةً محددة: ترتيب المكتبة، وتنظيم الفصول، وزراعة شتلات في ساحة المدرسة.
+          لاحظ الطلاب أن العمل ينجز أسرع عندما يتقاسمون الأدوار ويتبادلون المساعدة. وعندما انتهى اليوم،
+          بدت المدرسة أكثر جمالًا ونظامًا، وشعر الجميع بالفخر؛ لأنهم صنعوا الفرق معًا.
+        </div>
+        <div class="muted" style="margin-top:10px">اقرأ النص جيدًا ثم أجب عن الأسئلة.</div>
+      </div>
+
+      <!-- الأسئلة تبنى تلقائياً -->
+      <div id="examQuestions"></div>
+
+      <div class="actions" style="margin-top:12px">
+        <button class="btn btnPrimary" id="submitBtn">إرسال وتصحيح</button>
+        <button class="btn btnGhost" id="resetBtn" type="button">إعادة المحاولة</button>
+        <button class="btn btnGhost" type="button" onclick="openTab('exams')">⬅ رجوع للاختبارات</button>
+      </div>
+
+      <div class="result" id="resultBox"></div>
+    </div>
+  </section>
+
+  <!-- ✅ تقارير الأداء (نتركها لاحقًا) -->
+  <section id="tab-reports" class="panel hidden">
+    <div class="cap">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <button class="btn btnGhost" type="button" onclick="openTab('home')">⬅ رجوع للرئيسية</button>
+        <strong>تقارير الأداء</strong>
+      </div>
+      <span>سنفعّل التقارير بعد إكمال الاختبارات والنصوص</span>
+    </div>
+    <div class="body">
+      <div class="q">
+        <strong>قريبًا…</strong>
+        <div class="muted" style="margin-top:8px;line-height:1.9">
+          بعد ما نضيف أكثر من اختبار ونصوص متعددة، نفعّل منصة الأداء (النتائج + ترتيب + متوسط + تطور الطالب).
+        </div>
+      </div>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  مدرسة الإمام الشوكاني الابتدائية <br>
+  مدرسة الإمام الشوكاني الابتدائية<br>
   برمجة، تنفيذ: الأستاذ مقرن المطيري
 </footer>
+
+<script>
+  // ===== Tabs =====
+  const tabBtns = document.querySelectorAll(".tabBtn");
+  function openTab(name){
+    document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
+    const el = document.getElementById("tab-" + name);
+    if(el) el.classList.remove("hidden");
+    tabBtns.forEach(b=>b.classList.toggle("active", b.dataset.tab === name));
+    if(name === "exam") refreshBadges();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+  tabBtns.forEach(b=>b.addEventListener("click", ()=>openTab(b.dataset.tab)));
+
+  // ===== Student Data =====
+  const studentName = document.getElementById("studentName");
+  const classroom   = document.getElementById("classroom");
+  const attempt     = document.getElementById("attempt");
+  const errorBox    = document.getElementById("errorBox");
+
+  const saved = JSON.parse(localStorage.getItem("studentData") || "null");
+  if(saved){
+    studentName.value = saved.name || "";
+    classroom.value   = saved.classroom || "";
+    attempt.value     = saved.attempt || "1";
+  }
+
+  function showError(msg){ errorBox.style.display="block"; errorBox.textContent=msg; }
+  function hideError(){ errorBox.style.display="none"; errorBox.textContent=""; }
+
+  document.getElementById("saveBtn").addEventListener("click", ()=>{
+    hideError();
+    const name = studentName.value.trim();
+    const cls  = classroom.value.trim();
+    const att  = attempt.value;
+
+    if(!name) return showError("فضلاً اكتب اسم الطالب.");
+    if(!cls)  return showError("فضلاً اختر الشعبة.");
+
+    localStorage.setItem("studentData", JSON.stringify({name, classroom: cls, attempt: att}));
+    alert("تم حفظ البيانات ✅");
+    refreshBadges();
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", ()=>{
+    localStorage.removeItem("studentData");
+    studentName.value=""; classroom.value=""; attempt.value="1";
+    hideError();
+    refreshBadges();
+  });
+
+  document.getElementById("goExams").addEventListener("click", ()=>openTab("exams"));
+
+  function refreshBadges(){
+    const s = JSON.parse(localStorage.getItem("studentData") || "{}");
+    document.getElementById("studentBadge").textContent = "👤 الطالب: " + (s.name || "غير محدد");
+    document.getElementById("classBadge").textContent   = "🏫 الشعبة: " + (s.classroom || "غير محددة");
+  }
+  refreshBadges();
+
+  // ===== Exams list -> open exam =====
+  function startExam(examKey){
+    localStorage.setItem("currentExam", examKey);
+
+    const title = document.getElementById("examTitle");
+    const meta  = document.getElementById("examMeta");
+
+    if(examKey === "exam1"){
+      title.textContent = "الاختبار التدريبي — نموذج 1";
+      meta.textContent  = "نص قرائي + 10 أسئلة (فكرة/تفاصيل/مفردات/استنتاج)";
+    }else{
+      title.textContent = "الاختبار";
+      meta.textContent  = "";
+    }
+
+    // بناء الأسئلة
+    buildExam(examKey);
+    openTab("exam");
+  }
+
+  // ===== Question bank (نموذج 1) =====
+  const EXAMS = {
+    exam1: {
+      title: "الاختبار التدريبي — نموذج 1",
+      questions: [
+        { id: 1, skill: "فكرة رئيسة", q: "ما الفكرة الرئيسة للنص؟", choices: ["الحديث عن رحلة", "أهمية التعاون في إنجاز الأعمال", "التحذير من القراءة", "وصف لعبة جديدة"], ans: 1 },
+        { id: 2, skill: "تفاصيل", q: "ما الذي تولّت إحدى المجموعات فعله؟", choices: ["زيارة المتحف", "تنظيم الفصول", "السفر", "كتابة قصة"], ans: 1 },
+        { id: 3, skill: "تفاصيل", q: "متى أعلن مدير المدرسة عن “يوم التعاون”؟", choices: ["في مساءٍ ممطر", "في صباحٍ مشرق", "بعد نهاية العام", "في منتصف الليل"], ans: 1 },
+        { id: 4, skill: "استنتاج", q: "لماذا شعر الطلاب بالفخر في نهاية اليوم؟", choices: ["لأنهم حصلوا على هدايا", "لأنهم صنعوا الفرق معًا", "لأن الاختبار ألغي", "لأن الدروس زادت"], ans: 1 },
+        { id: 5, skill: "مفردات", q: "معنى كلمة “قُسِّم” في النص أقرب إلى:", choices: ["جُمِع", "وُزِّع", "نُسِي", "تأخر"], ans: 1 },
+        { id: 6, skill: "تفاصيل", q: "من أعمال يوم التعاون:", choices: ["زراعة شتلات في الساحة", "سباق سيارات", "شراء ملابس", "زيارة مدينة"], ans: 0 },
+        { id: 7, skill: "استنتاج", q: "أي عبارة تؤكد أن التعاون يسرّع الإنجاز؟", choices: ["العمل ينجز أسرع عندما يتقاسمون الأدوار", "المدرسة بعيدة", "الطلاب يحبون الرياضة", "الجو بارد"], ans: 0 },
+        { id: 8, skill: "فهم عام", q: "كيف أصبحت المدرسة بعد نهاية اليوم؟", choices: ["أقل جمالًا", "أكثر جمالًا ونظامًا", "كما هي دون تغيير", "مظلمة"], ans: 1 },
+        { id: 9, skill: "تفاصيل", q: "أين تم ترتيب بعض الكتب حسب النص؟", choices: ["في الساحة", "في المكتبة", "في المقصف", "في الحافلة"], ans: 1 },
+        { id:10, skill: "تفكير ناقد", q: "أفضل عنوان للنص هو:", choices: ["يوم التعاون في المدرسة", "رحلة إلى الشاطئ", "ألعاب الشتاء", "حكاية الغابة"], ans: 0 },
+      ]
+    }
+  };
+
+  // ===== Build exam UI =====
+  const examWrap = document.getElementById("examQuestions");
+  function buildExam(examKey){
+    const ex = EXAMS[examKey];
+    if(!ex || !examWrap) return;
+
+    // مسح نتائج قديمة
+    document.getElementById("resultBox").style.display = "none";
+    document.querySelectorAll("#tab-exam input[type=radio]").forEach(i=>i.checked=false);
+
+    examWrap.innerHTML = ex.questions.map(item => {
+      const opts = item.choices.map((c, idx) => `
+        <label class="opt">
+          <input type="radio" name="q${item.id}" value="${idx}">
+          ${c}
+        </label>
+      `).join("");
+
+      return `
+        <div class="q" data-id="${item.id}" data-ans="${item.ans}">
+          <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+            <strong>س${item.id}:</strong>
+            <span class="muted">المهارة: ${item.skill}</span>
+          </div>
+          <div style="margin-top:6px;font-weight:800;color:#22324a">${item.q}</div>
+          <div class="opts">${opts}</div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  // ===== Correct exam (عرض النتيجة فقط الآن) =====
+  const submitBtn = document.getElementById("submitBtn");
+  const resetBtn  = document.getElementById("resetBtn");
+  const resultBox = document.getElementById("resultBox");
+
+  submitBtn.addEventListener("click", ()=>{
+    const qs = Array.from(document.querySelectorAll("#tab-exam .q[data-id]"));
+    let score = 0;
+    const total = qs.length;
+
+    qs.forEach(q=>{
+      q.style.outline = "none";
+      const id = q.dataset.id;
+      const ans = q.dataset.ans;
+      const chosen = (document.querySelector(`input[name="q${id}"]:checked`) || {}).value;
+      if(String(chosen) === String(ans)) score++;
+      else q.style.outline = "3px solid rgba(220,38,38,.35)";
+    });
+
+    const percent = Math.round((score/total)*100);
+    resultBox.style.display = "block";
+    resultBox.classList.toggle("danger", percent < 60);
+
+    const level =
+      percent >= 90 ? "ممتاز" :
+      percent >= 75 ? "جيد جدًا" :
+      percent >= 60 ? "جيد" : "يحتاج دعم";
+
+    resultBox.textContent = `✅ نتيجتك: ${score} من ${total} (${percent}٪) — المستوى: ${level}`;
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  });
+
+  resetBtn.addEventListener("click", ()=>{
+    document.querySelectorAll("#tab-exam input[type=radio]").forEach(i=>i.checked=false);
+    document.querySelectorAll("#tab-exam .q[data-id]").forEach(q=>q.style.outline="none");
+    resultBox.style.display="none";
+    window.scrollTo({top:0, behavior:"smooth"});
+  });
+</script>
 
 </body>
 </html>
