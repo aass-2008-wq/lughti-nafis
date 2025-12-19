@@ -137,18 +137,19 @@
 
 <main class="wrap">
 
-  <!-- ✅ الرئيسية -->
+  <!-- الرئيسية -->
   <section id="tab-home" class="panel">
     <div class="cap">
       <strong>بوابة المنصة</strong>
-      <span>احفظ بيانات الطالب ثم ادخل للاختبارات</span>
+      <span>احفظ بيانات الطالب ثم اختر نموذج الاختبار</span>
     </div>
     <div class="body">
 
+      <!-- بيانات الطالب -->
       <div class="panel" style="box-shadow:none;border:1px solid var(--line);margin-bottom:14px">
         <div class="cap">
           <strong>دخول الطالب</strong>
-          <span>يُستخدم الاسم والشعبة عند فتح الاختبارات</span>
+          <span>الاسم والشعبة تظهر في صفحات الاختبارات</span>
         </div>
         <div class="body">
           <div class="error" id="errorBox"></div>
@@ -166,7 +167,7 @@
                   <option value="">اختر الشعبة</option>
                   <option>سادس (أ)</option>
                   <option>سادس (ب)</option>
-                 
+                  <option>سادس (ج)</option>
                 </select>
               </div>
               <div>
@@ -183,7 +184,6 @@
             <div class="actions">
               <button class="btn btnPrimary" id="saveBtn">حفظ البيانات</button>
               <button class="btn btnGhost" id="clearBtn" type="button">مسح</button>
-              <button class="btn btnGhost" id="goExams" type="button">اذهب للاختبارات</button>
             </div>
 
             <div class="muted" style="margin-top:6px">
@@ -193,42 +193,47 @@
         </div>
       </div>
 
-      <!-- ✅ بطاقات المنصة -->
+      <!-- بطاقات الاختبارات (كل بطاقة مستودع مستقل) -->
       <div class="grid">
-        <!-- ✅ بطاقة الاختبارات (تفتح مستودع nafis-exams وترسل البيانات) -->
-        <a class="cardBtn" href="#" id="examCard">
-          <div class="tag">جاهز</div>
+
+        <!-- اختبار 1 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-exams');return false;">
+          <div class="tag">نموذج 1</div>
           <div class="icon">📝</div>
-          <strong>الاختبارات</strong>
-          <span>ابدأ الاختبارات الآن (يفتح في مستودع منفصل مثل منصة لغتي)</span>
+          <strong>اختبار نافس – نص التعاون</strong>
+          <span>فهم قرائي – نص “يوم التعاون” مع 10 أسئلة وتغذية راجعة فورية.</span>
         </a>
 
-        <a class="cardBtn" href="#" onclick="openTab('reports');return false;">
-          <div class="tag">قريبًا</div>
-          <div class="icon">📊</div>
-          <strong>تقارير الأداء</strong>
-          <span>سنفعّل التقارير بعد تجهيز نماذج متعددة من الاختبارات.</span>
+        <!-- اختبار 2 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-exam2');return false;">
+          <div class="tag">نموذج 2</div>
+          <div class="icon">📖</div>
+          <strong>اختبار نافس – القراءة غذاء العقل</strong>
+          <span>نص عن أهمية القراءة، مناسب للتدريب على الفهم والاستنتاج.</span>
         </a>
 
-        <a class="cardBtn" href="#" onclick="openTab('about');return false;">
-          <div class="tag">معلومات</div>
-          <div class="icon">ℹ️</div>
-          <strong>عن المنصة</strong>
-          <span>تعريف مختصر بالمشروع وآلية الاستخدام.</span>
+        <!-- اختبار 3 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-exam3');return false;">
+          <div class="tag">نموذج 3</div>
+          <div class="icon">🔍</div>
+          <strong>اختبار نافس – خالد وحب الاستطلاع</strong>
+          <span>نص أطول عن طالب محب للمعرفة، مع أسئلة على مهارات متعددة.</span>
         </a>
 
-        <a class="cardBtn" href="https://aass-2008-wq.github.io/nafis-exams/" target="_blank" rel="noopener">
-          <div class="tag">فتح مباشر</div>
-          <div class="icon">🚀</div>
-          <strong>فتح الاختبارات</strong>
-          <span>فتح صفحة الاختبارات مباشرة بدون تمرير بيانات.</span>
+        <!-- اختبار 4 – محاكي نافس -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-exam4');return false;">
+          <div class="tag">محاكي</div>
+          <div class="icon">🎯</div>
+          <strong>محاكي نافس – اختبار 4</strong>
+          <span>محاكاة أقرب للاختبار الفعلي: نص طويل، 15 سؤال، مؤقّت، وشريط تقدم.</span>
         </a>
+
       </div>
 
     </div>
   </section>
 
-  <!-- ✅ تقارير الأداء -->
+  <!-- تقارير الأداء (قريبًا) -->
   <section id="tab-reports" class="panel hidden">
     <div class="cap">
       <strong>تقارير الأداء</strong>
@@ -236,12 +241,13 @@
     </div>
     <div class="body">
       <div class="muted" style="line-height:1.9">
-        سيتم تفعيل تقارير الأداء لاحقًا بعد إضافة نماذج متعددة وربط النتائج بشكل احترافي.
+        سيتم لاحقًا ربط المنصة بنتائج الاختبارات من المستودعات المستقلة، وعرض تقارير
+        للمعلم عن أداء الطلاب في نماذج نافس المختلفة.
       </div>
     </div>
   </section>
 
-  <!-- ✅ عن المنصة -->
+  <!-- عن المنصة -->
   <section id="tab-about" class="panel hidden">
     <div class="cap">
       <strong>عن المنصة</strong>
@@ -249,11 +255,12 @@
     </div>
     <div class="body">
       <div style="line-height:2;font-weight:800;color:#22324a">
-        منصة “لغتي – مشروع نافس” تهدف لتدريب طلاب الصف السادس على مهارات الفهم القرائي والمهارات اللغوية
-        عبر اختبارات رقمية قصيرة، مع تطوير تدريجي لبنك الأسئلة وتقارير الأداء.
+        منصة “لغتي – مشروع نافس” صُممت لتدريب طلاب الصف السادس على مهارات الفهم القرائي،
+        من خلال نماذج اختبار متدرجة، ثم محاكٍ للاختبار الحقيقي، مع المحافظة على بساطة
+        الاستخدام للطالب والمعلم.
       </div>
       <div class="muted" style="margin-top:10px">
-        برمجة، تنفيذ: الأستاذ مقرن المطيري
+        برمجة، تنفيذ: الأستاذ مقرن المطيري • مدرسة الإمام الشوكاني الابتدائية
       </div>
     </div>
   </section>
@@ -266,7 +273,7 @@
 </footer>
 
 <script>
-  // ===== Tabs =====
+  // Tabs
   const tabBtns = document.querySelectorAll(".tabBtn");
   function openTab(name){
     document.querySelectorAll("main section").forEach(s=>s.classList.add("hidden"));
@@ -277,7 +284,7 @@
   }
   tabBtns.forEach(b=>b.addEventListener("click", ()=>openTab(b.dataset.tab)));
 
-  // ===== Student Data =====
+  // Student data
   const studentName = document.getElementById("studentName");
   const classroom   = document.getElementById("classroom");
   const attempt     = document.getElementById("attempt");
@@ -312,23 +319,15 @@
     hideError();
   });
 
-  // ✅ فتح الاختبارات مع تمرير الاسم والشعبة (مثل لغتي)
-  function goToExams(){
+  // فتح الاختبارات في مستودعات مستقلة مع تمرير الاسم والشعبة
+  function goToExam(repo){
     const s = JSON.parse(localStorage.getItem("studentData") || "{}");
     const url =
-      "https://aass-2008-wq.github.io/nafis-exams/?" +
+      "https://aass-2008-wq.github.io/" + repo + "/?" +
       "name=" + encodeURIComponent(s.name || "") +
       "&cls=" + encodeURIComponent(s.classroom || "");
     window.location.href = url;
   }
-
-  document.getElementById("goExams").addEventListener("click", goToExams);
-
-  // بطاقة الاختبارات كذلك تفتح نفس الرابط مع البيانات
-  document.getElementById("examCard").addEventListener("click", (e)=>{
-    e.preventDefault();
-    goToExams();
-  });
 </script>
 
 </body>
