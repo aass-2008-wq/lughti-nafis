@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
@@ -58,7 +58,7 @@
     .cap span{color:var(--muted);font-weight:800;font-size:13px}
     .body{padding:16px}
 
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:520px){.grid{grid-template-columns:1fr}}
 
@@ -129,6 +129,8 @@
 
     <div class="tabs">
       <button class="tabBtn active" data-tab="home">الرئيسية</button>
+      <button class="tabBtn" data-tab="exams">الاختبارات</button>
+      <button class="tabBtn" data-tab="texts">النصوص القرائية</button>
       <button class="tabBtn" data-tab="reports">تقارير الأداء</button>
       <button class="tabBtn" data-tab="about">عن المنصة</button>
     </div>
@@ -141,7 +143,7 @@
   <section id="tab-home" class="panel">
     <div class="cap">
       <strong>بوابة المنصة</strong>
-      <span>احفظ بيانات الطالب ثم اختر نموذج الاختبار</span>
+      <span>احفظ بيانات الطالب ثم اختر ما تريد</span>
     </div>
     <div class="body">
 
@@ -193,7 +195,43 @@
         </div>
       </div>
 
-      <!-- بطاقات الاختبارات (كل بطاقة مستودع مستقل) -->
+      <!-- البطاقات الرئيسية: اختبارات + نصوص + تقييم أداء -->
+      <div class="grid">
+        <!-- بطاقة الاختبارات -->
+        <a class="cardBtn" href="#" onclick="openTab('exams');return false;">
+          <div class="tag">الاختبارات</div>
+          <div class="icon">📝</div>
+          <strong>الانتقال إلى اختبارات نافس</strong>
+          <span>نماذج متعددة واختبار محاكي، كل اختبار في مستودع مستقل.</span>
+        </a>
+
+        <!-- بطاقة النصوص -->
+        <a class="cardBtn" href="#" onclick="openTab('texts');return false;">
+          <div class="tag">نصوص</div>
+          <div class="icon">📚</div>
+          <strong>نصوص للقراءة</strong>
+          <span>نصوص قرائية للتدريب والتهيئة قبل حل الاختبارات.</span>
+        </a>
+
+        <!-- بطاقة تقييم الأداء -->
+        <a class="cardBtn" href="#" onclick="openTab('reports');return false;">
+          <div class="tag">تقييم</div>
+          <div class="icon">📊</div>
+          <strong>تقييم الأداء</strong>
+          <span>متابعة مستوى الطالب في نماذج نافس (سيتم تفعيلها لاحقًا).</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- صفحة الاختبارات -->
+  <section id="tab-exams" class="panel hidden">
+    <div class="cap">
+      <strong>اختبارات نافس</strong>
+      <span>اختر نموذج الاختبار المطلوب</span>
+    </div>
+    <div class="body">
       <div class="grid">
 
         <!-- اختبار 1 -->
@@ -201,7 +239,7 @@
           <div class="tag">نموذج 1</div>
           <div class="icon">📝</div>
           <strong>اختبار نافس – نص التعاون</strong>
-          <span>فهم قرائي – نص “يوم التعاون” مع 10 أسئلة وتغذية راجعة فورية.</span>
+          <span>فهم قرائي – نص “يوم التعاون” مع 10 أسئلة وتصحيح فوري.</span>
         </a>
 
         <!-- اختبار 2 -->
@@ -220,7 +258,7 @@
           <span>نص أطول عن طالب محب للمعرفة، مع أسئلة على مهارات متعددة.</span>
         </a>
 
-        <!-- اختبار 4 – محاكي نافس -->
+        <!-- اختبار 4 – محاكي -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-exam4');return false;">
           <div class="tag">محاكي</div>
           <div class="icon">🎯</div>
@@ -229,11 +267,30 @@
         </a>
 
       </div>
-
     </div>
   </section>
 
-  <!-- تقارير الأداء (قريبًا) -->
+  <!-- صفحة النصوص القرائية (جاهزة نضيف نصوص لاحقًا) -->
+  <section id="tab-texts" class="panel hidden">
+    <div class="cap">
+      <strong>النصوص القرائية</strong>
+      <span>تهيئة وتدريب قبل الاختبارات</span>
+    </div>
+    <div class="body">
+      <div style="line-height:2;font-weight:800;color:#22324a">
+        سيتم إضافة نصوص قرائية تدريبية للصف السادس، يمكن للطالب قراءتها قبل الدخول
+        إلى اختبارات نافس، مثل:
+        <br>• نصوص عن التعاون
+        <br>• نصوص عن القراءة وأهميتها
+        <br>• نصوص عن المسؤولية والمبادرة
+      </div>
+      <div class="muted" style="margin-top:10px">
+        يمكن لاحقًا ربط هذه الصفحة بروابط نصوص أو ملفات خارجية حسب رغبتك.
+      </div>
+    </div>
+  </section>
+
+  <!-- تقارير الأداء -->
   <section id="tab-reports" class="panel hidden">
     <div class="cap">
       <strong>تقارير الأداء</strong>
@@ -319,7 +376,7 @@
     hideError();
   });
 
-  // فتح الاختبارات في مستودعات مستقلة مع تمرير الاسم والشعبة
+  // فتح الاختبارات مع تمرير اسم الطالب والشعبة
   function goToExam(repo){
     const s = JSON.parse(localStorage.getItem("studentData") || "{}");
     const url =
