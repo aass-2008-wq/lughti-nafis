@@ -1,367 +1,509 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8" />
-<title>منصة لغتي – مشروع نافس للصف السادس</title>
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <title>منصة لغتي – مشروع نافس للصف السادس</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#0b2d5c; --blue2:#0f3b78; --gold:#d6b25e;
+      --bg:#f4f7fc; --card:#ffffff; --muted:#6b7a90;
+      --pill:#eef3fb;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;font-family:"Tajawal",Arial,sans-serif;
+      background:
+        radial-gradient(900px 500px at 80% -10%, rgba(214,178,94,.18), transparent 60%),
+        radial-gradient(800px 500px at 10% 0%, rgba(15,59,120,.12), transparent 55%),
+        var(--bg);
+      color:var(--blue);
+      min-height:100vh;
+    }
+    header{
+      background:#fff;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      position:sticky;top:0;z-index:20;
+    }
+    .topbar{height:6px;background:linear-gradient(90deg,var(--gold),var(--blue2))}
+    .nav{
+      max-width:1100px;margin:auto;padding:10px 14px;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+    }
+    .navTitle h1{margin:0;font-size:18px;font-weight:1000}
+    .navTitle span{font-size:13px;color:var(--muted);font-weight:900}
+    .logos{display:flex;align-items:center;gap:8px}
+    .logos img{height:42px;object-fit:contain;border-radius:10px}
 
-<style>
-:root{
-  --blue:#0b2d5c; --blue2:#0f3b78; --gold:#d6b25e;
-  --bg:#f4f7fc; --card:#ffffff; --muted:#6b7a90; --pill:#eef3fb;
-}
-*{box-sizing:border-box}
-body{
-  margin:0;font-family:"Tajawal",Arial,sans-serif;
-  background:
-  radial-gradient(900px 500px at 80% -10%, rgba(214,178,94,.18), transparent 60%),
-  radial-gradient(800px 500px at 10% 0%, rgba(15,59,120,.12), transparent 55%),
-  var(--bg);
-  color:var(--blue);
-  min-height:100vh;
-}
-header{background:#fff;border-bottom:1px solid rgba(0,0,0,.06);position:sticky;top:0;z-index:20}
-.topbar{height:6px;background:linear-gradient(90deg,var(--gold),var(--blue2))}
-.nav{
-  max-width:1100px;margin:auto;padding:10px 14px;
-  display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-}
-.navTitle h1{margin:0;font-size:18px;font-weight:1000}
-.navTitle span{font-size:13px;color:var(--muted);font-weight:900}
-.logos img{height:42px;border-radius:10px}
+    main{max-width:1100px;margin:14px auto;padding:0 14px 18px}
 
-main{max-width:1100px;margin:14px auto;padding:0 14px 18px}
+    .panel{
+      background:var(--card);border-radius:18px;
+      border:1px solid rgba(11,45,92,.08);
+      box-shadow:0 10px 25px rgba(11,45,92,.10);
+      margin-bottom:14px;overflow:hidden;
+    }
+    .panelBody{padding:14px 16px}
 
-.panel{
-  background:#fff;border-radius:18px;border:1px solid rgba(11,45,92,.08);
-  box-shadow:0 10px 25px rgba(11,45,92,.10);
-  margin-bottom:14px;overflow:hidden;
-}
-.panelBody{padding:14px 16px}
+    .heroTop{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .heroText h2{margin:0 0 6px;font-size:17px;font-weight:1000}
+    .heroText p{margin:0;color:var(--muted);font-size:13px;font-weight:900}
+    .heroBadges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .pill{
+      background:var(--pill);padding:7px 12px;border-radius:999px;
+      font-size:12px;font-weight:900;color:var(--blue);
+      border:1px solid rgba(11,45,92,.06)
+    }
 
-.heroTop{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.heroText h2{margin:0 0 6px;font-size:17px;font-weight:1000}
-.heroText p{margin:0;color:var(--muted);font-size:13px;font-weight:900}
-.heroBadges{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
-.pill{
-  background:#eef3fb;padding:7px 12px;border-radius:999px;
-  font-size:12px;font-weight:900;border:1px solid rgba(11,45,92,.06)
-}
+    .formRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    label{font-size:13px;font-weight:900;color:var(--blue)}
+    .input{
+      padding:8px 10px;border-radius:10px;border:1px solid rgba(11,45,92,.18);
+      min-width:160px;font-family:inherit;font-size:14px;
+      background:#fdfdfd;
+    }
+    .btn{
+      border:0;cursor:pointer;
+      padding:9px 13px;border-radius:12px;
+      font-family:inherit;font-weight:1000;font-size:13px;
+      display:inline-flex;align-items:center;gap:6px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
+    .btnGhost{background:rgba(214,178,94,.10);border:1px solid rgba(214,178,94,.5);color:var(--blue)}
+    .muted{color:var(--muted);font-size:12px;font-weight:900;margin-top:6px}
 
-.formRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-label{font-size:13px;font-weight:900}
-.input{
-  padding:8px 10px;border-radius:10px;border:1px solid rgba(11,45,92,.18);
-  min-width:160px;font-size:14px;background:#fdfdfd;
-}
-.btn{
-  border:0;cursor:pointer;padding:9px 13px;border-radius:12px;
-  font-weight:1000;font-size:13px;display:inline-flex;gap:6px;
-}
-.btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
-.btnGhost{background:rgba(214,178,94,.10);border:1px solid rgba(214,178,94,.5);color:var(--blue)}
-.muted{color:var(--muted);font-size:12px;font-weight:900;margin-top:6px}
+    .tabs{
+      display:flex;flex-wrap:wrap;gap:6px;
+      background:#f8fafc;border-radius:999px;
+      padding:4px;border:1px solid rgba(11,45,92,.08);
+    }
+    .tabBtn{
+      flex:1 1 120px;
+      text-align:center;
+      padding:8px 6px;
+      border-radius:999px;
+      border:0;
+      background:transparent;
+      font-family:inherit;
+      font-size:13px;
+      font-weight:900;
+      color:var(--blue);
+      cursor:pointer;
+    }
+    .tabBtn.active{
+      background:#fff;
+      box-shadow:0 4px 10px rgba(15,59,120,.15);
+    }
+    .hidden{display:none}
 
-.tabs{
-  display:flex;gap:6px;flex-wrap:wrap;
-  background:#f8fafc;border-radius:999px;
-  padding:4px;border:1px solid rgba(11,45,92,.08);
-}
-.tabBtn{
-  flex:1 1 120px;text-align:center;padding:8px 6px;border-radius:999px;
-  border:0;background:transparent;font-size:13px;font-weight:900;cursor:pointer;
-}
-.tabBtn.active{background:#fff;box-shadow:0 4px 10px rgba(15,59,120,.15)}
-.hidden{display:none}
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+    .cardBtn{
+      display:block;
+      text-decoration:none;
+      color:var(--blue);
+      background:#ffffff;
+      border-radius:16px;
+      border:1px solid rgba(11,45,92,.08);
+      padding:12px 12px 13px;
+      position:relative;
+      overflow:hidden;
+      cursor:pointer;
+    }
+    .cardBtn strong{display:block;font-size:14px;font-weight:1000;margin-bottom:4px}
+    .cardBtn span{display:block;font-size:12px;font-weight:900;color:var(--muted);line-height:1.7}
+    .tag{
+      position:absolute;top:8px;left:10px;
+      font-size:11px;font-weight:900;
+      padding:3px 8px;border-radius:999px;
+      background:rgba(214,178,94,.12);
+      border:1px solid rgba(214,178,94,.45);
+      color:var(--blue2);
+    }
+    .icon{
+      font-size:20px;margin-bottom:6px;
+    }
+    .miniInfo{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
+      font-size:12px;color:var(--muted);font-weight:900;
+    }
 
-.grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:12px;margin-top:12px;
-}
-.cardBtn{
-  display:block;text-decoration:none;color:var(--blue);
-  background:#fff;border-radius:16px;border:1px solid rgba(11,45,92,.08);
-  padding:12px;position:relative
-}
-.cardBtn strong{font-size:14px;font-weight:1000}
-.cardBtn span{font-size:12px;color:var(--muted)}
-.tag{
-  position:absolute;top:8px;left:10px;font-size:11px;
-  padding:3px 8px;border-radius:999px;background:rgba(214,178,94,.12);
-  border:1px solid rgba(214,178,94,.45)
-}
-.icon{font-size:18px;margin-bottom:5px}
-.miniInfo{font-size:12px;margin-top:8px;color:#6b7a90}
-
-/* ===== Footer Card ===== */
-.footerRow{
-  display:flex;flex-wrap:wrap;
-  gap:10px;align-items:center;justify-content:space-between;
-}
-.footerText{
-  font-size:12px;
-  font-weight:900;
-  color:#555;
-}
-.footerText span{color:#0b2d5c;font-weight:1000}
-
-.miniCard{
-  display:block;
-  background:#ffeb9c;
-  border:1px solid #d6b25e;
-  border-radius:14px;
-  text-decoration:none;
-  padding:8px 10px;
-  color:#0b2d5c;
-  min-width:210px;
-}
-.miniCard strong{font-size:13px;font-weight:1000}
-.miniCard span{font-size:11px;font-weight:900;opacity:.8}
-</style>
+    /* بطاقة البرمجة والواتساب */
+    .footerRow{
+      display:flex;flex-wrap:wrap;
+      gap:10px;align-items:center;justify-content:space-between;
+    }
+    .footerText{
+      font-size:12px;
+      font-weight:900;
+      color:#555;
+    }
+    .footerText span{
+      color:#0b2d5c;font-weight:1000;
+    }
+    .miniCard{
+      display:block;
+      background:#ffeb9c;
+      border:1px solid #d6b25e;
+      border-radius:14px;
+      text-decoration:none;
+      padding:8px 10px;
+      color:#0b2d5c;
+      min-width:210px;
+    }
+    .miniCard strong{
+      font-size:13px;font-weight:1000;display:block;
+    }
+    .miniCard span{
+      font-size:11px;font-weight:900;opacity:.8;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-<div class="topbar"></div>
-<div class="nav">
-  <div class="navTitle">
-    <h1>منصة لغتي – مشروع نافس للصف السادس</h1>
-    <span>مدرسة الإمام الشوكاني الابتدائية بالمذنب</span>
+  <div class="topbar"></div>
+  <div class="nav">
+    <div class="navTitle">
+      <div>
+        <h1>منصة لغتي – مشروع نافس للصف السادس</h1>
+        <span>مدرسة الإمام الشوكاني الابتدائية بالمذنب</span>
+      </div>
+    </div>
+    <div class="logos">
+      <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg" alt="شعار نافس">
+      <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار مدرسة الإمام الشوكاني">
+    </div>
   </div>
-
-  <div class="logos">
-    <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg">
-    <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png">
-  </div>
-</div>
 </header>
 
 <main>
 
-<section class="panel">
-<div class="panelBody">
+  <!-- تعريف + بيانات الطالب -->
+  <section class="panel">
+    <div class="panelBody">
+      <div class="heroTop">
+        <div class="heroText">
+          <h2>أهلاً بك في منصة لغتي – محاكي نافس</h2>
+          <p>اختر الاختبار أو النص القرائي، وتدرّب على مهارات الفهم واللغة بأسلوب يشبه اختبارات نافس.</p>
 
-<div class="heroTop">
-  <div class="heroText">
-    <h2>أهلاً بك في منصة لغتي – محاكي نافس</h2>
-    <p>اختر الاختبار أو النص القرائي، وتدرّب على مهارات الفهم.</p>
+          <div class="heroBadges">
+            <div class="pill">📘 اختبارات فهم قرائي</div>
+            <div class="pill">📝 محاكاة لأسلوب نافس</div>
+            <div class="pill">📚 نصوص طويلة للتدريب</div>
+          </div>
+        </div>
+      </div>
 
-    <div class="heroBadges">
-      <div class="pill">📘 اختبارات فهم قرائي</div>
-      <div class="pill">📝 محاكاة أسلوب نافس</div>
-      <div class="pill">📚 نصوص طويلة</div>
+      <!-- نموذج بيانات الطالب -->
+      <div style="margin-top:12px;border-top:1px dashed rgba(11,45,92,.15);padding-top:10px">
+        <form id="studentForm" onsubmit="saveStudent(event)">
+          <div class="formRow">
+            <div>
+              <label for="studentName">اسم الطالب</label><br>
+              <input id="studentName" class="input" type="text" placeholder="اكتب اسمك الثلاثي">
+            </div>
+            <div>
+              <label for="studentClass">الشعبة</label><br>
+              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / أ">
+            </div>
+          </div>
+          <div class="formRow" style="margin-top:8px;align-items:flex-end">
+            <button class="btn btnPrimary" type="submit">حفظ البيانات للاختبارات</button>
+            <button class="btn btnGhost" type="button" onclick="clearStudent()">مسح البيانات</button>
+          </div>
+        </form>
+        <div id="studentSummary" class="muted"></div>
+      </div>
     </div>
-  </div>
-</div>
+  </section>
 
-<div style="margin-top:12px;border-top:1px dashed rgba(11,45,92,.15);padding-top:10px">
-<form id="studentForm" onsubmit="saveStudent(event)">
-  <div class="formRow">
-    <div>
-      <label>اسم الطالب</label>
-      <input id="studentName" class="input" placeholder="اكتب اسمك الثلاثي">
+  <!-- التبويبات -->
+  <section class="panel">
+    <div class="panelBody">
+      <div class="tabs">
+        <button class="tabBtn active" data-tab="home">الرئيسية</button>
+        <button class="tabBtn" data-tab="exams">الاختبارات</button>
+        <button class="tabBtn" data-tab="texts">النصوص القرائية</button>
+        <button class="tabBtn" data-tab="perf">تقييم الأداء</button>
+      </div>
     </div>
-    <div>
-      <label>الشعبة</label>
-      <input id="studentClass" class="input" placeholder="٦ / أ">
+  </section>
+
+  <!-- تبويب الرئيسية -->
+  <section id="tab-home" class="panel">
+    <div class="panelBody">
+      <strong>إرشادات عامة للطالب:</strong>
+      <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:1.9">
+        <li>أدخل اسمك والشعبة مرة واحدة، وستنتقل معك إلى جميع الاختبارات والنصوص.</li>
+        <li>ابدأ باختبارات محاكي نافس (٤، ٥، ٦، ٨) لتتدرّب على الفهم العميق.</li>
+        <li>استخدم نصوص القراءة الطويلة لتقوية التركيز والسرعة في الفهم.</li>
+        <li>حاول قراءة السؤال كاملًا قبل اختيار الإجابة، ولا تتعجل.</li>
+      </ul>
+      <div class="miniInfo" id="miniInfoHome"></div>
     </div>
-  </div>
+  </section>
 
-  <div class="formRow">
-    <button class="btn btnPrimary">حفظ البيانات</button>
-    <button class="btn btnGhost" type="button" onclick="clearStudent()">مسح</button>
-  </div>
-</form>
+  <!-- تبويب الاختبارات -->
+  <section id="tab-exams" class="panel hidden">
+    <div class="panelBody">
+      <strong>الاختبارات المتاحة:</strong>
+      <p class="muted" style="margin-top:6px">
+        اختبارات مبنية على مهارات نافس: فهم مباشر، استنتاج، مفردات، مهارات عليا.
+      </p>
 
-<div id="studentSummary" class="muted"></div>
-</div>
+      <div class="grid">
 
-</div>
-</section>
+        <!-- اختبار 1 -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exams');return false;">
+          <div class="tag">اختبار 1</div>
+          <div class="icon">📝</div>
+          <strong>اختبار 1 – فهم قرائي أساسي</strong>
+          <span>نص قصير مع أسئلة على الفكرة الرئيسة والتفاصيل المباشرة.</span>
+        </a>
 
+        <!-- اختبار 2 -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam2');return false;">
+          <div class="tag">اختبار 2</div>
+          <div class="icon">📝</div>
+          <strong>اختبار 2 – فهم متنوع</strong>
+          <span>أسئلة متنوعة على أكثر من فقرة تدريبًا لأسلوب نافس.</span>
+        </a>
 
-<section class="panel">
-<div class="panelBody">
-<div class="tabs">
-  <button class="tabBtn active" data-tab="home">الرئيسية</button>
-  <button class="tabBtn" data-tab="exams">الاختبارات</button>
-  <button class="tabBtn" data-tab="texts">النصوص القرائية</button>
-  <button class="tabBtn" data-tab="perf">تقييم الأداء</button>
-</div>
-</div>
-</section>
+        <!-- اختبار 3 -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam3');return false;">
+          <div class="tag">اختبار 3</div>
+          <div class="icon">📖</div>
+          <strong>اختبار 3 – نص طويل</strong>
+          <span>نص أطول قليلًا مع أسئلة استنتاجية وتفكير أعلى.</span>
+        </a>
 
+        <!-- اختبار 4 -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam4');return false;">
+          <div class="tag">اختبار 4</div>
+          <div class="icon">📘</div>
+          <strong>اختبار 4 – محاكي نافس</strong>
+          <span>نص طويل على نمط قياس مع أسئلة شبيهة باختبار نافس.</span>
+        </a>
 
-<section id="tab-home" class="panel">
-<div class="panelBody">
-<strong>إرشادات:</strong>
-<ul style="font-size:13px;color:#6b7a90">
-  <li>اكتب اسمك مرة واحدة.</li>
-  <li>ابدأ باختبارات محاكي نافس.</li>
-</ul>
-<div id="miniInfoHome" class="miniInfo"></div>
-</div>
-</section>
+        <!-- اختبار 5 -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam5');return false;">
+          <div class="tag">اختبار 5</div>
+          <div class="icon">⭐</div>
+          <strong>اختبار 5 – محاكي نافس (قيمة الصدق)</strong>
+          <span>نص عن الصدق في البيع والشراء، مع أسئلة على الفهم والاستنتاج.</span>
+        </a>
 
+        <!-- اختبار 6 -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam6');return false;">
+          <div class="tag">اختبار 6</div>
+          <div class="icon">📊</div>
+          <strong>اختبار 6 – مهارات نافس</strong>
+          <span>نص عن تنظيم الوقت والتعلم مع أسئلة على مهارات نافس المتقدمة.</span>
+        </a>
 
-<section id="tab-exams" class="panel hidden">
-<div class="panelBody">
-<strong>الاختبارات المتاحة:</strong>
+        <!-- اختبار 7 (المفردات) -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam7');return false;">
+          <div class="tag">اختبار 7</div>
+          <div class="icon">🔤</div>
+          <strong>اختبار المفردات – اختبار 7</strong>
+          <span>مرادفات، أضداد، جمع، مفرد، واستخدام الكلمة في السياق.</span>
+        </a>
 
-<div class="grid">
+        <!-- اختبار 8 (مهارات عليا) -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam8');return false;">
+          <div class="tag">اختبار 8</div>
+          <div class="icon">🎯</div>
+          <strong>اختبار مهارات عليا – اختبار 8</strong>
+          <span>نص طويل عن «مدينة استيقظت بالعلم» مع أسئلة على التحليل والتفسير والنقد.</span>
+        </a>
 
-<a class="cardBtn" onclick="goToExam('nafis-exams')">
-<div class="tag">1</div><div class="icon">📝</div>
-<strong>اختبار 1</strong><span>فهم أساسي</span>
-</a>
+      </div>
 
-<a class="cardBtn" onclick="goToExam('nafis-exam2')">
-<div class="tag">2</div><div class="icon">📝</div>
-<strong>اختبار 2</strong><span>فهم متنوع</span>
-</a>
+      <div class="miniInfo" id="miniInfoExams"></div>
+    </div>
+  </section>
 
-<a class="cardBtn" onclick="goToExam('nafis-exam3')">
-<div class="tag">3</div><div class="icon">📖</div>
-<strong>اختبار 3</strong>
-</a>
+  <!-- تبويب النصوص القرائية -->
+  <section id="tab-texts" class="panel hidden">
+    <div class="panelBody">
+      <strong>النصوص القرائية الطويلة:</strong>
+      <p class="muted" style="margin-top:6px">
+        نصوص تاريخية وعلمية وخيالية للتدريب على القراءة العميقة قبل الاختبارات.
+      </p>
 
-<a class="cardBtn" onclick="goToExam('nafis-exam4')">
-<div class="tag">4</div><div class="icon">📘</div>
-<strong>اختبار 4</strong>
-</a>
+      <div class="grid">
 
-<a class="cardBtn" onclick="goToExam('nafis-exam5')">
-<div class="tag">5</div><div class="icon">⭐</div>
-<strong>اختبار 5</strong>
-</a>
+        <!-- نص 1 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text1');return false;">
+          <div class="tag">نص 1</div>
+          <div class="icon">📚</div>
+          <strong>خالد بن الوليد – يوم اليرموك</strong>
+          <span>نص تاريخي عن الشجاعة والصبر والثبات في المعركة.</span>
+        </a>
 
-<a class="cardBtn" onclick="goToExam('nafis-exam6')">
-<div class="tag">6</div><div class="icon">📊</div>
-<strong>اختبار 6</strong>
-</a>
+        <!-- نص 2 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text2');return false;">
+          <div class="tag">نص 2</div>
+          <div class="icon">📚</div>
+          <strong>عمر بن الخطاب – العدل مسؤولية</strong>
+          <span>قصة تفقد الخليفة لأحوال الناس ليلًا وخوفه من التقصير.</span>
+        </a>
 
-<a class="cardBtn" onclick="goToExam('nafis-exam7')">
-<div class="tag">7</div><div class="icon">🔤</div>
-<strong>اختبار المفردات</strong>
-</a>
+        <!-- نص 3 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false;">
+          <div class="tag">نص 3</div>
+          <div class="icon">📚</div>
+          <strong>صلاح الدين الأيوبي – بطولة وعدل</strong>
+          <span>نص عن القائد الذي جمع بين القوة والرحمة والإنصاف.</span>
+        </a>
 
-<a class="cardBtn" onclick="goToExam('nafis-exam8')">
-<div class="tag">8</div><div class="icon">🎯</div>
-<strong>اختبار مهارات عليا</strong>
-</a>
+        <!-- نص 4 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false;">
+          <div class="tag">نص 4</div>
+          <div class="icon">🐋</div>
+          <strong>الحوت الأزرق – عملاق المحيط</strong>
+          <span>نص علمي عن أكبر كائن عرفته الأرض، وطريقة غذائه وحمايته.</span>
+        </a>
 
-</div>
+        <!-- نص 5 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text5');return false;">
+          <div class="tag">نص 5</div>
+          <div class="icon">🦒</div>
+          <strong>الزرافة – أطول حيوان على اليابسة</strong>
+          <span>نص علمي عن تكيف الزرافة مع بيئتها وفوائد رقبتها الطويلة.</span>
+        </a>
 
-<div id="miniInfoExams" class="miniInfo"></div>
-</div>
-</section>
+        <!-- نص 6 -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text6');return false;">
+          <div class="tag">نص 6</div>
+          <div class="icon">✨</div>
+          <strong>قصة خيالية – كتاب لا ينسى</strong>
+          <span>قصة خيالية عن سالم والكتاب العجيب الذي يغيّر طريقة تفكيره.</span>
+        </a>
 
+      </div>
 
-<section id="tab-texts" class="panel hidden">
-<div class="panelBody">
+      <div class="miniInfo" id="miniInfoTexts"></div>
+    </div>
+  </section>
 
-<div class="grid">
+  <!-- تبويب تقييم الأداء (قيد التطوير) -->
+  <section id="tab-perf" class="panel hidden">
+    <div class="panelBody">
+      <strong>تقارير أداء الطلاب (قيد التطوير)</strong>
+      <p class="muted" style="margin-top:6px">
+        سيكون هنا لاحقًا ربط بنتائج النماذج أو الجداول (Forms / Sheets) لعرض أداء الطلاب في مشروع نافس.
+      </p>
+    </div>
+  </section>
 
-<a class="cardBtn" onclick="goToExam('nafis-text1')"><div class="tag">1</div><strong>خالد بن الوليد</strong></a>
-<a class="cardBtn" onclick="goToExam('nafis-text2')"><div class="tag">2</div><strong>عمر بن الخطاب</strong></a>
-<a class="cardBtn" onclick="goToExam('nafis-text3')"><div class="tag">3</div><strong>صلاح الدين</strong></a>
-<a class="cardBtn" onclick="goToExam('nafis-text4')"><div class="tag">4</div><strong>الحوت الأزرق</strong></a>
-<a class="cardBtn" onclick="goToExam('nafis-text5')"><div class="tag">5</div><strong>الزرافة</strong></a>
-<a class="cardBtn" onclick="goToExam('nafis-text6')"><div class="tag">6</div><strong>قصة خيالية</strong></a>
+  <!-- بطاقة البرمجة + الواتساب -->
+  <section class="panel">
+    <div class="panelBody">
+      <div class="footerRow">
 
-</div>
+        <div class="footerText">
+          برمجة وتنفيذ: <span>الأستاذ مقرن المطيري</span><br>
+          منصة لغتي – مشروع نافس<br>
+          ©2026
+        </div>
 
-<div id="miniInfoTexts" class="miniInfo"></div>
-</div>
-</section>
+        <a class="miniCard" href="https://wa.me/966555839722" target="_blank">
+          💬 <strong>للمراسلة عبر الواتساب</strong>
+          <span>اضغط هنا للتواصل مع المعلم</span>
+        </a>
 
-
-<section id="tab-perf" class="panel hidden">
-<div class="panelBody">
-<strong>تقارير الأداء (قريبًا)</strong>
-</div>
-</section>
-
-
-<section class="panel">
-<div class="panelBody">
-<div class="footerRow">
-
-<div class="footerText">
-برمجة وتنفيذ: <span>الأستاذ مقرن المطيري</span><br>
-منصة لغتي – مشروع نافس<br>
-©2026
-</div>
-
-<a class="miniCard" href="https://wa.me/966555839722" target="_blank">
-💬 <strong>للمراسلة عبر الواتساب</strong>
-<span>اضغط هنا للتواصل</span>
-</a>
-
-</div>
-</div>
-</section>
+      </div>
+    </div>
+  </section>
 
 </main>
 
 <script>
-function loadStudent(){
-  const s=JSON.parse(localStorage.getItem("studentData")||"null");
-  const box=document.getElementById("studentSummary");
-  const h=document.getElementById("miniInfoHome");
-  const e=document.getElementById("miniInfoExams");
-  const t=document.getElementById("miniInfoTexts");
+  // تحميل بيانات الطالب
+  function loadStudent(){
+    const box   = document.getElementById("studentSummary");
+    const miniHome  = document.getElementById("miniInfoHome");
+    const miniExams = document.getElementById("miniInfoExams");
+    const miniTexts = document.getElementById("miniInfoTexts");
+    const saved = JSON.parse(localStorage.getItem("studentData") || "null");
 
-  if(s){
-    document.getElementById("studentName").value=s.name||"";
-    document.getElementById("studentClass").value=s.classroom||"";
-    const txt=`👤 ${s.name||"—"} – 🏫 ${s.classroom||"—"}`;
-    box.textContent=txt;
-    if(h)h.textContent=txt;
-    if(e)e.textContent=txt;
-    if(t)t.textContent=txt;
-  }else box.textContent="لم تُسجل بيانات بعد.";
-}
-function saveStudent(e){
-  e.preventDefault();
-  const data={name:studentName.value,classroom:studentClass.value};
-  localStorage.setItem("studentData",JSON.stringify(data));
-  loadStudent();
-}
-function clearStudent(){
-  localStorage.removeItem("studentData");
-  studentName.value="";studentClass.value="";
-  loadStudent();
-}
+    if(saved){
+      document.getElementById("studentName").value  = saved.name  || "";
+      document.getElementById("studentClass").value = saved.classroom || "";
+      const txt = `👤 الطالب: ${saved.name || "—"} – 🏫 الشعبة: ${saved.classroom || "—"}`;
+      box.textContent = txt;
+      if(miniHome)  miniHome.textContent  = txt;
+      if(miniExams) miniExams.textContent = txt;
+      if(miniTexts) miniTexts.textContent = txt;
+    }else{
+      box.textContent = "لم تُسجَّل بيانات الطالب بعد. اكتب الاسم والشعبة ثم اضغط حفظ.";
+      if(miniHome)  miniHome.textContent  = "";
+      if(miniExams) miniExams.textContent = "";
+      if(miniTexts) miniTexts.textContent = "";
+    }
+  }
 
-const tabButtons=document.querySelectorAll(".tabBtn");
-const panels={
- home:tab-home,exams:tab-exams,texts:tab-texts,perf:tab-perf
-};
+  function saveStudent(e){
+    e.preventDefault();
+    const name  = document.getElementById("studentName").value.trim();
+    const cls   = document.getElementById("studentClass").value.trim();
+    const data  = {name, classroom:cls};
+    localStorage.setItem("studentData", JSON.stringify(data));
+    loadStudent();
+    alert("تم حفظ بيانات الطالب للاختبارات والنصوص.");
+  }
 
-tabButtons.forEach(btn=>{
- btn.addEventListener("click",()=>{
-  tabButtons.forEach(b=>b.classList.remove("active"));
-  btn.classList.add("active");
-  Object.keys(panels).forEach(k=>{
-    document.getElementById("tab-"+k).classList.toggle("hidden",k!==btn.dataset.tab);
+  function clearStudent(){
+    localStorage.removeItem("studentData");
+    document.getElementById("studentName").value  = "";
+    document.getElementById("studentClass").value = "";
+    loadStudent();
+  }
+
+  // التبويبات
+  const tabButtons = document.querySelectorAll(".tabBtn");
+  const panels = {
+    home:  document.getElementById("tab-home"),
+    exams: document.getElementById("tab-exams"),
+    texts: document.getElementById("tab-texts"),
+    perf:  document.getElementById("tab-perf")
+  };
+
+  tabButtons.forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      tabButtons.forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      const key = btn.dataset.tab;
+      Object.keys(panels).forEach(k=>{
+        panels[k].classList.toggle("hidden", k!==key);
+      });
+    });
   });
- });
-});
 
-function goToExam(repo){
- const base="https://aass-2008-wq.github.io/"+repo+"/";
- const s=JSON.parse(localStorage.getItem("studentData")||"null");
- if(s){
-   const p=new URLSearchParams();
-   if(s.name)p.set("name",s.name);
-   if(s.classroom)p.set("cls",s.classroom);
-   window.location.href=base+"?"+p.toString();
- } else window.location.href=base;
-}
-loadStudent();
+  // فتح مستودع اختبار / نص مع تمرير بيانات الطالب (إن وجدت)
+  function goToExam(repo){
+    const base = "https://aass-2008-wq.github.io/" + repo + "/";
+    const saved = JSON.parse(localStorage.getItem("studentData") || "null");
+    if(saved && (saved.name || saved.classroom)){
+      const params = new URLSearchParams();
+      if(saved.name)      params.set("name", saved.name);
+      if(saved.classroom) params.set("cls",  saved.classroom);
+      window.location.href = base + "?" + params.toString();
+    }else{
+      window.location.href = base;
+    }
+  }
+
+  // تهيئة أولية
+  loadStudent();
 </script>
 
 </body>
