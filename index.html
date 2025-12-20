@@ -393,25 +393,56 @@
     </div>
   </section>
 
-  <!-- بطاقة البرمجة + الواتساب -->
-  <section class="panel">
-    <div class="panelBody">
-      <div class="footerRow">
-        <div class="footerText">
-          برمجة وتنفيذ: <span>الأستاذ مقرن المطيري</span>
-        </div>
-        <a class="cardBtn" href="https://wa.me/966555839722" target="_blank">
-          <div class="icon">💬</div>
-          <strong>للمراسلة عبر الواتساب</strong>
-          <span>اضغط هنا للتواصل مع المعلم حول المنصة والاختبارات.</span>
-        </a>
+<!-- بطاقة البرمجة + الواتساب -->
+<section class="panel">
+  <style>
+    .footerRow{
+      display:flex;flex-wrap:wrap;
+      gap:10px;align-items:center;justify-content:space-between;
+    }
+    .footerText{
+      font-size:12px;
+      font-weight:900;
+      color:#555;
+    }
+    .footerText span{color:#0b2d5c;font-weight:1000}
+
+    .miniCard{
+      display:block;
+      background:#ffeb9c;
+      border:1px solid #d6b25e;
+      border-radius:14px;
+      text-decoration:none;
+      padding:8px 10px;
+      color:#0b2d5c;
+      min-width:210px;
+    }
+    .miniCard strong{
+      font-size:13px;font-weight:1000;display:block;
+    }
+    .miniCard span{
+      font-size:11px;font-weight:900;opacity:.8;
+    }
+  </style>
+
+  <div class="panelBody">
+    <div class="footerRow">
+
+      <div class="footerText">
+        برمجة وتنفيذ: <span>الأستاذ مقرن المطيري</span><br>
+        منصة لغتي – مشروع نافس<br>
+        ©2026
       </div>
+
+      <a class="miniCard" href="https://wa.me/966555839722" target="_blank">
+        💬 <strong>للمراسلة عبر الواتساب</strong>
+        <span>اضغط هنا للتواصل مع المعلم</span>
+      </a>
+
     </div>
-  </section>
-
-</main>
-
-<script>
+  </div>
+</section>
+  
   // تحميل بيانات الطالب
   function loadStudent(){
     const box   = document.getElementById("studentSummary");
