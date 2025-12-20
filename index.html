@@ -57,23 +57,6 @@
       border:1px solid rgba(11,45,92,.06)
     }
 
-    .watermarkLogo{
-      position:relative;
-      isolation:isolate;
-      min-width:120px;
-    }
-    .watermarkLogo::before{
-      content:"";
-      position:absolute;inset:10px;
-      border-radius:18px;
-      background:radial-gradient(circle at 30% 20%,rgba(214,178,94,.2),transparent 60%);
-      opacity:.8;z-index:-1;
-    }
-    .watermarkLogo img{
-      max-width:110px;display:block;margin:auto;
-      opacity:.9;
-    }
-
     /* نموذج الطالب */
     .formRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
     label{font-size:13px;font-weight:900;color:var(--blue)}
@@ -155,6 +138,18 @@
       display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
       font-size:12px;color:var(--muted);font-weight:900;
     }
+
+    /* بطاقة البرمجة والواتساب */
+    .footerRow{
+      display:flex;flex-wrap:wrap;
+      gap:12px;align-items:center;justify-content:space-between;
+    }
+    .footerText{
+      font-size:13px;font-weight:900;color:var(--muted);
+    }
+    .footerText span{
+      color:var(--blue);font-weight:1000;
+    }
   </style>
 </head>
 <body>
@@ -192,10 +187,6 @@
             <div class="pill">📝 محاكاة لأسلوب نافس</div>
             <div class="pill">📚 نصوص طويلة للتدريب</div>
           </div>
-        </div>
-
-        <div class="watermarkLogo">
-          <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار المدرسة">
         </div>
       </div>
 
@@ -259,7 +250,7 @@
       <div class="grid">
 
         <!-- اختبار 1 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam1');return false;">
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam');return false;">
           <div class="tag">اختبار 1</div>
           <div class="icon">📝</div>
           <strong>اختبار 1 – فهم قرائي أساسي</strong>
@@ -392,13 +383,29 @@
     </div>
   </section>
 
-  <!-- تبويب تقييم الأداء (لاحقًا للربط مع فورمز أو شيت) -->
+  <!-- تبويب تقييم الأداء (قيد التطوير) -->
   <section id="tab-perf" class="panel hidden">
     <div class="panelBody">
       <strong>تقارير أداء الطلاب (قيد التطوير)</strong>
       <p class="muted" style="margin-top:6px">
         سيكون هنا لاحقًا ربط بنتائج النماذج أو الجداول (Forms / Sheets) لعرض أداء الطلاب في مشروع نافس.
       </p>
+    </div>
+  </section>
+
+  <!-- بطاقة البرمجة + الواتساب -->
+  <section class="panel">
+    <div class="panelBody">
+      <div class="footerRow">
+        <div class="footerText">
+          برمجة وتنفيذ: <span>الأستاذ مقرن المطيري</span>
+        </div>
+        <a class="cardBtn" href="https://wa.me/966555839722" target="_blank">
+          <div class="icon">💬</div>
+          <strong>للمراسلة عبر الواتساب</strong>
+          <span>اضغط هنا للتواصل مع المعلم حول المنصة والاختبارات.</span>
+        </a>
+      </div>
     </div>
   </section>
 
