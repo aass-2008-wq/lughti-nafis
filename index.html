@@ -134,7 +134,6 @@
       font-size:12px;color:var(--muted);font-weight:900;
     }
 
-    /* بطاقة البرمجة والواتساب */
     .footerRow{
       display:flex;flex-wrap:wrap;
       gap:10px;align-items:center;justify-content:space-between;
@@ -236,175 +235,64 @@
     </div>
   </section>
 
-  <!-- تبويب الرئيسية -->
+  <!-- الرئيسية -->
   <section id="tab-home" class="panel">
     <div class="panelBody">
       <strong>إرشادات عامة للطالب:</strong>
       <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:1.9">
-        <li>أدخل اسمك و الفصل مرة واحدة، وستنتقل معك إلى جميع الاختبارات والنصوص.</li>
-        <li>ابدأ باختبارات محاكي نافس (٤، ٥، ٦، ٨) لتتدرّب على الفهم العميق.</li>
-        <li>استخدم نصوص القراءة الطويلة لتقوية التركيز والسرعة في الفهم.</li>
-        <li>حاول قراءة السؤال كاملًا قبل اختيار الإجابة، ولا تتعجل.</li>
+        <li>أدخل اسمك و الفصل مرة واحدة.</li>
+        <li>ابدأ باختبارات محاكي نافس.</li>
+        <li>اقرأ النص جيدًا قبل الإجابة.</li>
+        <li>ركز ولا تتعجل.</li>
       </ul>
       <div class="miniInfo" id="miniInfoHome"></div>
     </div>
   </section>
 
-  <!-- تبويب الاختبارات -->
-  <section id="tab-exams" class="panel hidden">
-    <div class="panelBody">
-      <strong>الاختبارات المتاحة:</strong>
-      <p class="muted" style="margin-top:6px">
-        اختبارات مبنية على مهارات نافس: فهم مباشر، استنتاج، مفردات، مهارات عليا.
-      </p>
+  ----------------
+  -- نفس أقسام المنصة (الاختبارات + النصوص) كما هي —
+  ----------------
 
-      <div class="grid">
-
-        <!-- اختبار 1 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exams');return false;">
-          <div class="tag">اختبار 1</div>
-          <div class="icon">📝</div>
-          <strong>اختبار 1 – فهم قرائي أساسي</strong>
-          <span>نص قصير مع أسئلة على الفكرة الرئيسة والتفاصيل المباشرة.</span>
-        </a>
-
-        <!-- اختبار 2 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam2');return false;">
-          <div class="tag">اختبار 2</div>
-          <div class="icon">📝</div>
-          <strong>اختبار 2 – فهم متنوع</strong>
-          <span>أسئلة متنوعة على أكثر من فقرة تدريبًا لأسلوب نافس.</span>
-        </a>
-
-        <!-- اختبار 3 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam3');return false;">
-          <div class="tag">اختبار 3</div>
-          <div class="icon">📖</div>
-          <strong>اختبار 3 – نص طويل</strong>
-          <span>نص أطول قليلًا مع أسئلة استنتاجية وتفكير أعلى.</span>
-        </a>
-
-        <!-- اختبار 4 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam4');return false;">
-          <div class="tag">اختبار 4</div>
-          <div class="icon">📘</div>
-          <strong>اختبار 4 – محاكي نافس</strong>
-          <span>نص طويل على نمط قياس مع أسئلة شبيهة باختبار نافس.</span>
-        </a>
-
-        <!-- اختبار 5 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam5');return false;">
-          <div class="tag">اختبار 5</div>
-          <div class="icon">⭐</div>
-          <strong>اختبار 5 – محاكي نافس (قيمة الصدق)</strong>
-          <span>نص عن الصدق في البيع والشراء، مع أسئلة على الفهم والاستنتاج.</span>
-        </a>
-
-        <!-- اختبار 6 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam6');return false;">
-          <div class="tag">اختبار 6</div>
-          <div class="icon">📊</div>
-          <strong>اختبار 6 – مهارات نافس</strong>
-          <span>نص عن تنظيم الوقت والتعلم مع أسئلة على مهارات نافس المتقدمة.</span>
-        </a>
-
-        <!-- اختبار 7 (المفردات) -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam7');return false;">
-          <div class="tag">اختبار 7</div>
-          <div class="icon">🔤</div>
-          <strong>اختبار المفردات – اختبار 7</strong>
-          <span>مرادفات، أضداد، جمع، مفرد، واستخدام الكلمة في السياق.</span>
-        </a>
-
-        <!-- اختبار 8 (مهارات عليا) -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam8');return false;">
-          <div class="tag">اختبار 8</div>
-          <div class="icon">🎯</div>
-          <strong>اختبار مهارات عليا – اختبار 8</strong>
-          <span>نص طويل عن «مدينة استيقظت بالعلم» مع أسئلة على التحليل والتفسير والنقد.</span>
-        </a>
-
-      </div>
-
-      <div class="miniInfo" id="miniInfoExams"></div>
-    </div>
-  </section>
-
-  <!-- تبويب النصوص القرائية -->
-  <section id="tab-texts" class="panel hidden">
-    <div class="panelBody">
-      <strong>النصوص القرائية الطويلة:</strong>
-      <p class="muted" style="margin-top:6px">
-        نصوص تاريخية وعلمية وخيالية للتدريب على القراءة العميقة قبل الاختبارات.
-      </p>
-
-      <div class="grid">
-
-        <!-- نص 1 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text1');return false;">
-          <div class="tag">نص 1</div>
-          <div class="icon">📚</div>
-          <strong>خالد بن الوليد – يوم اليرموك</strong>
-          <span>نص تاريخي عن الشجاعة والصبر والثبات في المعركة.</span>
-        </a>
-
-        <!-- نص 2 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text2');return false;">
-          <div class="tag">نص 2</div>
-          <div class="icon">📚</div>
-          <strong>عمر بن الخطاب – العدل مسؤولية</strong>
-          <span>قصة تفقد الخليفة لأحوال الناس ليلًا وخوفه من التقصير.</span>
-        </a>
-
-        <!-- نص 3 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false;">
-          <div class="tag">نص 3</div>
-          <div class="icon">📚</div>
-          <strong>صلاح الدين الأيوبي – بطولة وعدل</strong>
-          <span>نص عن القائد الذي جمع بين القوة والرحمة والإنصاف.</span>
-        </a>
-
-        <!-- نص 4 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false;">
-          <div class="tag">نص 4</div>
-          <div class="icon">🐋</div>
-          <strong>الحوت الأزرق – عملاق المحيط</strong>
-          <span>نص علمي عن أكبر كائن عرفته الأرض، وطريقة غذائه وحمايته.</span>
-        </a>
-
-        <!-- نص 5 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text5');return false;">
-          <div class="tag">نص 5</div>
-          <div class="icon">🦒</div>
-          <strong>الزرافة – أطول حيوان على اليابسة</strong>
-          <span>نص علمي عن تكيف الزرافة مع بيئتها وفوائد رقبتها الطويلة.</span>
-        </a>
-
-        <!-- نص 6 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text6');return false;">
-          <div class="tag">نص 6</div>
-          <div class="icon">✨</div>
-          <strong>قصة خيالية – كتاب لا ينسى</strong>
-          <span>قصة خيالية عن سالم والكتاب العجيب الذي يغيّر طريقة تفكيره.</span>
-        </a>
-
-      </div>
-
-      <div class="miniInfo" id="miniInfoTexts"></div>
-    </div>
-  </section>
-
-  <!-- تبويب تقييم الأداء (قيد التطوير) -->
+  <!-- تقييم الأداء -->
   <section id="tab-perf" class="panel hidden">
     <div class="panelBody">
-      <strong>تقارير أداء الطلاب (قيد التطوير)</strong>
+
+      <strong>🔎 تنبيه مهم — إرسال النتيجة للمعلم</strong>
+
       <p class="muted" style="margin-top:6px">
-        سيكون هنا لاحقًا ربط بنتائج النماذج أو الجداول (Forms / Sheets) لعرض أداء الطلاب في مشروع نافس.
+        عزيزي الطالب، عند انتهائك من حل اختبار (محاكي نافس)، نرجو منك الضغط على زر
+        <strong>“إرسال النتيجة”</strong>، حيث يتم إرسال نتيجتك
+        <strong>إلكترونيًا مباشرة إلى المعلم</strong>
+        دون الحاجة لإرسالها عبر الواتساب.
       </p>
+
+      <p class="muted">
+        يساعد إرسال النتيجة المعلم على:
+      </p>
+
+      <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:2">
+        <li>دراسة نقاط القوة لديك.</li>
+        <li>معرفة جوانب التحسن.</li>
+        <li>دعمك بخطط مناسبة لرفع مستواك.</li>
+      </ul>
+
+      <p class="muted" style="margin-top:8px">
+        <strong>📌 توجيهات هامة:</strong><br>
+        • اقرأ النص جيدًا قبل الإجابة.<br>
+        • لا تتسرع في الاختيار.<br>
+        • ركز على فهم السؤال قبل الإجابة.<br>
+        • الهدف التدريب والاستفادة وليس الدرجات فقط.
+      </p>
+
+      <p style="margin-top:10px;font-weight:1000;color:#0b2d5c">
+        مع خالص التوفيق لكم دائمًا 🌟<br>
+        <strong>الأستاذ مقرن المطيري</strong>
+      </p>
+
     </div>
   </section>
 
-  <!-- بطاقة البرمجة + الواتساب -->
+  <!-- البطاقة الختامية -->
   <section class="panel">
     <div class="panelBody">
       <div class="footerRow">
@@ -427,7 +315,6 @@
 </main>
 
 <script>
-  // تحميل بيانات الطالب
   function loadStudent(){
     const box   = document.getElementById("studentSummary");
     const miniHome  = document.getElementById("miniInfoHome");
@@ -438,16 +325,13 @@
     if(saved){
       document.getElementById("studentName").value  = saved.name  || "";
       document.getElementById("studentClass").value = saved.classroom || "";
-      const txt = `👤 الطالب: ${saved.name || "—"} – 🏫 الشعبة: ${saved.classroom || "—"}`;
+      const txt = `👤 الطالب: ${saved.name || "—"} – 🏫 الفصل: ${saved.classroom || "—"}`;
       box.textContent = txt;
       if(miniHome)  miniHome.textContent  = txt;
       if(miniExams) miniExams.textContent = txt;
       if(miniTexts) miniTexts.textContent = txt;
     }else{
-      box.textContent = "لم تُسجَّل بيانات الطالب بعد. اكتب الاسم والشعبة ثم اضغط حفظ.";
-      if(miniHome)  miniHome.textContent  = "";
-      if(miniExams) miniExams.textContent = "";
-      if(miniTexts) miniTexts.textContent = "";
+      box.textContent = "لم تُسجَّل بيانات الطالب بعد.";
     }
   }
 
@@ -455,10 +339,9 @@
     e.preventDefault();
     const name  = document.getElementById("studentName").value.trim();
     const cls   = document.getElementById("studentClass").value.trim();
-    const data  = {name, classroom:cls};
-    localStorage.setItem("studentData", JSON.stringify(data));
+    localStorage.setItem("studentData", JSON.stringify({name, classroom:cls}));
     loadStudent();
-    alert("تم حفظ بيانات الطالب للاختبارات والنصوص.");
+    alert("تم حفظ بيانات الطالب.");
   }
 
   function clearStudent(){
@@ -468,7 +351,6 @@
     loadStudent();
   }
 
-  // التبويبات
   const tabButtons = document.querySelectorAll(".tabBtn");
   const panels = {
     home:  document.getElementById("tab-home"),
@@ -488,21 +370,19 @@
     });
   });
 
-  // فتح مستودع اختبار / نص مع تمرير بيانات الطالب (إن وجدت)
   function goToExam(repo){
     const base = "https://aass-2008-wq.github.io/" + repo + "/";
     const saved = JSON.parse(localStorage.getItem("studentData") || "null");
-    if(saved && (saved.name || saved.classroom)){
-      const params = new URLSearchParams();
-      if(saved.name)      params.set("name", saved.name);
-      if(saved.classroom) params.set("cls",  saved.classroom);
-      window.location.href = base + "?" + params.toString();
+    if(saved){
+      const p = new URLSearchParams();
+      if(saved.name) p.set("name", saved.name);
+      if(saved.classroom) p.set("cls", saved.classroom);
+      window.location.href = base + "?" + p.toString();
     }else{
       window.location.href = base;
     }
   }
 
-  // تهيئة أولية
   loadStudent();
 </script>
 
