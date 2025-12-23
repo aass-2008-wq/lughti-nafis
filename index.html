@@ -147,14 +147,16 @@
       color:#0b2d5c;font-weight:1000;
     }
     .miniCard{
-      display:block;
+      display:flex;
+      align-items:center;
+      gap:8px;
       background:#ffeb9c;
       border:1px solid #d6b25e;
       border-radius:14px;
       text-decoration:none;
       padding:8px 10px;
       color:#0b2d5c;
-      min-width:210px;
+      min-width:230px;
     }
     .miniCard strong{
       font-size:13px;font-weight:1000;display:block;
@@ -323,6 +325,30 @@
           <span>نص طويل عن «مدينة استيقظت بالعلم» مع أسئلة على التحليل والتفسير والنقد.</span>
         </a>
 
+        <!-- اختبار 9 (محاكي نافس جديد) -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam9');return false;">
+          <div class="tag">اختبار 9</div>
+          <div class="icon">🎯</div>
+          <strong>اختبار 9 – محاكي نافس</strong>
+          <span>نص طويل محاكي لاختبار نافس مع أسئلة على الفهم والاستنتاج وتنظيم المعلومات.</span>
+        </a>
+
+        <!-- اختبار 10 (الإيثار) -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam10');return false;">
+          <div class="tag">اختبار 10</div>
+          <div class="icon">🤝</div>
+          <strong>اختبار 10 – محاكي نافس (قيمة الإيثار)</strong>
+          <span>نص عن الإيثار ومساعدة الآخرين مع أسئلة على الفكرة الرئيسة والسبب والنتيجة.</span>
+        </a>
+
+        <!-- اختبار 11 (عمر ورسول كسرى) -->
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam11');return false;">
+          <div class="tag">اختبار 11</div>
+          <div class="icon">⚖️</div>
+          <strong>اختبار 11 – محاكي نافس (عمر ورسول كسرى)</strong>
+          <span>نص قصصي عن عدل عمر بن الخطاب مع أسئلة على الفهم العميق والتحليل والنقد.</span>
+        </a>
+
       </div>
 
       <div class="miniInfo" id="miniInfoExams"></div>
@@ -372,7 +398,7 @@
         </a>
 
         <!-- نص 5 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text5');return false%;">
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text5');return false;">
           <div class="tag">نص 5</div>
           <div class="icon">🦒</div>
           <strong>الزرافة – أطول حيوان على اليابسة</strong>
@@ -385,6 +411,14 @@
           <div class="icon">✨</div>
           <strong>قصة خيالية – كتاب لا ينسى</strong>
           <span>قصة خيالية عن سالم والكتاب العجيب الذي يغيّر طريقة تفكيره.</span>
+        </a>
+
+        <!-- نص 7 (الكهرباء) -->
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text7');return false;">
+          <div class="tag">نص 7</div>
+          <div class="icon">⚡</div>
+          <strong>الكهرباء – طاقة العصر</strong>
+          <span>نص علمي عن أهمية الكهرباء في حياتنا وكيفية ترشيد استخدامها في المنزل والمدرسة.</span>
         </a>
 
       </div>
@@ -445,8 +479,8 @@
         </div>
 
         <a class="miniCard" href="https://wa.me/966555839722" target="_blank">
-          <div class="miniCardIcon">💬</div>
-          <div class="miniCardText">
+          <div style="font-size:20px;">💬</div>
+          <div>
             <strong>الدعم الفني – تواصل عبر الواتساب</strong>
             <span>اضغط هنا لإرسال استفسارك أو ملاحظتك إلى المعلم.</span>
           </div>
