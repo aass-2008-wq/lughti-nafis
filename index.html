@@ -69,6 +69,7 @@
       font-family:inherit;font-weight:1000;font-size:13px;
       display:inline-flex;align-items:center;gap:6px;
       -webkit-tap-highlight-color: transparent;
+      text-decoration:none;
     }
     .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
     .btnGhost{background:rgba(214,178,94,.10);border:1px solid rgba(214,178,94,.5);color:var(--blue)}
@@ -167,40 +168,6 @@
     .miniCardText span{
       font-size:11px;font-weight:900;opacity:.85;display:block;
     }
-
-    /* أيقونة تليجرام في تبويب القناة */
-    .tgWrap{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .tgIcon{
-      width:48px;
-      height:48px;
-      border-radius:50%;
-      background:#229ED9;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:24px;
-      color:#fff;
-      box-shadow:0 4px 10px rgba(0,0,0,.15);
-    }
-    .tgText strong{
-      display:block;
-      font-size:14px;
-      font-weight:1000;
-      margin-bottom:3px;
-      color:var(--blue);
-    }
-    .tgText span{
-      display:block;
-      font-size:12px;
-      font-weight:900;
-      color:var(--muted);
-      line-height:1.8;
-    }
   </style>
 </head>
 <body>
@@ -249,7 +216,7 @@
             </div>
             <div>
               <label for="studentClass">الفصل</label><br>
-              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / أ">
+              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / ب">
             </div>
           </div>
           <div class="formRow" style="margin-top:8px;align-items:flex-end">
@@ -269,8 +236,9 @@
         <button class="tabBtn active" data-tab="home">الرئيسية</button>
         <button class="tabBtn" data-tab="exams">الاختبارات</button>
         <button class="tabBtn" data-tab="texts">النصوص القرائية</button>
-        <button class="tabBtn" data-tab="telegram">قناة نافس – تليجرام</button>
         <button class="tabBtn" data-tab="perf">تقييم الأداء</button>
+        <button class="tabBtn" data-tab="telegram">قناة التلجرام</button>
+        <button class="tabBtn" data-tab="pdf">النسخة المطبوعة</button>
       </div>
     </div>
   </section>
@@ -380,7 +348,7 @@
         </a>
 
         <!-- اختبار 11 -->
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam11');return false%;">
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam11');return false;">
           <div class="tag">اختبار 11</div>
           <div class="icon">🏛️</div>
           <strong>اختبار 11 – قصة عمر ورسول كسرى</strong>
@@ -444,7 +412,7 @@
         </a>
 
         <!-- نص 4 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false%;">
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false;">
           <div class="tag">نص 4</div>
           <div class="icon">🐋</div>
           <strong>الحوت الأزرق – عملاق المحيط</strong>
@@ -505,39 +473,7 @@
     </div>
   </section>
 
-  <!-- تبويب قناة التليجرام -->
-  <section id="tab-telegram" class="panel hidden">
-    <div class="panelBody">
-      <strong>قناة نافس على تليجرام</strong>
-      <p class="muted" style="margin-top:6px">
-      قناة مخصصة لاختبارات نافس شروحات،اختبارات
-      </p>
-
-      <div style="margin-top:12px">
-        <a class="cardBtn" href="https://t.me/Nationalexams1" target="_blank">
-          <div class="tgWrap">
-            <div class="tgIcon">✈️</div>
-            <div class="tgText">
-              <strong>انضم إلى قناة نافس في تليجرام</strong>
-              <span>
-                بالضغط على هذه البطاقة سيتم فتح قناة التليجرام
-                <br>
-                <code style="font-size:11px;background:#f3f4f6;padding:2px 4px;border-radius:6px;direction:ltr;display:inline-block;margin-top:4px">
-                  https://t.me/Nationalexams1
-                </code>
-              </span>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <p class="muted" style="margin-top:10px">
-        يمكن للطلاب وأولياء الأمور متابعة القناة للفائدة.
-      </p>
-    </div>
-  </section>
-
-  <!-- تبويب تقييم الأداء (بالرسالة المعتمدة) -->
+  <!-- تبويب تقييم الأداء -->
   <section id="tab-perf" class="panel hidden">
     <div class="panelBody">
       <strong>بطاقة تقييم الأداء – إرسال النتيجة للمعلم</strong>
@@ -568,9 +504,67 @@
 
       <p style="margin-top:10px;font-weight:1000;color:#0b2d5c">
         تذكّر أن جِدّك في التدريب اليوم هو طريقك – بإذن الله – لتحقيق نتائج مميزة في اختبار نافس.<br><br>
-        أرجو التوفيق لكم دائمًا 🌟<br>
+        مع خالص التوفيق لكم دائمًا 🌟<br>
         <strong>الأستاذ مقرن المطيري</strong>
       </p>
+    </div>
+  </section>
+
+  <!-- تبويب قناة التلجرام -->
+  <section id="tab-telegram" class="panel hidden">
+    <div class="panelBody">
+      <strong>قناة تلجرام – اختبارات نافس</strong>
+
+      <p class="muted" style="margin-top:6px">
+        هذه قناة <strong>عامة</strong> في تطبيق تلجرام، تضم نماذج وأسئلة محاكية لاختبار نافس
+        يمكن للطلاب والمعلمين الاستفادة منها في التدريب والمراجعة.
+        محتوى القناة ليس تحت إدارة المدرسة بشكل مباشر، بل هو مصدر إضافي للتدريب.
+      </p>
+
+      <div class="grid">
+        <a class="cardBtn" href="https://t.me/Nationalexams1" target="_blank">
+          <div class="tag">Telegram</div>
+          <div class="icon">📲</div>
+          <strong>قناة اختبارات نافس – تلجرام</strong>
+          <span>انضم للقناة للاطلاع على نماذج محاكية، أوراق عمل، وأسئلة جاهزة للمذاكرة.</span>
+        </a>
+      </div>
+
+      <p class="muted" style="margin-top:10px">
+        يُنصح باستخدام ما في القناة كوسيلة <strong>تدريب إضافية</strong> بجانب اختبارات المنصة والنصوص القرائية.
+      </p>
+    </div>
+  </section>
+
+  <!-- تبويب النسخة المطبوعة (PDF) -->
+  <section id="tab-pdf" class="panel hidden">
+    <div class="panelBody">
+      <strong>اختبارات محاكية لنافس جاهزة للطباعة</strong>
+
+      <p class="muted" style="margin-top:6px">
+        يحتوي هذا الملف على نماذج اختبارات محاكية لاختبار نافس يمكن طباعتها أو مشاركتها
+        مع الطلاب والمعلمين لاستخدامها في التدريب الورقي داخل الفصل أو المنزل.
+      </p>
+
+      <!-- عرض الملف داخل المنصة -->
+      <div style="margin-top:10px">
+        <iframe
+          src="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/preview"
+          style="width:100%;height:520px;border-radius:14px;border:1px solid rgba(11,45,92,.12);background:#fff;"
+          allow="autoplay"
+        ></iframe>
+      </div>
+
+      <!-- زر فتح الملف للطباعة / المشاركة -->
+      <div style="margin-top:10px">
+        <a
+          class="btn btnGhost"
+          href="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/view"
+          target="_blank"
+        >
+          📄 فتح الملف للطباعة أو المشاركة
+        </a>
+      </div>
     </div>
   </section>
 
@@ -650,8 +644,9 @@
     home:      document.getElementById("tab-home"),
     exams:     document.getElementById("tab-exams"),
     texts:     document.getElementById("tab-texts"),
+    perf:      document.getElementById("tab-perf"),
     telegram:  document.getElementById("tab-telegram"),
-    perf:      document.getElementById("tab-perf")
+    pdf:       document.getElementById("tab-pdf")
   };
 
   tabButtons.forEach(btn=>{
