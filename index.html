@@ -69,7 +69,6 @@
       font-family:inherit;font-weight:1000;font-size:13px;
       display:inline-flex;align-items:center;gap:6px;
       -webkit-tap-highlight-color: transparent;
-      text-decoration:none;
     }
     .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
     .btnGhost{background:rgba(214,178,94,.10);border:1px solid rgba(214,178,94,.5);color:var(--blue)}
@@ -81,7 +80,7 @@
       padding:4px;border:1px solid rgba(11,45,92,.08);
     }
     .tabBtn{
-      flex:1 1 120px;
+      flex:1 1 110px;
       text-align:center;
       padding:8px 6px;
       border-radius:999px;
@@ -133,6 +132,55 @@
     .miniInfo{
       display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
       font-size:12px;color:var(--muted);font-weight:900;
+    }
+
+    /* كروت الفيديو */
+    .videoGrid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    .videoCard{
+      background:#ffffff;
+      border-radius:16px;
+      border:1px solid rgba(11,45,92,.08);
+      padding:10px 12px 12px;
+    }
+    .videoCardTitle{
+      font-size:13px;
+      font-weight:1000;
+      color:var(--blue);
+      margin-bottom:8px;
+    }
+    .videoWrapper{
+      position:relative;
+      padding-top:56.25%; /* 16:9 */
+      border-radius:14px;
+      overflow:hidden;
+      background:#000;
+    }
+    .videoWrapper iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+    }
+
+    /* تبويب النسخة المطبوعة */
+    .pdfCard{
+      background:#ffffff;
+      border-radius:16px;
+      border:1px solid rgba(11,45,92,.08);
+      padding:12px 12px 14px;
+      margin-top:10px;
+    }
+    .pdfButtons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
     }
 
     .footerRow{
@@ -216,7 +264,7 @@
             </div>
             <div>
               <label for="studentClass">الفصل</label><br>
-              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / ب">
+              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / أ">
             </div>
           </div>
           <div class="formRow" style="margin-top:8px;align-items:flex-end">
@@ -236,9 +284,10 @@
         <button class="tabBtn active" data-tab="home">الرئيسية</button>
         <button class="tabBtn" data-tab="exams">الاختبارات</button>
         <button class="tabBtn" data-tab="texts">النصوص القرائية</button>
-        <button class="tabBtn" data-tab="perf">تقييم الأداء</button>
         <button class="tabBtn" data-tab="telegram">قناة التلجرام</button>
-        <button class="tabBtn" data-tab="pdf">النسخة المطبوعة</button>
+        <button class="tabBtn" data-tab="print">النسخة المطبوعة</button>
+        <button class="tabBtn" data-tab="perf">تقييم الأداء</button>
+        <button class="tabBtn" data-tab="videos">فيديو نافس</button>
       </div>
     </div>
   </section>
@@ -253,6 +302,40 @@
         <li>استخدم نصوص القراءة الطويلة لتقوية التركيز والسرعة في الفهم.</li>
         <li>حاول قراءة السؤال كاملًا قبل اختيار الإجابة، ولا تتعجل.</li>
       </ul>
+
+      <!-- مقاطع فيديو توضيحية -->
+      <div class="videoGrid" style="margin-top:16px">
+        <!-- الفيديو الأول: تعريف باختبار نافس -->
+        <div class="videoCard">
+          <div class="videoCardTitle">
+            🎯 تعريف باختبار نافس للطلاب
+          </div>
+          <div class="videoWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/LtZKPUhr230"
+              title="تعريف باختبار نافس"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- الفيديو الثاني: شرح التضليل على ورقة الإجابة -->
+        <div class="videoCard">
+          <div class="videoCardTitle">
+            ✏️ طريقة التظليل في ورقة إجابة نافس
+          </div>
+          <div class="videoWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/8CDEEv6Sjgo"
+              title="شرح التظليل على ورقة الإجابة"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+          </div>
+        </div>
+      </div>
+
       <div class="miniInfo" id="miniInfoHome"></div>
     </div>
   </section>
@@ -404,7 +487,7 @@
         </a>
 
         <!-- نص 3 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false;">
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false%;">
           <div class="tag">نص 3</div>
           <div class="icon">📚</div>
           <strong>صلاح الدين الأيوبي – بطولة وعدل</strong>
@@ -412,7 +495,7 @@
         </a>
 
         <!-- نص 4 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false;">
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false%;">
           <div class="tag">نص 4</div>
           <div class="icon">🐋</div>
           <strong>الحوت الأزرق – عملاق المحيط</strong>
@@ -473,6 +556,57 @@
     </div>
   </section>
 
+  <!-- تبويب قناة التلجرام -->
+  <section id="tab-telegram" class="panel hidden">
+    <div class="panelBody">
+      <strong>قناة التلجرام – نماذج واختبارات نافس</strong>
+      <p class="muted" style="margin-top:6px">
+        قناة عامة متخصصة في نشر نماذج واختبارات محاكية لاختبار نافس من مدارس ومعلمين مختلفين،
+        يمكن للطالب والمعلم الاستفادة منها بجانب هذه المنصة.
+      </p>
+
+      <div class="grid">
+        <a class="cardBtn" href="https://t.me/Nationalexams1" target="_blank">
+          <div class="tag">تلجرام</div>
+          <div class="icon">📲</div>
+          <strong>الانتقال إلى قناة اختبارات نافس</strong>
+          <span>اضغط هنا لفتح قناة التلجرام والاطلاع على نماذج إضافية لاختبارات نافس.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- تبويب النسخة المطبوعة -->
+  <section id="tab-print" class="panel hidden">
+    <div class="panelBody">
+      <strong>النسخة المطبوعة – اختبارات محاكية لنافس جاهزة للطباعة</strong>
+      <p class="muted" style="margin-top:6px">
+        يمكن للمعلم تحميل أو طباعة هذه النسخة لاستخدامها في القاعة الدراسية، أو كواجبات ورقية
+        تدريبية للطلاب.
+      </p>
+
+      <div class="pdfCard">
+        <div class="videoWrapper" style="margin-bottom:10px;">
+          <iframe
+            src="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/preview"
+            title="اختبارات محاكية لنافس جاهزة للطباعة"
+            allow="autoplay">
+          </iframe>
+        </div>
+
+        <div class="pdfButtons">
+          <a class="btn btnGhost" href="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/view" target="_blank">
+            فتح النسخة في صفحة مستقلة
+          </a>
+          <a class="btn btnPrimary" href="https://drive.google.com/uc?export=download&id=1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt">
+            ⬇ تحميل النسخة للطباعة
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- تبويب تقييم الأداء -->
   <section id="tab-perf" class="panel hidden">
     <div class="panelBody">
@@ -504,77 +638,72 @@
 
       <p style="margin-top:10px;font-weight:1000;color:#0b2d5c">
         تذكّر أن جِدّك في التدريب اليوم هو طريقك – بإذن الله – لتحقيق نتائج مميزة في اختبار نافس.<br><br>
-        مع خالص التوفيق لكم دائمًا 🌟<br>
+        أرجو التوفيق لكم دائمًا 🌟<br>
         <strong>الأستاذ مقرن المطيري</strong>
       </p>
     </div>
   </section>
 
-  <!-- تبويب قناة التلجرام -->
-  <section id="tab-telegram" class="panel hidden">
+  <!-- تبويب فيديو نافس -->
+  <section id="tab-videos" class="panel hidden">
     <div class="panelBody">
-      <strong>قناة تلجرام – اختبارات نافس</strong>
-
+      <strong>فيديو نافس – شروحات واختبارات تدريبية</strong>
       <p class="muted" style="margin-top:6px">
-        هذه قناة <strong>عامة</strong> في تطبيق تلجرام، تضم نماذج وأسئلة محاكية لاختبار نافس
-        يمكن للطلاب والمعلمين الاستفادة منها في التدريب والمراجعة.
-        محتوى القناة ليس تحت إشراف المعلم بشكل مباشر، بل هو مصدر إضافي للتدريب.
+        مقاطع تعليمية من يوتيوب تشرح اختبار نافس، وطريقة الحل، ونماذج تدريبية.
+        (قد تظهر إعلانات من يوتيوب، ويمكن تخطيها من داخل المشغّل.)
       </p>
 
-      <div class="grid">
-        <a class="cardBtn" href="https://t.me/Nationalexams1" target="_blank">
-          <div class="tag">Telegram</div>
-          <div class="icon">📲</div>
-          <strong>قناة اختبارات نافس – تلجرام</strong>
-          <span>انضم للقناة للاطلاع على نماذج محاكية، أوراق عمل، وأسئلة جاهزة للمذاكرة.</span>
-        </a>
+      <div class="videoGrid">
+
+        <!-- فيديو 1 -->
+        <div class="videoCard">
+          <div class="videoCardTitle">
+            🎯 شرح عام لاختبار نافس وطريقة عمله
+          </div>
+          <div class="videoWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/pBIobTZI0-A"
+              title="شرح اختبار نافس"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- فيديو 2 -->
+        <div class="videoCard">
+          <div class="videoCardTitle">
+            📘 نموذج تدريبي لحل أسئلة نافس
+          </div>
+          <div class="videoWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/_PgyS8uFE_Q"
+              title="نموذج تدريب لاختبار نافس"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- فيديو 3 -->
+        <div class="videoCard">
+          <div class="videoCardTitle">
+            🧠 استراتيجيات ونصائح للاستعداد لاختبار نافس
+          </div>
+          <div class="videoWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/9jby1FYl5i0"
+              title="نصائح واستراتيجيات لاختبار نافس"
+              allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+          </div>
+        </div>
+
       </div>
-
-      <p class="muted" style="margin-top:10px">
-        يُنصح باستخدام ما في القناة كوسيلة <strong>تدريب إضافية</strong> بجانب اختبارات المنصة والنصوص القرائية.
-      </p>
     </div>
   </section>
 
-  <!-- تبويب النسخة المطبوعة (PDF) -->
-<section id="tab-pdf" class="panel hidden">
-  <div class="panelBody">
-
-    <strong>📄 اختبارات محاكية لنافس جاهزة للطباعة</strong>
-    <p class="muted" style="margin-top:6px">
-      يحتوي هذا الملف على نماذج اختبارات محاكية لاختبار نافس يمكن طباعتها أو مشاركتها مع الطلاب والمعلمين،
-      لاستخدامها في التدريب الورقي داخل الفصل أو المنزل.
-    </p>
-
-    <!-- عرض الملف داخل المنصة -->
-    <div style="margin-top:10px">
-      <iframe
-        src="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/preview"
-        style="width:100%;height:520px;border-radius:14px;border:1px solid rgba(11,45,92,.12);background:#fff;"
-        allow="autoplay">
-      </iframe>
-    </div>
-
-    <!-- الأزرار -->
-    <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:8px">
-
-      <!-- فتح للعرض والطباعة -->
-      <a class="btn btnGhost"
-         href="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/view"
-         target="_blank">
-        📖 فتح الملف للطباعة
-      </a>
-
-      <!-- تحميل مباشر -->
-      <a class="btn btnPrimary"
-         href="https://drive.google.com/uc?export=download&id=1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt">
-        ⬇️ تحميل الملف مباشرة
-      </a>
-
-    </div>
-
-  </div>
-</section>
   <!-- بطاقة البرمجة + الواتساب -->
   <section class="panel">
     <div class="panelBody">
@@ -648,12 +777,13 @@
   // التبويبات
   const tabButtons = document.querySelectorAll(".tabBtn");
   const panels = {
-    home:      document.getElementById("tab-home"),
-    exams:     document.getElementById("tab-exams"),
-    texts:     document.getElementById("tab-texts"),
-    perf:      document.getElementById("tab-perf"),
-    telegram:  document.getElementById("tab-telegram"),
-    pdf:       document.getElementById("tab-pdf")
+    home:     document.getElementById("tab-home"),
+    exams:    document.getElementById("tab-exams"),
+    texts:    document.getElementById("tab-texts"),
+    telegram: document.getElementById("tab-telegram"),
+    print:    document.getElementById("tab-print"),
+    perf:     document.getElementById("tab-perf"),
+    videos:   document.getElementById("tab-videos")
   };
 
   tabButtons.forEach(btn=>{
