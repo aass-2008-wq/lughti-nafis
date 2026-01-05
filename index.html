@@ -31,6 +31,45 @@
       min-height:100vh;
     }
     header{
+      <!-- شريط إعلان ثابت -->
+<div class="announce">
+  <div class="announceBar">
+    <div style="display:flex;align-items:center;gap:8px">
+      <span class="announceDot"></span>
+      <span id="announceText">
+        📢 تنبيه: هذا الأسبوع مطلوب حل اختبار رقم (1) – محاكي نافس
+      </span>
+    </div>
+    <small>منصة لغتي – مشروع نافس</small>
+  </div>
+</div>
+
+<style>
+.announce{
+  max-width:1100px;
+  margin:10px auto 0;
+  padding:0 14px;
+}
+.announceBar{
+  background:linear-gradient(135deg, rgba(214,178,94,.22), rgba(15,59,120,.08));
+  border:1px solid rgba(11,45,92,.12);
+  border-radius:14px;
+  padding:10px 12px;
+  font-weight:1000;
+  color:#0b2d5c;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.announceDot{
+  width:10px;height:10px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#d6b25e,#0f3b78);
+  box-shadow:0 0 0 4px rgba(214,178,94,.2);
+}
+</style>
       background:#fff;
       border-bottom:1px solid rgba(0,0,0,.06);
       position:sticky;top:0;z-index:20;
