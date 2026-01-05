@@ -5,15 +5,16 @@
   <title>منصة لغتي – مشروع نافس للصف السادس</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
-  <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XFX6LMKB5N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-XFX6LMKB5N');
-</script>
+  <!-- ✅ Google Analytics (ضع الـ Measurement ID بدل G-XXXXXXXXXX) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <style>
     :root{
       --blue:#0b2d5c; --blue2:#0f3b78; --gold:#d6b25e;
@@ -31,45 +32,6 @@
       min-height:100vh;
     }
     header{
-      <!-- شريط إعلان ثابت -->
-<div class="announce">
-  <div class="announceBar">
-    <div style="display:flex;align-items:center;gap:8px">
-      <span class="announceDot"></span>
-      <span id="announceText">
-        📢 تنبيه: هذا الأسبوع مطلوب حل اختبار رقم (1) – محاكي نافس
-      </span>
-    </div>
-    <small>منصة لغتي – مشروع نافس</small>
-  </div>
-</div>
-
-<style>
-.announce{
-  max-width:1100px;
-  margin:10px auto 0;
-  padding:0 14px;
-}
-.announceBar{
-  background:linear-gradient(135deg, rgba(214,178,94,.22), rgba(15,59,120,.08));
-  border:1px solid rgba(11,45,92,.12);
-  border-radius:14px;
-  padding:10px 12px;
-  font-weight:1000;
-  color:#0b2d5c;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.announceDot{
-  width:10px;height:10px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#d6b25e,#0f3b78);
-  box-shadow:0 0 0 4px rgba(214,178,94,.2);
-}
-</style>
       background:#fff;
       border-bottom:1px solid rgba(0,0,0,.06);
       position:sticky;top:0;z-index:20;
@@ -83,6 +45,39 @@
     .navTitle span{font-size:13px;color:var(--muted);font-weight:900}
     .logos{display:flex;align-items:center;gap:8px}
     .logos img{height:42px;object-fit:contain;border-radius:10px}
+
+    /* ✅ شريط إعلان ثابت */
+    .announceWrap{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 14px 10px;
+    }
+    .announce{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:linear-gradient(90deg, rgba(214,178,94,.18), rgba(15,59,120,.08));
+      border:1px solid rgba(11,45,92,.10);
+      box-shadow:0 8px 18px rgba(11,45,92,.08);
+      color:var(--blue);
+      font-weight:1000;
+      font-size:13px;
+      line-height:1.7;
+    }
+    .announceIcon{
+      flex:0 0 auto;
+      width:34px;height:34px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:#fff;
+      border:1px solid rgba(11,45,92,.10);
+    }
+    .announceText{
+      flex:1;
+      word-break:break-word;
+    }
 
     main{max-width:1100px;margin:14px auto;padding:0 14px 18px}
 
@@ -282,6 +277,17 @@
       <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار مدرسة الإمام الشوكاني">
     </div>
   </div>
+
+  <!-- ✅ شريط الإعلان (غيّر النص من السطر بالأسفل فقط) -->
+  <div class="announceWrap">
+    <div class="announce">
+      <div class="announceIcon">📣</div>
+      <div class="announceText" id="announceText">
+        <!-- ANNOUNCEMENT_TEXT -->
+        إعلان الأسبوع: حلّ هذا الأسبوع اختبار رقم (1) + قراءة النص رقم (8) ثم أرسل نتيجتك للمعلم.
+      </div>
+    </div>
+  </div>
 </header>
 
 <main>
@@ -353,11 +359,8 @@
 
       <!-- مقاطع فيديو توضيحية -->
       <div class="videoGrid" style="margin-top:16px">
-        <!-- الفيديو الأول: تعريف باختبار نافس -->
         <div class="videoCard">
-          <div class="videoCardTitle">
-            🎯 تعريف باختبار نافس للطلاب
-          </div>
+          <div class="videoCardTitle">🎯 تعريف باختبار نافس للطلاب</div>
           <div class="videoWrapper">
             <iframe
               src="https://www.youtube.com/embed/LtZKPUhr230"
@@ -368,11 +371,8 @@
           </div>
         </div>
 
-        <!-- الفيديو الثاني: شرح التضليل على ورقة الإجابة -->
         <div class="videoCard">
-          <div class="videoCardTitle">
-            ✏️ طريقة التظليل في ورقة إجابة نافس
-          </div>
+          <div class="videoCardTitle">✏️ طريقة التظليل في ورقة إجابة نافس</div>
           <div class="videoWrapper">
             <iframe
               src="https://www.youtube.com/embed/8CDEEv6Sjgo"
@@ -397,111 +397,83 @@
       </p>
 
       <div class="grid">
-
-        <!-- اختبار 1 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exams');return false;">
-          <div class="tag">اختبار 1</div>
-          <div class="icon">📝</div>
+          <div class="tag">اختبار 1</div><div class="icon">📝</div>
           <strong>اختبار 1 – فهم قرائي أساسي</strong>
           <span>نص قصير مع أسئلة على الفكرة الرئيسة والتفاصيل المباشرة.</span>
         </a>
 
-        <!-- اختبار 2 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam2');return false;">
-          <div class="tag">اختبار 2</div>
-          <div class="icon">📝</div>
+          <div class="tag">اختبار 2</div><div class="icon">📝</div>
           <strong>اختبار 2 – فهم متنوع</strong>
           <span>أسئلة متنوعة على أكثر من فقرة تدريبًا لأسلوب نافس.</span>
         </a>
 
-        <!-- اختبار 3 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam3');return false;">
-          <div class="tag">اختبار 3</div>
-          <div class="icon">📖</div>
+          <div class="tag">اختبار 3</div><div class="icon">📖</div>
           <strong>اختبار 3 – نص طويل</strong>
           <span>نص أطول قليلًا مع أسئلة استنتاجية وتفكير أعلى.</span>
         </a>
 
-        <!-- اختبار 4 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam4');return false;">
-          <div class="tag">اختبار 4</div>
-          <div class="icon">📘</div>
+          <div class="tag">اختبار 4</div><div class="icon">📘</div>
           <strong>اختبار 4 – محاكي نافس</strong>
           <span>نص طويل على نمط قياس مع أسئلة شبيهة باختبار نافس.</span>
         </a>
 
-        <!-- اختبار 5 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam5');return false;">
-          <div class="tag">اختبار 5</div>
-          <div class="icon">⭐</div>
+          <div class="tag">اختبار 5</div><div class="icon">⭐</div>
           <strong>اختبار 5 – محاكي نافس (قيمة الصدق)</strong>
           <span>نص عن الصدق في البيع والشراء، مع أسئلة على الفهم والاستنتاج.</span>
         </a>
 
-        <!-- اختبار 6 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam6');return false;">
-          <div class="tag">اختبار 6</div>
-          <div class="icon">📊</div>
+          <div class="tag">اختبار 6</div><div class="icon">📊</div>
           <strong>اختبار 6 – مهارات نافس</strong>
           <span>نص عن تنظيم الوقت والتعلم مع أسئلة على مهارات نافس المتقدمة.</span>
         </a>
 
-        <!-- اختبار 7 (المفردات) -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam7');return false;">
-          <div class="tag">اختبار 7</div>
-          <div class="icon">🔤</div>
+          <div class="tag">اختبار 7</div><div class="icon">🔤</div>
           <strong>اختبار المفردات – اختبار 7</strong>
           <span>مرادفات، أضداد، جمع، مفرد، واستخدام الكلمة في السياق.</span>
         </a>
 
-        <!-- اختبار 8 (مهارات عليا) -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam8');return false;">
-          <div class="tag">اختبار 8</div>
-          <div class="icon">🎯</div>
+          <div class="tag">اختبار 8</div><div class="icon">🎯</div>
           <strong>اختبار مهارات عليا – اختبار 8</strong>
           <span>نص طويل عن «مدينة استيقظت بالعلم» مع أسئلة على التحليل والتفسير والنقد.</span>
         </a>
 
-        <!-- اختبار 9 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam9');return false;">
-          <div class="tag">اختبار 9</div>
-          <div class="icon">📘</div>
+          <div class="tag">اختبار 9</div><div class="icon">📘</div>
           <strong>اختبار 9 – محاكي نافس إضافي</strong>
           <span>نص طويل بأسلوب نافس لزيادة التدريب على الفهم والاستنتاج.</span>
         </a>
 
-        <!-- اختبار 10 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam10');return false;">
-          <div class="tag">اختبار 10</div>
-          <div class="icon">🤝</div>
+          <div class="tag">اختبار 10</div><div class="icon">🤝</div>
           <strong>اختبار 10 – قيمة الإيثار</strong>
           <span>نص عن الإيثار ومساعدة الآخرين مع أسئلة على الفهم العميق.</span>
         </a>
 
-        <!-- اختبار 11 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam11');return false;">
-          <div class="tag">اختبار 11</div>
-          <div class="icon">🏛️</div>
+          <div class="tag">اختبار 11</div><div class="icon">🏛️</div>
           <strong>اختبار 11 – قصة عمر ورسول كسرى</strong>
           <span>نص تاريخي عن عدل عمر رضي الله عنه مع أسئلة على التحليل والاستنتاج.</span>
         </a>
 
-        <!-- اختبار 12 -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam12');return false;">
-          <div class="tag">اختبار 12</div>
-          <div class="icon">🎯</div>
+          <div class="tag">اختبار 12</div><div class="icon">🎯</div>
           <strong>اختبار 12 – محاكي نافس متقدم</strong>
           <span>اختبار إضافي لتقوية مهارات الفهم القرائي العليا قبل اختبار نافس.</span>
         </a>
 
-        <!-- اختبار 13 (مفردات) -->
         <a href="#" class="cardBtn" onclick="goToExam('nafis-exam13');return false;">
-          <div class="tag">اختبار 13</div>
-          <div class="icon">🔤</div>
+          <div class="tag">اختبار 13</div><div class="icon">🔤</div>
           <strong>اختبار 13 – المفردات</strong>
           <span>تدريب على المرادفات والأضداد واستخدام الكلمة في السياق بأسلوب يشبه نافس.</span>
         </a>
-
       </div>
 
       <div class="miniInfo" id="miniInfoExams"></div>
@@ -517,87 +489,65 @@
       </p>
 
       <div class="grid">
-
-        <!-- نص 1 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text1');return false;">
-          <div class="tag">نص 1</div>
-          <div class="icon">📚</div>
+          <div class="tag">نص 1</div><div class="icon">📚</div>
           <strong>خالد بن الوليد – يوم اليرموك</strong>
           <span>نص تاريخي عن الشجاعة والصبر والثبات في المعركة.</span>
         </a>
 
-        <!-- نص 2 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text2');return false;">
-          <div class="tag">نص 2</div>
-          <div class="icon">📚</div>
+          <div class="tag">نص 2</div><div class="icon">📚</div>
           <strong>عمر بن الخطاب – العدل مسؤولية</strong>
           <span>قصة تفقد الخليفة لأحوال الناس ليلًا وخوفه من التقصير.</span>
         </a>
 
-        <!-- نص 3 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false%;">
-          <div class="tag">نص 3</div>
-          <div class="icon">📚</div>
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false;">
+          <div class="tag">نص 3</div><div class="icon">📚</div>
           <strong>صلاح الدين الأيوبي – بطولة وعدل</strong>
           <span>نص عن القائد الذي جمع بين القوة والرحمة والإنصاف.</span>
         </a>
 
-        <!-- نص 4 -->
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false%;">
-          <div class="tag">نص 4</div>
-          <div class="icon">🐋</div>
+        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false;">
+          <div class="tag">نص 4</div><div class="icon">🐋</div>
           <strong>الحوت الأزرق – عملاق المحيط</strong>
           <span>نص علمي عن أكبر كائن عرفته الأرض، وطريقة غذائه وحمايته.</span>
         </a>
 
-        <!-- نص 5 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text5');return false;">
-          <div class="tag">نص 5</div>
-          <div class="icon">🦒</div>
+          <div class="tag">نص 5</div><div class="icon">🦒</div>
           <strong>الزرافة – أطول حيوان على اليابسة</strong>
           <span>نص علمي عن تكيف الزرافة مع بيئتها وفوائد رقبتها الطويلة.</span>
         </a>
 
-        <!-- نص 6 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text6');return false;">
-          <div class="tag">نص 6</div>
-          <div class="icon">✨</div>
+          <div class="tag">نص 6</div><div class="icon">✨</div>
           <strong>قصة خيالية – كتاب لا ينسى</strong>
           <span>قصة خيالية عن سالم والكتاب العجيب الذي يغيّر طريقة تفكيره.</span>
         </a>
 
-        <!-- نص 7 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text7');return false;">
-          <div class="tag">نص 7</div>
-          <div class="icon">💡</div>
+          <div class="tag">نص 7</div><div class="icon">💡</div>
           <strong>الكهرباء – طاقة غيّرت العالم</strong>
           <span>نص علمي عن اكتشاف الكهرباء وكيف أثرت في حياتنا اليومية.</span>
         </a>
 
-        <!-- نص 8 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text8');return false;">
-          <div class="tag">نص 8</div>
-          <div class="icon">🌍</div>
+          <div class="tag">نص 8</div><div class="icon">🌍</div>
           <strong>التقنية في حياة الإنسان</strong>
           <span>نص عن أثر التقنية الحديثة في التعلم والتواصل والعمل.</span>
         </a>
 
-        <!-- نص 9 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text9');return false;">
-          <div class="tag">نص 9</div>
-          <div class="icon">🎮</div>
+          <div class="tag">نص 9</div><div class="icon">🎮</div>
           <strong>الألعاب الإلكترونية بين الفائدة والضرر</strong>
           <span>نص عن تأثير الألعاب الإلكترونية في وقت الطالب وصحته وسلوكه.</span>
         </a>
 
-        <!-- نص 10 -->
         <a class="cardBtn" href="#" onclick="goToExam('nafis-text10');return false;">
-          <div class="tag">نص 10</div>
-          <div class="icon">🤝</div>
+          <div class="tag">نص 10</div><div class="icon">🤝</div>
           <strong>قيمة التطوع في بناء المجتمع</strong>
           <span>نص عن أثر العمل التطوعي في تقوية الروابط وخدمة المجتمع.</span>
         </a>
-
       </div>
 
       <div class="miniInfo" id="miniInfoTexts"></div>
@@ -651,7 +601,6 @@
           </a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -659,17 +608,13 @@
   <section id="tab-perf" class="panel hidden">
     <div class="panelBody">
       <strong>بطاقة تقييم الأداء – إرسال النتيجة للمعلم</strong>
-
       <p class="muted" style="margin-top:6px">
         عزيزي الطالب، عند انتهائك من حل أي اختبار من اختبارات <strong>محاكي نافس</strong>،
         احرص على الضغط على زر <strong>«إرسال النتيجة»</strong>، حيث يتم إرسال نتيجتك
         <strong>إلكترونيًا مباشرة إلى المعلم</strong>، ولا حاجة لإرسال صورة الشاشة أو النتيجة عبر الواتساب.
       </p>
 
-      <p class="muted" style="margin-top:8px">
-        يساعد إرسال النتيجة المعلم على:
-      </p>
-
+      <p class="muted" style="margin-top:8px">يساعد إرسال النتيجة المعلم على:</p>
       <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:2">
         <li>معرفة مستوى تقدمك في مهارات الفهم القرائي واللغة.</li>
         <li>دراسة نقاط القوة لديك وتعزيزها.</li>
@@ -702,12 +647,8 @@
       </p>
 
       <div class="videoGrid">
-
-        <!-- فيديو 1 -->
         <div class="videoCard">
-          <div class="videoCardTitle">
-            🎯 شرح عام لاختبار نافس وطريقة عمله
-          </div>
+          <div class="videoCardTitle">🎯 شرح عام لاختبار نافس وطريقة عمله</div>
           <div class="videoWrapper">
             <iframe
               src="https://www.youtube.com/embed/pBIobTZI0-A"
@@ -718,11 +659,8 @@
           </div>
         </div>
 
-        <!-- فيديو 2 -->
         <div class="videoCard">
-          <div class="videoCardTitle">
-            📘 نموذج تدريبي لحل أسئلة نافس
-          </div>
+          <div class="videoCardTitle">📘 نموذج تدريبي لحل أسئلة نافس</div>
           <div class="videoWrapper">
             <iframe
               src="https://www.youtube.com/embed/_PgyS8uFE_Q"
@@ -733,11 +671,8 @@
           </div>
         </div>
 
-        <!-- فيديو 3 -->
         <div class="videoCard">
-          <div class="videoCardTitle">
-            🧠 استراتيجيات ونصائح للاستعداد لاختبار نافس
-          </div>
+          <div class="videoCardTitle">🧠 استراتيجيات ونصائح للاستعداد لاختبار نافس</div>
           <div class="videoWrapper">
             <iframe
               src="https://www.youtube.com/embed/9jby1FYl5i0"
@@ -747,7 +682,6 @@
             </iframe>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -766,7 +700,7 @@
           </span>
         </div>
 
-        <a class="miniCard" href="https://wa.me/966593300313" target="_blank">
+        <a class="miniCard" href="https://wa.me/966555839722" target="_blank">
           <div class="miniCardIcon">💬</div>
           <div class="miniCardText">
             <strong>الدعم الفني – تواصل عبر الواتساب</strong>
