@@ -1,830 +1,802 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <title>منصة لغتي – مشروع نافس للصف السادس</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- ✅ Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFX6LMKB5N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XFX6LMKB5N');
-  </script>
+‏<!doctype html>
+‏<html lang="ar" dir="rtl">
+‏<head>
+‏  <meta charset="utf-8" />
+‏  <title>منصة لغتي – مشروع نافس للصف السادس</title>
+‏  <meta name="viewport" content="width=device-width,initial-scale=1" />
+‏  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --blue:#0b2d5c; --blue2:#0f3b78; --gold:#d6b25e;
-      --bg:#f4f7fc; --card:#ffffff; --muted:#6b7a90;
-      --pill:#eef3fb;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;font-family:"Tajawal",Arial,sans-serif;
-      background:
-        radial-gradient(900px 500px at 80% -10%, rgba(214,178,94,.18), transparent 60%),
-        radial-gradient(800px 500px at 10% 0%, rgba(15,59,120,.12), transparent 55%),
-        var(--bg);
-      color:var(--blue);
-      min-height:100vh;
-    }
-    header{
-      background:#fff;
-      border-bottom:1px solid rgba(0,0,0,.06);
-      position:sticky;top:0;z-index:20;
-    }
-    .topbar{height:6px;background:linear-gradient(90deg,var(--gold),var(--blue2))}
-    .nav{
-      max-width:1100px;margin:auto;padding:10px 14px;
-      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
-    }
-    .navTitle h1{margin:0;font-size:18px;font-weight:1000}
-    .navTitle span{font-size:13px;color:var(--muted);font-weight:900}
-    .logos{display:flex;align-items:center;gap:8px}
-    .logos img{height:42px;object-fit:contain;border-radius:10px}
+‏  <!-- ✅ Google Analytics (ضع الـ Measurement ID بدل G-XXXXXXXXXX) -->
+‏  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFX6LMKB5N"></script>
+‏  <script>
+‏    window.dataLayer = window.dataLayer || [];
+‏    function gtag(){dataLayer.push(arguments);}
+‏    gtag('js', new Date());
+‏    gtag('config', 'G-XFX6LMKB5N');
+‏  </script>
 
-    /* شريط إعلان ثابت */
-    .announceWrap{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0 14px 10px;
+‏  <style>
+‏    :root{
+‏      --blue:#0b2d5c; --blue2:#0f3b78; --gold:#d6b25e;
+‏      --bg:#f4f7fc; --card:#ffffff; --muted:#6b7a90;
+‏      --pill:#eef3fb;
     }
-    .announce{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 12px;
-      border-radius:14px;
-      background:linear-gradient(90deg, rgba(214,178,94,.18), rgba(15,59,120,.08));
-      border:1px solid rgba(11,45,92,.10);
-      box-shadow:0 8px 18px rgba(11,45,92,.08);
-      color:var(--blue);
-      font-weight:1000;
-      font-size:13px;
-      line-height:1.7;
+‏    *{box-sizing:border-box}
+‏    body{
+‏      margin:0;font-family:"Tajawal",Arial,sans-serif;
+‏      background:
+‏        radial-gradient(900px 500px at 80% -10%, rgba(214,178,94,.18), transparent 60%),
+‏        radial-gradient(800px 500px at 10% 0%, rgba(15,59,120,.12), transparent 55%),
+‏        var(--bg);
+‏      color:var(--blue);
+‏      min-height:100vh;
     }
-    .announceIcon{
-      flex:0 0 auto;
-      width:34px;height:34px;
-      border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background:#fff;
-      border:1px solid rgba(11,45,92,.10);
+‏    header{
+‏      background:#fff;
+‏      border-bottom:1px solid rgba(0,0,0,.06);
+‏      position:sticky;top:0;z-index:20;
     }
-    .announceText{
-      flex:1;
-      word-break:break-word;
+‏    .topbar{height:6px;background:linear-gradient(90deg,var(--gold),var(--blue2))}
+‏    .nav{
+‏      max-width:1100px;margin:auto;padding:10px 14px;
+‏      display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
     }
+‏    .navTitle h1{margin:0;font-size:18px;font-weight:1000}
+‏    .navTitle span{font-size:13px;color:var(--muted);font-weight:900}
+‏    .logos{display:flex;align-items:center;gap:8px}
+‏    .logos img{height:42px;object-fit:contain;border-radius:10px}
 
-    main{max-width:1100px;margin:14px auto;padding:0 14px 18px}
-
-    .panel{
-      background:var(--card);border-radius:18px;
-      border:1px solid rgba(11,45,92,.08);
-      box-shadow:0 10px 25px rgba(11,45,92,.10);
-      margin-bottom:14px;overflow:hidden;
+    /* ✅ شريط إعلان ثابت */
+‏    .announceWrap{
+‏      max-width:1100px;
+‏      margin:0 auto;
+‏      padding:0 14px 10px;
     }
-    .panelBody{padding:14px 16px}
-
-    .heroTop{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-    .heroText h2{margin:0 0 6px;font-size:17px;font-weight:1000}
-    .heroText p{margin:0;color:var(--muted);font-size:13px;font-weight:900}
-    .heroBadges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .pill{
-      background:var(--pill);padding:7px 12px;border-radius:999px;
-      font-size:12px;font-weight:900;color:var(--blue);
-      border:1px solid rgba(11,45,92,.06)
+‏    .announce{
+‏      display:flex;
+‏      align-items:center;
+‏      gap:10px;
+‏      padding:10px 12px;
+‏      border-radius:14px;
+‏      background:linear-gradient(90deg, rgba(214,178,94,.18), rgba(15,59,120,.08));
+‏      border:1px solid rgba(11,45,92,.10);
+‏      box-shadow:0 8px 18px rgba(11,45,92,.08);
+‏      color:var(--blue);
+‏      font-weight:1000;
+‏      font-size:13px;
+‏      line-height:1.7;
+    }
+‏    .announceIcon{
+‏      flex:0 0 auto;
+‏      width:34px;height:34px;
+‏      border-radius:12px;
+‏      display:flex;align-items:center;justify-content:center;
+‏      background:#fff;
+‏      border:1px solid rgba(11,45,92,.10);
+    }
+‏    .announceText{
+‏      flex:1;
+‏      word-break:break-word;
     }
 
-    .formRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    label{font-size:13px;font-weight:900;color:var(--blue)}
-    .input{
-      padding:8px 10px;border-radius:10px;border:1px solid rgba(11,45,92,.18);
-      min-width:160px;font-family:inherit;font-size:14px;
-      background:#fdfdfd;
-    }
-    .btn{
-      border:0;cursor:pointer;
-      padding:9px 13px;border-radius:12px;
-      font-family:inherit;font-weight:1000;font-size:13px;
-      display:inline-flex;align-items:center;gap:6px;
-      -webkit-tap-highlight-color: transparent;
-      transition:all 0.2s ease;
-    }
-    .btn:hover{
-      transform:translateY(-2px);
-      box-shadow:0 4px 12px rgba(0,0,0,0.15);
-    }
-    .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
-    .btnGhost{background:rgba(214,178,94,.10);border:1px solid rgba(214,178,94,.5);color:var(--blue)}
-    .muted{color:var(--muted);font-size:12px;font-weight:900;margin-top:6px}
+‏    main{max-width:1100px;margin:14px auto;padding:0 14px 18px}
 
-    .tabs{
-      display:flex;flex-wrap:wrap;gap:6px;
-      background:#f8fafc;border-radius:999px;
-      padding:4px;border:1px solid rgba(11,45,92,.08);
+‏    .panel{
+‏      background:var(--card);border-radius:18px;
+‏      border:1px solid rgba(11,45,92,.08);
+‏      box-shadow:0 10px 25px rgba(11,45,92,.10);
+‏      margin-bottom:14px;overflow:hidden;
     }
-    .tabBtn{
-      flex:1 1 110px;
-      text-align:center;
-      padding:8px 6px;
-      border-radius:999px;
-      border:0;
-      background:transparent;
-      font-family:inherit;
-      font-size:13px;
-      font-weight:900;
-      color:var(--blue);
-      cursor:pointer;
-      transition:all 0.2s ease;
-    }
-    .tabBtn:hover{
-      background:rgba(11,45,92,.05);
-    }
-    .tabBtn.active{
-      background:#fff;
-      box-shadow:0 4px 10px rgba(15,59,120,.15);
-    }
-    .hidden{display:none}
+‏    .panelBody{padding:14px 16px}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:12px;
-      margin-top:12px;
+‏    .heroTop{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+‏    .heroText h2{margin:0 0 6px;font-size:17px;font-weight:1000}
+‏    .heroText p{margin:0;color:var(--muted);font-size:13px;font-weight:900}
+‏    .heroBadges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+‏    .pill{
+‏      background:var(--pill);padding:7px 12px;border-radius:999px;
+‏      font-size:12px;font-weight:900;color:var(--blue);
+‏      border:1px solid rgba(11,45,92,.06)
     }
-    .cardBtn{
-      display:block;
-      text-decoration:none;
-      color:var(--blue);
-      background:#ffffff;
-      border-radius:16px;
-      border:1px solid rgba(11,45,92,.08);
-      padding:12px 12px 13px;
-      position:relative;
-      overflow:hidden;
-      cursor:pointer;
-      transition:all 0.3s ease;
+
+‏    .formRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+‏    label{font-size:13px;font-weight:900;color:var(--blue)}
+‏    .input{
+‏      padding:8px 10px;border-radius:10px;border:1px solid rgba(11,45,92,.18);
+‏      min-width:160px;font-family:inherit;font-size:14px;
+‏      background:#fdfdfd;
     }
-    .cardBtn:hover{
-      transform:translateY(-5px);
-      box-shadow:0 8px 20px rgba(11,45,92,.15);
-      border-color:var(--gold);
+‏    .btn{
+‏      border:0;cursor:pointer;
+‏      padding:9px 13px;border-radius:12px;
+‏      font-family:inherit;font-weight:1000;font-size:13px;
+‏      display:inline-flex;align-items:center;gap:6px;
+‏      -webkit-tap-highlight-color: transparent;
     }
-    .cardBtn strong{display:block;font-size:14px;font-weight:1000;margin-bottom:4px}
-    .cardBtn span{display:block;font-size:12px;font-weight:900;color:var(--muted);line-height:1.7}
-    .tag{
-      position:absolute;top:8px;left:10px;
-      font-size:11px;font-weight:900;
-      padding:3px 8px;border-radius:999px;
-      background:rgba(214,178,94,.12);
-      border:1px solid rgba(214,178,94,.45);
-      color:var(--blue2);
+‏    .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
+‏    .btnGhost{background:rgba(214,178,94,.10);border:1px solid rgba(214,178,94,.5);color:var(--blue)}
+‏    .muted{color:var(--muted);font-size:12px;font-weight:900;margin-top:6px}
+
+‏    .tabs{
+‏      display:flex;flex-wrap:wrap;gap:6px;
+‏      background:#f8fafc;border-radius:999px;
+‏      padding:4px;border:1px solid rgba(11,45,92,.08);
     }
-    .icon{
-      font-size:20px;margin-bottom:6px;
+‏    .tabBtn{
+‏      flex:1 1 110px;
+‏      text-align:center;
+‏      padding:8px 6px;
+‏      border-radius:999px;
+‏      border:0;
+‏      background:transparent;
+‏      font-family:inherit;
+‏      font-size:13px;
+‏      font-weight:900;
+‏      color:var(--blue);
+‏      cursor:pointer;
     }
-    .miniInfo{
-      display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
-      font-size:12px;color:var(--muted);font-weight:900;
+‏    .tabBtn.active{
+‏      background:#fff;
+‏      box-shadow:0 4px 10px rgba(15,59,120,.15);
+    }
+‏    .hidden{display:none}
+
+‏    .grid{
+‏      display:grid;
+‏      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+‏      gap:12px;
+‏      margin-top:12px;
+    }
+‏    .cardBtn{
+‏      display:block;
+‏      text-decoration:none;
+‏      color:var(--blue);
+‏      background:#ffffff;
+‏      border-radius:16px;
+‏      border:1px solid rgba(11,45,92,.08);
+‏      padding:12px 12px 13px;
+‏      position:relative;
+‏      overflow:hidden;
+‏      cursor:pointer;
+    }
+‏    .cardBtn strong{display:block;font-size:14px;font-weight:1000;margin-bottom:4px}
+‏    .cardBtn span{display:block;font-size:12px;font-weight:900;color:var(--muted);line-height:1.7}
+‏    .tag{
+‏      position:absolute;top:8px;left:10px;
+‏      font-size:11px;font-weight:900;
+‏      padding:3px 8px;border-radius:999px;
+‏      background:rgba(214,178,94,.12);
+‏      border:1px solid rgba(214,178,94,.45);
+‏      color:var(--blue2);
+    }
+‏    .icon{
+‏      font-size:20px;margin-bottom:6px;
+    }
+‏    .miniInfo{
+‏      display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;
+‏      font-size:12px;color:var(--muted);font-weight:900;
     }
 
     /* كروت الفيديو */
-    .videoGrid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:12px;
-      margin-top:14px;
+‏    .videoGrid{
+‏      display:grid;
+‏      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+‏      gap:12px;
+‏      margin-top:14px;
     }
-    .videoCard{
-      background:#ffffff;
-      border-radius:16px;
-      border:1px solid rgba(11,45,92,.08);
-      padding:10px 12px 12px;
+‏    .videoCard{
+‏      background:#ffffff;
+‏      border-radius:16px;
+‏      border:1px solid rgba(11,45,92,.08);
+‏      padding:10px 12px 12px;
     }
-    .videoCardTitle{
-      font-size:13px;
-      font-weight:1000;
-      color:var(--blue);
-      margin-bottom:8px;
+‏    .videoCardTitle{
+‏      font-size:13px;
+‏      font-weight:1000;
+‏      color:var(--blue);
+‏      margin-bottom:8px;
     }
-    .videoWrapper{
-      position:relative;
-      padding-top:56.25%; /* 16:9 */
-      border-radius:14px;
-      overflow:hidden;
-      background:#000;
+‏    .videoWrapper{
+‏      position:relative;
+‏      padding-top:56.25%; /* 16:9 */
+‏      border-radius:14px;
+‏      overflow:hidden;
+‏      background:#000;
     }
-    .videoWrapper iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
+‏    .videoWrapper iframe{
+‏      position:absolute;
+‏      inset:0;
+‏      width:100%;
+‏      height:100%;
+‏      border:0;
     }
 
     /* تبويب النسخة المطبوعة */
-    .pdfCard{
-      background:#ffffff;
-      border-radius:16px;
-      border:1px solid rgba(11,45,92,.08);
-      padding:12px 12px 14px;
-      margin-top:10px;
+‏    .pdfCard{
+‏      background:#ffffff;
+‏      border-radius:16px;
+‏      border:1px solid rgba(11,45,92,.08);
+‏      padding:12px 12px 14px;
+‏      margin-top:10px;
     }
-    .pdfButtons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:10px;
-    }
-
-    .footerRow{
-      display:flex;flex-wrap:wrap;
-      gap:10px;align-items:center;justify-content:space-between;
-    }
-    .footerText{
-      font-size:12px;
-      font-weight:900;
-      color:#555;
-    }
-    .footerText span{
-      color:#0b2d5c;font-weight:1000;
-    }
-    .miniCard{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      background:#ffeb9c;
-      border:1px solid #d6b25e;
-      border-radius:14px;
-      text-decoration:none;
-      padding:8px 10px;
-      color:#0b2d5c;
-      min-width:230px;
-      transition:all 0.3s ease;
-    }
-    .miniCard:hover{
-      transform:translateY(-3px);
-      box-shadow:0 4px 12px rgba(214,178,94,.3);
-    }
-    .miniCardIcon{
-      font-size:20px;
-    }
-    .miniCardText strong{
-      font-size:13px;font-weight:1000;display:block;
-    }
-    .miniCardText span{
-      font-size:11px;font-weight:900;opacity:.85;display:block;
+‏    .pdfButtons{
+‏      display:flex;
+‏      flex-wrap:wrap;
+‏      gap:8px;
+‏      margin-top:10px;
     }
 
-    /* تحسين عرض الجوال */
-    @media (max-width: 768px) {
-      .nav{padding:8px 12px;}
-      .navTitle h1{font-size:15px;}
-      .logos img{height:36px;}
-      .announce{font-size:12px;padding:8px 10px;}
-      .grid{grid-template-columns:1fr;}
-      .videoGrid{grid-template-columns:1fr;}
+‏    .footerRow{
+‏      display:flex;flex-wrap:wrap;
+‏      gap:10px;align-items:center;justify-content:space-between;
     }
-  </style>
-</head>
-<body>
+‏    .footerText{
+‏      font-size:12px;
+‏      font-weight:900;
+‏      color:#555;
+    }
+‏    .footerText span{
+‏      color:#0b2d5c;font-weight:1000;
+    }
+‏    .miniCard{
+‏      display:flex;
+‏      align-items:center;
+‏      gap:8px;
+‏      background:#ffeb9c;
+‏      border:1px solid #d6b25e;
+‏      border-radius:14px;
+‏      text-decoration:none;
+‏      padding:8px 10px;
+‏      color:#0b2d5c;
+‏      min-width:230px;
+    }
+‏    .miniCardIcon{
+‏      font-size:20px;
+    }
+‏    .miniCardText strong{
+‏      font-size:13px;font-weight:1000;display:block;
+    }
+‏    .miniCardText span{
+‏      font-size:11px;font-weight:900;opacity:.85;display:block;
+    }
+‏  </style>
+‏</head>
+‏<body>
 
-<header>
-  <div class="topbar"></div>
-  <div class="nav">
-    <div class="navTitle">
-      <div>
-        <h1>منصة لغتي – مشروع نافس للصف السادس</h1>
-        <span>مدرسة الإمام الشوكاني الابتدائية بالمذنب</span>
-      </div>
-    </div>
-    <div class="logos">
-      <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg" alt="شعار نافس">
-      <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار مدرسة الإمام الشوكاني">
-    </div>
-  </div>
+‏<header>
+‏  <div class="topbar"></div>
+‏  <div class="nav">
+‏    <div class="navTitle">
+‏      <div>
+‏        <h1>منصة لغتي – مشروع نافس للصف السادس</h1>
+‏        <span>مدرسة الإمام الشوكاني الابتدائية بالمذنب</span>
+‏      </div>
+‏    </div>
+‏    <div class="logos">
+‏      <img src="https://i.postimg.cc/Z5wPQcM3/IMG-0006.jpg" alt="شعار نافس">
+‏      <img src="https://i.postimg.cc/8kr7QHjG/O-U-O-U-U-O-U-U-3.png" alt="شعار مدرسة الإمام الشوكاني">
+‏    </div>
+‏  </div>
 
-  <!-- شريط الإعلان -->
-  <div class="announceWrap">
-    <div class="announce">
-      <div class="announceIcon">📣</div>
-      <div class="announceText" id="announceText">
+  <!-- ✅ شريط الإعلان (غيّر النص من السطر بالأسفل فقط) -->
+‏  <div class="announceWrap">
+‏    <div class="announce">
+‏      <div class="announceIcon">📣</div>
+‏      <div class="announceText" id="announceText">
+‏        <!-- ANNOUNCEMENT_TEXT -->
         إعلان الأسبوع: حلّ هذا الأسبوع اختبار رقم (1) + قراءة النص رقم (8) ثم أرسل نتيجتك للمعلم.
-      </div>
-    </div>
-  </div>
-</header>
+‏      </div>
+‏    </div>
+‏  </div>
+‏</header>
 
-<main>
+‏<main>
 
   <!-- تعريف + بيانات الطالب -->
-  <section class="panel">
-    <div class="panelBody">
-      <div class="heroTop">
-        <div class="heroText">
-          <h2>أهلاً بك في منصة لغتي – محاكي نافس</h2>
-          <p>اختر الاختبار أو النص القرائي، وتدرّب على مهارات الفهم واللغة بأسلوب يشبه اختبارات نافس.</p>
+‏  <section class="panel">
+‏    <div class="panelBody">
+‏      <div class="heroTop">
+‏        <div class="heroText">
+‏          <h2>أهلاً بك في منصة لغتي – محاكي نافس</h2>
+‏          <p>اختر الاختبار أو النص القرائي، وتدرّب على مهارات الفهم واللغة بأسلوب يشبه اختبارات نافس.</p>
 
-          <div class="heroBadges">
-            <div class="pill">📘 اختبارات فهم قرائي</div>
-            <div class="pill">📝 محاكاة لأسلوب نافس</div>
-            <div class="pill">📚 نصوص طويلة للتدريب</div>
-          </div>
-        </div>
-      </div>
+‏          <div class="heroBadges">
+‏            <div class="pill">📘 اختبارات فهم قرائي</div>
+‏            <div class="pill">📝 محاكاة لأسلوب نافس</div>
+‏            <div class="pill">📚 نصوص طويلة للتدريب</div>
+‏          </div>
+‏        </div>
+‏      </div>
 
       <!-- نموذج بيانات الطالب -->
-      <div style="margin-top:12px;border-top:1px dashed rgba(11,45,92,.15);padding-top:10px">
-        <form id="studentForm" onsubmit="saveStudent(event)">
-          <div class="formRow">
-            <div>
-              <label for="studentName">اسم الطالب</label><br>
-              <input id="studentName" class="input" type="text" placeholder="اكتب اسمك الثلاثي" required>
-            </div>
-            <div>
-              <label for="studentClass">الفصل</label><br>
-              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / أ" required>
-            </div>
-          </div>
-          <div class="formRow" style="margin-top:8px;align-items:flex-end">
-            <button class="btn btnPrimary" type="submit">حفظ البيانات للاختبارات</button>
-            <button class="btn btnGhost" type="button" onclick="clearStudent()">مسح البيانات</button>
-          </div>
-        </form>
-        <div id="studentSummary" class="muted"></div>
-      </div>
-    </div>
-  </section>
+‏      <div style="margin-top:12px;border-top:1px dashed rgba(11,45,92,.15);padding-top:10px">
+‏        <form id="studentForm" onsubmit="saveStudent(event)">
+‏          <div class="formRow">
+‏            <div>
+‏              <label for="studentName">اسم الطالب</label><br>
+‏              <input id="studentName" class="input" type="text" placeholder="اكتب اسمك الثلاثي">
+‏            </div>
+‏            <div>
+‏              <label for="studentClass">الفصل</label><br>
+‏              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / أ">
+‏            </div>
+‏          </div>
+‏          <div class="formRow" style="margin-top:8px;align-items:flex-end">
+‏            <button class="btn btnPrimary" type="submit">حفظ البيانات للاختبارات</button>
+‏            <button class="btn btnGhost" type="button" onclick="clearStudent()">مسح البيانات</button>
+‏          </div>
+‏        </form>
+‏        <div id="studentSummary" class="muted"></div>
+‏      </div>
+‏    </div>
+‏  </section>
 
   <!-- التبويبات -->
-  <section class="panel">
-    <div class="panelBody">
-      <div class="tabs">
-        <button class="tabBtn active" data-tab="home">الرئيسية</button>
-        <button class="tabBtn" data-tab="exams">الاختبارات</button>
-        <button class="tabBtn" data-tab="texts">النصوص القرائية</button>
-        <button class="tabBtn" data-tab="telegram">قناة التلجرام</button>
-        <button class="tabBtn" data-tab="print">النسخة المطبوعة</button>
-        <button class="tabBtn" data-tab="perf">تقييم الأداء</button>
-        <button class="tabBtn" data-tab="videos">فيديو نافس</button>
-      </div>
-    </div>
-  </section>
+‏  <section class="panel">
+‏    <div class="panelBody">
+‏      <div class="tabs">
+‏        <button class="tabBtn active" data-tab="home">الرئيسية</button>
+‏        <button class="tabBtn" data-tab="exams">الاختبارات</button>
+‏        <button class="tabBtn" data-tab="texts">النصوص القرائية</button>
+‏        <button class="tabBtn" data-tab="telegram">قناة التلجرام</button>
+‏        <button class="tabBtn" data-tab="print">النسخة المطبوعة</button>
+‏        <button class="tabBtn" data-tab="perf">تقييم الأداء</button>
+‏        <button class="tabBtn" data-tab="videos">فيديو نافس</button>
+‏      </div>
+‏    </div>
+‏  </section>
 
   <!-- تبويب الرئيسية -->
-  <section id="tab-home" class="panel">
-    <div class="panelBody">
-      <strong>إرشادات عامة للطالب:</strong>
-      <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:1.9">
-        <li>أدخل اسمك والفصل مرة واحدة، وستنتقل هذه البيانات معك إلى جميع الاختبارات والنصوص.</li>
-        <li>ابدأ باختبارات محاكي نافس (٤، ٥، ٦، ٨) لتتدرّب على الفهم العميق.</li>
-        <li>استخدم نصوص القراءة الطويلة لتقوية التركيز والسرعة في الفهم.</li>
-        <li>حاول قراءة السؤال كاملًا قبل اختيار الإجابة، ولا تتعجل.</li>
-      </ul>
+‏  <section id="tab-home" class="panel">
+‏    <div class="panelBody">
+‏      <strong>إرشادات عامة للطالب:</strong>
+‏      <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:1.9">
+‏        <li>أدخل اسمك والفصل مرة واحدة، وستنتقل هذه البيانات معك إلى جميع الاختبارات والنصوص.</li>
+‏        <li>ابدأ باختبارات محاكي نافس (٤، ٥، ٦، ٨) لتتدرّب على الفهم العميق.</li>
+‏        <li>استخدم نصوص القراءة الطويلة لتقوية التركيز والسرعة في الفهم.</li>
+‏        <li>حاول قراءة السؤال كاملًا قبل اختيار الإجابة، ولا تتعجل.</li>
+‏      </ul>
 
       <!-- مقاطع فيديو توضيحية -->
-      <div class="videoGrid" style="margin-top:16px">
-        <div class="videoCard">
-          <div class="videoCardTitle">🎯 تعريف باختبار نافس للطلاب</div>
-          <div class="videoWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/LtZKPUhr230"
-              title="تعريف باختبار نافس"
-              allowfullscreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-            </iframe>
-          </div>
-        </div>
+‏      <div class="videoGrid" style="margin-top:16px">
+‏        <div class="videoCard">
+‏          <div class="videoCardTitle">🎯 تعريف باختبار نافس للطلاب</div>
+‏          <div class="videoWrapper">
+‏            <iframe
+‏              src="https://www.youtube.com/embed/LtZKPUhr230"
+‏              title="تعريف باختبار نافس"
+‏              allowfullscreen
+‏              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+‏            </iframe>
+‏          </div>
+‏        </div>
 
-        <div class="videoCard">
-          <div class="videoCardTitle">✏️ طريقة التظليل في ورقة إجابة نافس</div>
-          <div class="videoWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/8CDEEv6Sjgo"
-              title="شرح التظليل على ورقة الإجابة"
-              allowfullscreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-            </iframe>
-          </div>
-        </div>
-      </div>
+‏        <div class="videoCard">
+‏          <div class="videoCardTitle">✏️ طريقة التظليل في ورقة إجابة نافس</div>
+‏          <div class="videoWrapper">
+‏            <iframe
+‏              src="https://www.youtube.com/embed/8CDEEv6Sjgo"
+‏              title="شرح التظليل على ورقة الإجابة"
+‏              allowfullscreen
+‏              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+‏            </iframe>
+‏          </div>
+‏        </div>
+‏      </div>
 
-      <div class="miniInfo" id="miniInfoHome"></div>
-    </div>
-  </section>
+‏      <div class="miniInfo" id="miniInfoHome"></div>
+‏    </div>
+‏  </section>
 
   <!-- تبويب الاختبارات -->
-  <section id="tab-exams" class="panel hidden">
-    <div class="panelBody">
-      <strong>الاختبارات المتاحة:</strong>
-      <p class="muted" style="margin-top:6px">
+‏  <section id="tab-exams" class="panel hidden">
+‏    <div class="panelBody">
+‏      <strong>الاختبارات المتاحة:</strong>
+‏      <p class="muted" style="margin-top:6px">
         اختبارات مبنية على مهارات نافس: فهم مباشر، استنتاج، مفردات، مهارات عليا.
-      </p>
+‏      </p>
 
-      <div class="grid">
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exams');return false;">
-          <div class="tag">اختبار 1</div><div class="icon">📝</div>
-          <strong>اختبار 1 – فهم قرائي أساسي</strong>
-          <span>نص قصير مع أسئلة على الفكرة الرئيسة والتفاصيل المباشرة.</span>
-        </a>
+‏      <div class="grid">
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exams');return false;">
+‏          <div class="tag">اختبار 1</div><div class="icon">📝</div>
+‏          <strong>اختبار 1 – فهم قرائي أساسي</strong>
+‏          <span>نص قصير مع أسئلة على الفكرة الرئيسة والتفاصيل المباشرة.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam2');return false;">
-          <div class="tag">اختبار 2</div><div class="icon">📝</div>
-          <strong>اختبار 2 – فهم متنوع</strong>
-          <span>أسئلة متنوعة على أكثر من فقرة تدريبًا لأسلوب نافس.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam2');return false;">
+‏          <div class="tag">اختبار 2</div><div class="icon">📝</div>
+‏          <strong>اختبار 2 – فهم متنوع</strong>
+‏          <span>أسئلة متنوعة على أكثر من فقرة تدريبًا لأسلوب نافس.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam3');return false;">
-          <div class="tag">اختبار 3</div><div class="icon">📖</div>
-          <strong>اختبار 3 – نص طويل</strong>
-          <span>نص أطول قليلًا مع أسئلة استنتاجية وتفكير أعلى.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam3');return false;">
+‏          <div class="tag">اختبار 3</div><div class="icon">📖</div>
+‏          <strong>اختبار 3 – نص طويل</strong>
+‏          <span>نص أطول قليلًا مع أسئلة استنتاجية وتفكير أعلى.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam4');return false;">
-          <div class="tag">اختبار 4</div><div class="icon">📘</div>
-          <strong>اختبار 4 – محاكي نافس</strong>
-          <span>نص طويل على نمط قياس مع أسئلة شبيهة باختبار نافس.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam4');return false;">
+‏          <div class="tag">اختبار 4</div><div class="icon">📘</div>
+‏          <strong>اختبار 4 – محاكي نافس</strong>
+‏          <span>نص طويل على نمط قياس مع أسئلة شبيهة باختبار نافس.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam5');return false;">
-          <div class="tag">اختبار 5</div><div class="icon">⭐</div>
-          <strong>اختبار 5 – محاكي نافس (قيمة الصدق)</strong>
-          <span>نص عن الصدق في البيع والشراء، مع أسئلة على الفهم والاستنتاج.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam5');return false;">
+‏          <div class="tag">اختبار 5</div><div class="icon">⭐</div>
+‏          <strong>اختبار 5 – محاكي نافس (قيمة الصدق)</strong>
+‏          <span>نص عن الصدق في البيع والشراء، مع أسئلة على الفهم والاستنتاج.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam6');return false%;">
-          <div class="tag">اختبار 6</div><div class="icon">📊</div>
-          <strong>اختبار 6 – مهارات نافس</strong>
-          <span>نص عن تنظيم الوقت والتعلم مع أسئلة على مهارات نافس المتقدمة.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam6');return false;">
+‏          <div class="tag">اختبار 6</div><div class="icon">📊</div>
+‏          <strong>اختبار 6 – مهارات نافس</strong>
+‏          <span>نص عن تنظيم الوقت والتعلم مع أسئلة على مهارات نافس المتقدمة.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam7');return false;">
-          <div class="tag">اختبار 7</div><div class="icon">🔤</div>
-          <strong>اختبار المفردات – اختبار 7</strong>
-          <span>مرادفات، أضداد، جمع، مفرد، واستخدام الكلمة في السياق.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam7');return false;">
+‏          <div class="tag">اختبار 7</div><div class="icon">🔤</div>
+‏          <strong>اختبار المفردات – اختبار 7</strong>
+‏          <span>مرادفات، أضداد، جمع، مفرد، واستخدام الكلمة في السياق.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam8');return false;">
-          <div class="tag">اختبار 8</div><div class="icon">🎯</div>
-          <strong>اختبار مهارات عليا – اختبار 8</strong>
-          <span>نص طويل عن «مدينة استيقظت بالعلم» مع أسئلة على التحليل والتفسير والنقد.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam8');return false;">
+‏          <div class="tag">اختبار 8</div><div class="icon">🎯</div>
+‏          <strong>اختبار مهارات عليا – اختبار 8</strong>
+‏          <span>نص طويل عن «مدينة استيقظت بالعلم» مع أسئلة على التحليل والتفسير والنقد.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam9');return false%;">
-          <div class="tag">اختبار 9</div><div class="icon">📘</div>
-          <strong>اختبار 9 – محاكي نافس إضافي</strong>
-          <span>نص طويل بأسلوب نافس لزيادة التدريب على الفهم والاستنتاج.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam9');return false;">
+‏          <div class="tag">اختبار 9</div><div class="icon">📘</div>
+‏          <strong>اختبار 9 – محاكي نافس إضافي</strong>
+‏          <span>نص طويل بأسلوب نافس لزيادة التدريب على الفهم والاستنتاج.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam10');return false;">
-          <div class="tag">اختبار 10</div><div class="icon">🤝</div>
-          <strong>اختبار 10 – قيمة الإيثار</strong>
-          <span>نص عن الإيثار ومساعدة الآخرين مع أسئلة على الفهم العميق.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam10');return false;">
+‏          <div class="tag">اختبار 10</div><div class="icon">🤝</div>
+‏          <strong>اختبار 10 – قيمة الإيثار</strong>
+‏          <span>نص عن الإيثار ومساعدة الآخرين مع أسئلة على الفهم العميق.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam11');return false;">
-          <div class="tag">اختبار 11</div><div class="icon">🏛️</div>
-          <strong>اختبار 11 – قصة عمر ورسول كسرى</strong>
-          <span>نص تاريخي عن عدل عمر رضي الله عنه مع أسئلة على التحليل والاستنتاج.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam11');return false;">
+‏          <div class="tag">اختبار 11</div><div class="icon">🏛️</div>
+‏          <strong>اختبار 11 – قصة عمر ورسول كسرى</strong>
+‏          <span>نص تاريخي عن عدل عمر رضي الله عنه مع أسئلة على التحليل والاستنتاج.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam12');return false%;">
-          <div class="tag">اختبار 12</div><div class="icon">🎯</div>
-          <strong>اختبار 12 – محاكي نافس متقدم</strong>
-          <span>اختبار إضافي لتقوية مهارات الفهم القرائي العليا قبل اختبار نافس.</span>
-        </a>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam12');return false;">
+‏          <div class="tag">اختبار 12</div><div class="icon">🎯</div>
+‏          <strong>اختبار 12 – محاكي نافس متقدم</strong>
+‏          <span>اختبار إضافي لتقوية مهارات الفهم القرائي العليا قبل اختبار نافس.</span>
+‏        </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam13');return false%;">
-          <div class="tag">اختبار 13</div><div class="icon">🔤</div>
-          <strong>اختبار 13 – المفردات</strong>
-          <span>تدريب على المرادفات والأضداد واستخدام الكلمة في السياق بأسلوب يشبه نافس.</span>
-        </a>
-      </div>
+‏        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam13');return false;">
+‏          <div class="tag">اختبار 13</div><div class="icon">🔤</div>
+‏          <strong>اختبار 13 – المفردات</strong>
+‏          <span>تدريب على المرادفات والأضداد واستخدام الكلمة في السياق بأسلوب يشبه نافس.</span>
+‏        </a>
+‏      </div>
 
-      <div class="miniInfo" id="miniInfoExams"></div>
-    </div>
-  </section>
+‏      <div class="miniInfo" id="miniInfoExams"></div>
+‏    </div>
+‏  </section>
 
   <!-- تبويب النصوص القرائية -->
-  <section id="tab-texts" class="panel hidden">
-    <div class="panelBody">
-      <strong>النصوص القرائية الطويلة:</strong>
-      <p class="muted" style="margin-top:6px">
+‏  <section id="tab-texts" class="panel hidden">
+‏    <div class="panelBody">
+‏      <strong>النصوص القرائية الطويلة:</strong>
+‏      <p class="muted" style="margin-top:6px">
         نصوص تاريخية وعلمية وخيالية للتدريب على القراءة العميقة قبل الاختبارات.
-      </p>
+‏      </p>
 
-      <div class="grid">
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text1');return false;">
-          <div class="tag">نص 1</div><div class="icon">📚</div>
-          <strong>خالد بن الوليد – يوم اليرموك</strong>
-          <span>نص تاريخي عن الشجاعة والصبر والثبات في المعركة.</span>
-        </a>
+‏      <div class="grid">
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text1');return false;">
+‏          <div class="tag">نص 1</div><div class="icon">📚</div>
+‏          <strong>خالد بن الوليد – يوم اليرموك</strong>
+‏          <span>نص تاريخي عن الشجاعة والصبر والثبات في المعركة.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text2');return false;">
-          <div class="tag">نص 2</div><div class="icon">📚</div>
-          <strong>عمر بن الخطاب – العدل مسؤولية</strong>
-          <span>قصة تفقد الخليفة لأحوال الناس ليلًا وخوفه من التقصير.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text2');return false;">
+‏          <div class="tag">نص 2</div><div class="icon">📚</div>
+‏          <strong>عمر بن الخطاب – العدل مسؤولية</strong>
+‏          <span>قصة تفقد الخليفة لأحوال الناس ليلًا وخوفه من التقصير.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false;">
-          <div class="tag">نص 3</div><div class="icon">📚</div>
-          <strong>صلاح الدين الأيوبي – بطولة وعدل</strong>
-          <span>نص عن القائد الذي جمع بين القوة والرحمة والإنصاف.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text3');return false;">
+‏          <div class="tag">نص 3</div><div class="icon">📚</div>
+‏          <strong>صلاح الدين الأيوبي – بطولة وعدل</strong>
+‏          <span>نص عن القائد الذي جمع بين القوة والرحمة والإنصاف.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false;">
-          <div class="tag">نص 4</div><div class="icon">🐋</div>
-          <strong>الحوت الأزرق – عملاق المحيط</strong>
-          <span>نص علمي عن أكبر كائن عرفته الأرض، وطريقة غذائه وحمايته.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text4');return false;">
+‏          <div class="tag">نص 4</div><div class="icon">🐋</div>
+‏          <strong>الحوت الأزرق – عملاق المحيط</strong>
+‏          <span>نص علمي عن أكبر كائن عرفته الأرض، وطريقة غذائه وحمايته.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text5');return false;">
-          <div class="tag">نص 5</div><div class="icon">🦒</div>
-          <strong>الزرافة – أطول حيوان على اليابسة</strong>
-          <span>نص علمي عن تكيف الزرافة مع بيئتها وفوائد رقبتها الطويلة.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text5');return false;">
+‏          <div class="tag">نص 5</div><div class="icon">🦒</div>
+‏          <strong>الزرافة – أطول حيوان على اليابسة</strong>
+‏          <span>نص علمي عن تكيف الزرافة مع بيئتها وفوائد رقبتها الطويلة.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text6');return false;">
-          <div class="tag">نص 6</div><div class="icon">✨</div>
-          <strong>قصة خيالية – كتاب لا ينسى</strong>
-          <span>قصة خيالية عن سالم والكتاب العجيب الذي يغيّر طريقة تفكيره.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text6');return false;">
+‏          <div class="tag">نص 6</div><div class="icon">✨</div>
+‏          <strong>قصة خيالية – كتاب لا ينسى</strong>
+‏          <span>قصة خيالية عن سالم والكتاب العجيب الذي يغيّر طريقة تفكيره.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text7');return false;">
-          <div class="tag">نص 7</div><div class="icon">💡</div>
-          <strong>الكهرباء – طاقة غيّرت العالم</strong>
-          <span>نص علمي عن اكتشاف الكهرباء وكيف أثرت في حياتنا اليومية.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text7');return false;">
+‏          <div class="tag">نص 7</div><div class="icon">💡</div>
+‏          <strong>الكهرباء – طاقة غيّرت العالم</strong>
+‏          <span>نص علمي عن اكتشاف الكهرباء وكيف أثرت في حياتنا اليومية.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text8');return false;">
-          <div class="tag">نص 8</div><div class="icon">🌍</div>
-          <strong>التقنية في حياة الإنسان</strong>
-          <span>نص عن أثر التقنية الحديثة في التعلم والتواصل والعمل.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text8');return false;">
+‏          <div class="tag">نص 8</div><div class="icon">🌍</div>
+‏          <strong>التقنية في حياة الإنسان</strong>
+‏          <span>نص عن أثر التقنية الحديثة في التعلم والتواصل والعمل.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text9');return false;">
-          <div class="tag">نص 9</div><div class="icon">🎮</div>
-          <strong>الألعاب الإلكترونية بين الفائدة والضرر</strong>
-          <span>نص عن تأثير الألعاب الإلكترونية في وقت الطالب وصحته وسلوكه.</span>
-        </a>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text9');return false;">
+‏          <div class="tag">نص 9</div><div class="icon">🎮</div>
+‏          <strong>الألعاب الإلكترونية بين الفائدة والضرر</strong>
+‏          <span>نص عن تأثير الألعاب الإلكترونية في وقت الطالب وصحته وسلوكه.</span>
+‏        </a>
 
-        <a class="cardBtn" href="#" onclick="goToExam('nafis-text10');return false;">
-          <div class="tag">نص 10</div><div class="icon">🤝</div>
-          <strong>قيمة التطوع في بناء المجتمع</strong>
-          <span>نص عن أثر العمل التطوعي في تقوية الروابط وخدمة المجتمع.</span>
-        </a>
-      </div>
+‏        <a class="cardBtn" href="#" onclick="goToExam('nafis-text10');return false;">
+‏          <div class="tag">نص 10</div><div class="icon">🤝</div>
+‏          <strong>قيمة التطوع في بناء المجتمع</strong>
+‏          <span>نص عن أثر العمل التطوعي في تقوية الروابط وخدمة المجتمع.</span>
+‏        </a>
+‏      </div>
 
-      <div class="miniInfo" id="miniInfoTexts"></div>
-    </div>
-  </section>
+‏      <div class="miniInfo" id="miniInfoTexts"></div>
+‏    </div>
+‏  </section>
 
   <!-- تبويب قناة التلجرام -->
-  <section id="tab-telegram" class="panel hidden">
-    <div class="panelBody">
-      <strong>قناة التلجرام – نماذج واختبارات نافس</strong>
-      <p class="muted" style="margin-top:6px">
+‏  <section id="tab-telegram" class="panel hidden">
+‏    <div class="panelBody">
+‏      <strong>قناة التلجرام – نماذج واختبارات نافس</strong>
+‏      <p class="muted" style="margin-top:6px">
         قناة عامة متخصصة في نشر نماذج واختبارات محاكية لاختبار نافس من مدارس ومعلمين مختلفين،
         يمكن للطالب والمعلم الاستفادة منها بجانب هذه المنصة.
-      </p>
+‏      </p>
 
-      <div class="grid">
-        <a class="cardBtn" href="https://t.me/Nationalexams1" target="_blank">
-          <div class="tag">تلجرام</div>
-          <div class="icon">📲</div>
-          <strong>الانتقال إلى قناة اختبارات نافس</strong>
-          <span>اضغط هنا لفتح قناة التلجرام والاطلاع على نماذج إضافية لاختبارات نافس.</span>
-        </a>
-      </div>
-    </div>
-  </section>
+‏      <div class="grid">
+‏        <a class="cardBtn" href="https://t.me/Nationalexams1" target="_blank">
+‏          <div class="tag">تلجرام</div>
+‏          <div class="icon">📲</div>
+‏          <strong>الانتقال إلى قناة اختبارات نافس</strong>
+‏          <span>اضغط هنا لفتح قناة التلجرام والاطلاع على نماذج إضافية لاختبارات نافس.</span>
+‏        </a>
+‏      </div>
+‏    </div>
+‏  </section>
 
   <!-- تبويب النسخة المطبوعة -->
-  <section id="tab-print" class="panel hidden">
-    <div class="panelBody">
-      <strong>النسخة المطبوعة – اختبارات محاكية لنافس جاهزة للطباعة</strong>
-      <p class="muted" style="margin-top:6px">
+‏  <section id="tab-print" class="panel hidden">
+‏    <div class="panelBody">
+‏      <strong>النسخة المطبوعة – اختبارات محاكية لنافس جاهزة للطباعة</strong>
+‏      <p class="muted" style="margin-top:6px">
         يمكن للمعلم تحميل أو طباعة هذه النسخة لاستخدامها في القاعة الدراسية، أو كواجبات ورقية
         تدريبية للطلاب.
-      </p>
+‏      </p>
 
-      <div class="pdfCard">
-        <div class="videoWrapper" style="margin-bottom:10px;">
-          <iframe
-            src="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/preview"
-            title="اختبارات محاكية لنافس جاهزة للطباعة"
-            allow="autoplay">
-          </iframe>
-        </div>
+‏      <div class="pdfCard">
+‏        <div class="videoWrapper" style="margin-bottom:10px;">
+‏          <iframe
+‏            src="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/preview"
+‏            title="اختبارات محاكية لنافس جاهزة للطباعة"
+‏            allow="autoplay">
+‏          </iframe>
+‏        </div>
 
-        <div class="pdfButtons">
-          <a class="btn btnGhost" href="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/view" target="_blank">
+‏        <div class="pdfButtons">
+‏          <a class="btn btnGhost" href="https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/view" target="_blank">
             فتح النسخة في صفحة مستقلة
-          </a>
-          <a class="btn btnPrimary" href="https://drive.google.com/uc?export=download&id=1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt">
+‏          </a>
+‏          <a class="btn btnPrimary" href="https://drive.google.com/uc?export=download&id=1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt">
             ⬇ تحميل النسخة للطباعة
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+‏          </a>
+‏        </div>
+‏      </div>
+‏    </div>
+‏  </section>
 
   <!-- تبويب تقييم الأداء -->
-  <section id="tab-perf" class="panel hidden">
-    <div class="panelBody">
-      <strong>بطاقة تقييم الأداء – إرسال النتيجة للمعلم</strong>
-      <p class="muted" style="margin-top:6px">
+‏  <section id="tab-perf" class="panel hidden">
+‏    <div class="panelBody">
+‏      <strong>بطاقة تقييم الأداء – إرسال النتيجة للمعلم</strong>
+‏      <p class="muted" style="margin-top:6px">
         عزيزي الطالب، عند انتهائك من حل أي اختبار من اختبارات <strong>محاكي نافس</strong>،
         احرص على الضغط على زر <strong>«إرسال النتيجة»</strong>، حيث يتم إرسال نتيجتك
-        <strong>إلكترونيًا مباشرة إلى المعلم</strong>، ولا حاجة لإرسال صورة الشاشة أو النتيجة عبر الواتساب.
-      </p>
+‏        <strong>إلكترونيًا مباشرة إلى المعلم</strong>، ولا حاجة لإرسال صورة الشاشة أو النتيجة عبر الواتساب.
+‏      </p>
 
-      <p class="muted" style="margin-top:8px">يساعد إرسال النتيجة المعلم على:</p>
-      <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:2">
-        <li>معرفة مستوى تقدمك في مهارات الفهم القرائي واللغة.</li>
-        <li>دراسة نقاط القوة لديك وتعزيزها.</li>
-        <li>التعرّف على جوانب التحسن ووضع برامج دعم مناسبة لك.</li>
-      </ul>
+‏      <p class="muted" style="margin-top:8px">يساعد إرسال النتيجة المعلم على:</p>
+‏      <ul style="margin:10px 18px 0 0;padding:0;font-size:13px;font-weight:900;color:var(--muted);line-height:2">
+‏        <li>معرفة مستوى تقدمك في مهارات الفهم القرائي واللغة.</li>
+‏        <li>دراسة نقاط القوة لديك وتعزيزها.</li>
+‏        <li>التعرّف على جوانب التحسن ووضع برامج دعم مناسبة لك.</li>
+‏      </ul>
 
-      <p class="muted" style="margin-top:8px">
-        <strong>📌 توجيهات مهمة لاستخدام المنصة واختبارات نافس:</strong><br>
+‏      <p class="muted" style="margin-top:8px">
+‏        <strong>📌 توجيهات مهمة لاستخدام المنصة واختبارات نافس:</strong><br>
         • ابدأ أولًا بإدخال اسمك والفصل في الصفحة الرئيسية مرة واحدة فقط.<br>
         • اختر الاختبار المناسب، واقرأ النص أو السؤال بهدوء حتى النهاية.<br>
         • فكّر في جميع الخيارات قبل الإجابة، وتجنّب الاستعجال.<br>
         • الهدف من هذه المنصة هو <strong>التدريب والتحسن المستمر</strong> استعدادًا لاختبار نافس، وليس جمع الدرجات فقط.
-      </p>
+‏      </p>
 
-      <p style="margin-top:10px;font-weight:1000;color:#0b2d5c">
+‏      <p style="margin-top:10px;font-weight:1000;color:#0b2d5c">
         تذكّر أن جِدّك في التدريب اليوم هو طريقك – بإذن الله – لتحقيق نتائج مميزة في اختبار نافس.<br><br>
         أرجو التوفيق لكم دائمًا 🌟<br>
-        <strong>الأستاذ مقرن المطيري</strong>
-      </p>
-    </div>
-  </section>
+‏        <strong>الأستاذ مقرن المطيري</strong>
+‏      </p>
+‏    </div>
+‏  </section>
 
   <!-- تبويب فيديو نافس -->
-  <section id="tab-videos" class="panel hidden">
-    <div class="panelBody">
-      <strong>فيديو نافس – شروحات واختبارات تدريبية</strong>
-      <p class="muted" style="margin-top:6px">
+‏  <section id="tab-videos" class="panel hidden">
+‏    <div class="panelBody">
+‏      <strong>فيديو نافس – شروحات واختبارات تدريبية</strong>
+‏      <p class="muted" style="margin-top:6px">
         مقاطع تعليمية من يوتيوب تشرح اختبار نافس، وطريقة الحل، ونماذج تدريبية.
         (قد تظهر إعلانات من يوتيوب، ويمكن تخطيها من داخل المشغّل.)
-      </p>
+‏      </p>
 
-      <div class="videoGrid">
-        <div class="videoCard">
-          <div class="videoCardTitle">🎯 شرح عام لاختبار نافس وطريقة عمله</div>
-          <div class="videoWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/pBIobTZI0-A"
-              title="شرح اختبار نافس"
-              allowfullscreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-            </iframe>
-          </div>
-        </div>
+‏      <div class="videoGrid">
+‏        <div class="videoCard">
+‏          <div class="videoCardTitle">🎯 شرح عام لاختبار نافس وطريقة عمله</div>
+‏          <div class="videoWrapper">
+‏            <iframe
+‏              src="https://www.youtube.com/embed/pBIobTZI0-A"
+‏              title="شرح اختبار نافس"
+‏              allowfullscreen
+‏              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+‏            </iframe>
+‏          </div>
+‏        </div>
 
-        <div class="videoCard">
-          <div class="videoCardTitle">📘 نموذج تدريبي لحل أسئلة نافس</div>
-          <div class="videoWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/_PgyS8uFE_Q"
-              title="نموذج تدريب لاختبار نافس"
-              allowfullscreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-            </iframe>
-          </div>
-        </div>
+‏        <div class="videoCard">
+‏          <div class="videoCardTitle">📘 نموذج تدريبي لحل أسئلة نافس</div>
+‏          <div class="videoWrapper">
+‏            <iframe
+‏              src="https://www.youtube.com/embed/_PgyS8uFE_Q"
+‏              title="نموذج تدريب لاختبار نافس"
+‏              allowfullscreen
+‏              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+‏            </iframe>
+‏          </div>
+‏        </div>
 
-        <div class="videoCard">
-          <div class="videoCardTitle">🧠 استراتيجيات ونصائح للاستعداد لاختبار نافس</div>
-          <div class="videoWrapper">
-            <iframe
-              src="https://www.youtube.com/embed/9jby1FYl5i0"
-              title="نصائح واستراتيجيات لاختبار نافس"
-              allowfullscreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-            </iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+‏        <div class="videoCard">
+‏          <div class="videoCardTitle">🧠 استراتيجيات ونصائح للاستعداد لاختبار نافس</div>
+‏          <div class="videoWrapper">
+‏            <iframe
+‏              src="https://www.youtube.com/embed/9jby1FYl5i0"
+‏              title="نصائح واستراتيجيات لاختبار نافس"
+‏              allowfullscreen
+‏              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+‏            </iframe>
+‏          </div>
+‏        </div>
+‏      </div>
+‏    </div>
+‏  </section>
 
   <!-- بطاقة البرمجة + الواتساب -->
-  <section class="panel">
-    <div class="panelBody">
-      <div class="footerRow">
+‏  <section class="panel">
+‏    <div class="panelBody">
+‏      <div class="footerRow">
 
-        <div class="footerText">
+‏        <div class="footerText">
           برمجة وتنفيذ: <span>الأستاذ مقرن المطيري</span><br>
           منصة لغتي – مشروع نافس<br>
-          ©2026<br>
-          <span style="display:inline-block;margin-top:4px;color:#4b5563;">
+‏          ©2026<br>
+‏          <span style="display:inline-block;margin-top:4px;color:#4b5563;">
             للدعم الفني والملاحظات حول المنصة واختبارات نافس يمكن التواصل مع المعلم مباشرة عبر الواتساب.
-          </span>
-        </div>
+‏          </span>
+‏        </div>
 
-        <a class="miniCard" href="https://wa.me/966555839722" target="_blank">
-          <div class="miniCardIcon">💬</div>
-          <div class="miniCardText">
-            <strong>الدعم الفني – تواصل عبر الواتساب</strong>
-            <span>اضغط هنا لإرسال استفسارك أو ملاحظتك إلى المعلم.</span>
-          </div>
-        </a>
+‏        <a class="miniCard" href="https://wa.me/966555839722" target="_blank">
+‏          <div class="miniCardIcon">💬</div>
+‏          <div class="miniCardText">
+‏            <strong>الدعم الفني – تواصل عبر الواتساب</strong>
+‏            <span>اضغط هنا لإرسال استفسارك أو ملاحظتك إلى المعلم.</span>
+‏          </div>
+‏        </a>
 
-      </div>
-    </div>
-  </section>
+‏      </div>
+‏    </div>
+‏  </section>
 
-</main>
+‏</main>
 
-<script>
+‏<script>
   // تحميل بيانات الطالب
-  function loadStudent(){
-    const box   = document.getElementById("studentSummary");
-    const miniHome  = document.getElementById("miniInfoHome");
-    const miniExams = document.getElementById("miniInfoExams");
-    const miniTexts = document.getElementById("miniInfoTexts");
-    const saved = JSON.parse(localStorage.getItem("studentData") || "null");
+‏  function loadStudent(){
+‏    const box   = document.getElementById("studentSummary");
+‏    const miniHome  = document.getElementById("miniInfoHome");
+‏    const miniExams = document.getElementById("miniInfoExams");
+‏    const miniTexts = document.getElementById("miniInfoTexts");
+‏    const saved = JSON.parse(localStorage.getItem("studentData") || "null");
 
-    if(saved){
-      document.getElementById("studentName").value  = saved.name  || "";
-      document.getElementById("studentClass").value = saved.classroom || "";
-      const txt = `👤 الطالب: ${saved.name || "—"} – 🏫 الفصل: ${saved.classroom || "—"}`;
-      box.textContent = txt;
-      if(miniHome)  miniHome.textContent  = txt;
-      if(miniExams) miniExams.textContent = txt;
-      if(miniTexts) miniTexts.textContent = txt;
-    }else{
-      box.textContent = "لم تُسجَّل بيانات الطالب بعد. اكتب الاسم والفصل ثم اضغط حفظ.";
-      if(miniHome)  miniHome.textContent  = "";
-      if(miniExams) miniExams.textContent = "";
-      if(miniTexts) miniTexts.textContent = "";
+‏    if(saved){
+‏      document.getElementById("studentName").value  = saved.name  || "";
+‏      document.getElementById("studentClass").value = saved.classroom || "";
+‏      const txt = `👤 الطالب: ${saved.name || "—"} – 🏫 الفصل: ${saved.classroom || "—"}`;
+‏      box.textContent = txt;
+‏      if(miniHome)  miniHome.textContent  = txt;
+‏      if(miniExams) miniExams.textContent = txt;
+‏      if(miniTexts) miniTexts.textContent = txt;
+‏    }else{
+‏      box.textContent = "لم تُسجَّل بيانات الطالب بعد. اكتب الاسم والفصل ثم اضغط حفظ.";
+‏      if(miniHome)  miniHome.textContent  = "";
+‏      if(miniExams) miniExams.textContent = "";
+‏      if(miniTexts) miniTexts.textContent = "";
     }
   }
 
-  function saveStudent(e){
-    e.preventDefault();
-    const name  = document.getElementById("studentName").value.trim();
-    const cls   = document.getElementById("studentClass").value.trim();
-    const data  = {name, classroom:cls};
-    localStorage.setItem("studentData", JSON.stringify(data));
-    loadStudent();
-    alert("تم حفظ بيانات الطالب للاختبارات والنصوص.");
+‏  function saveStudent(e){
+‏    e.preventDefault();
+‏    const name  = document.getElementById("studentName").value.trim();
+‏    const cls   = document.getElementById("studentClass").value.trim();
+‏    const data  = {name, classroom:cls};
+‏    localStorage.setItem("studentData", JSON.stringify(data));
+‏    loadStudent();
+‏    alert("تم حفظ بيانات الطالب للاختبارات والنصوص.");
   }
 
-  function clearStudent(){
-    localStorage.removeItem("studentData");
-    document.getElementById("studentName").value  = "";
-    document.getElementById("studentClass").value = "";
-    loadStudent();
+‏  function clearStudent(){
+‏    localStorage.removeItem("studentData");
+‏    document.getElementById("studentName").value  = "";
+‏    document.getElementById("studentClass").value = "";
+‏    loadStudent();
   }
 
   // التبويبات
-  const tabButtons = document.querySelectorAll(".tabBtn");
-  const panels = {
-    home:     document.getElementById("tab-home"),
-    exams:    document.getElementById("tab-exams"),
-    texts:    document.getElementById("tab-texts"),
-    telegram: document.getElementById("tab-telegram"),
-    print:    document.getElementById("tab-print"),
-    perf:     document.getElementById("tab-perf"),
-    videos:   document.getElementById("tab-videos")
+‏  const tabButtons = document.querySelectorAll(".tabBtn");
+‏  const panels = {
+‏    home:     document.getElementById("tab-home"),
+‏    exams:    document.getElementById("tab-exams"),
+‏    texts:    document.getElementById("tab-texts"),
+‏    telegram: document.getElementById("tab-telegram"),
+‏    print:    document.getElementById("tab-print"),
+‏    perf:     document.getElementById("tab-perf"),
+‏    videos:   document.getElementById("tab-videos")
   };
 
-  tabButtons.forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      tabButtons.forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-      const key = btn.dataset.tab;
-      Object.keys(panels).forEach(k=>{
-        panels[k].classList.toggle("hidden", k!==key);
+‏  tabButtons.forEach(btn=>{
+‏    btn.addEventListener("click", ()=>{
+‏      tabButtons.forEach(b=>b.classList.remove("active"));
+‏      btn.classList.add("active");
+‏      const key = btn.dataset.tab;
+‏      Object.keys(panels).forEach(k=>{
+‏        panels[k].classList.toggle("hidden", k!==key);
       });
     });
   });
 
   // فتح مستودع اختبار / نص مع تمرير بيانات الطالب (إن وجدت)
-  function goToExam(repo){
-    const base = "https://aass-2008-wq.github.io/" + repo + "/";
-    const saved = JSON.parse(localStorage.getItem("studentData") || "null");
-    if(saved && (saved.name || saved.classroom)){
-      const params = new URLSearchParams();
-      if(saved.name)      params.set("name", saved.name);
-      if(saved.classroom) params.set("cls",  saved.classroom);
-      window.location.href = base + "?" + params.toString();
-    }else{
-      window.location.href = base;
+‏  function goToExam(repo){
+‏    const base = "https://aass-2008-wq.github.io/" + repo + "/";
+‏    const saved = JSON.parse(localStorage.getItem("studentData") || "null");
+‏    if(saved && (saved.name || saved.classroom)){
+‏      const params = new URLSearchParams();
+‏      if(saved.name)      params.set("name", saved.name);
+‏      if(saved.classroom) params.set("cls",  saved.classroom);
+‏      window.location.href = base + "?" + params.toString();
+‏    }else{
+‏      window.location.href = base;
     }
   }
 
   // تهيئة أولية
-  loadStudent();
-</script>
+‏  loadStudent();
+‏</script>
 
-</body>
-</html>
+‏</body>
+‏</html>
