@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;800&display=swap" rel="stylesheet">
 
-  <!-- ✅ Google Analytics (ضع الـ Measurement ID بدل G-XXXXXXXXXX) -->
+  <!-- ✅ Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFX6LMKB5N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -46,7 +46,7 @@
     .logos{display:flex;align-items:center;gap:8px}
     .logos img{height:42px;object-fit:contain;border-radius:10px}
 
-    /* ✅ شريط إعلان ثابت */
+    /* شريط إعلان ثابت */
     .announceWrap{
       max-width:1100px;
       margin:0 auto;
@@ -112,6 +112,11 @@
       font-family:inherit;font-weight:1000;font-size:13px;
       display:inline-flex;align-items:center;gap:6px;
       -webkit-tap-highlight-color: transparent;
+      transition:all 0.2s ease;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.15);
     }
     .btnPrimary{background:linear-gradient(135deg,var(--blue2),var(--blue));color:#fff}
     .btnGhost{background:rgba(214,178,94,.10);border:1px solid rgba(214,178,94,.5);color:var(--blue)}
@@ -134,6 +139,10 @@
       font-weight:900;
       color:var(--blue);
       cursor:pointer;
+      transition:all 0.2s ease;
+    }
+    .tabBtn:hover{
+      background:rgba(11,45,92,.05);
     }
     .tabBtn.active{
       background:#fff;
@@ -158,6 +167,12 @@
       position:relative;
       overflow:hidden;
       cursor:pointer;
+      transition:all 0.3s ease;
+    }
+    .cardBtn:hover{
+      transform:translateY(-5px);
+      box-shadow:0 8px 20px rgba(11,45,92,.15);
+      border-color:var(--gold);
     }
     .cardBtn strong{display:block;font-size:14px;font-weight:1000;margin-bottom:4px}
     .cardBtn span{display:block;font-size:12px;font-weight:900;color:var(--muted);line-height:1.7}
@@ -249,6 +264,11 @@
       padding:8px 10px;
       color:#0b2d5c;
       min-width:230px;
+      transition:all 0.3s ease;
+    }
+    .miniCard:hover{
+      transform:translateY(-3px);
+      box-shadow:0 4px 12px rgba(214,178,94,.3);
     }
     .miniCardIcon{
       font-size:20px;
@@ -258,6 +278,16 @@
     }
     .miniCardText span{
       font-size:11px;font-weight:900;opacity:.85;display:block;
+    }
+
+    /* تحسين عرض الجوال */
+    @media (max-width: 768px) {
+      .nav{padding:8px 12px;}
+      .navTitle h1{font-size:15px;}
+      .logos img{height:36px;}
+      .announce{font-size:12px;padding:8px 10px;}
+      .grid{grid-template-columns:1fr;}
+      .videoGrid{grid-template-columns:1fr;}
     }
   </style>
 </head>
@@ -278,13 +308,12 @@
     </div>
   </div>
 
-  <!-- ✅ شريط الإعلان (غيّر النص من السطر بالأسفل فقط) -->
+  <!-- شريط الإعلان -->
   <div class="announceWrap">
     <div class="announce">
       <div class="announceIcon">📣</div>
       <div class="announceText" id="announceText">
-        <!-- ANNOUNCEMENT_TEXT -->
-        إعلان الأسبوع: قريبا
+        إعلان الأسبوع: حلّ هذا الأسبوع اختبار رقم (1) + قراءة النص رقم (8) ثم أرسل نتيجتك للمعلم.
       </div>
     </div>
   </div>
@@ -314,11 +343,11 @@
           <div class="formRow">
             <div>
               <label for="studentName">اسم الطالب</label><br>
-              <input id="studentName" class="input" type="text" placeholder="اكتب اسمك الثلاثي">
+              <input id="studentName" class="input" type="text" placeholder="اكتب اسمك الثلاثي" required>
             </div>
             <div>
               <label for="studentClass">الفصل</label><br>
-              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / أ">
+              <input id="studentClass" class="input" type="text" placeholder="مثال: ٦ / أ" required>
             </div>
           </div>
           <div class="formRow" style="margin-top:8px;align-items:flex-end">
@@ -427,7 +456,7 @@
           <span>نص عن الصدق في البيع والشراء، مع أسئلة على الفهم والاستنتاج.</span>
         </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam6');return false;">
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam6');return false%;">
           <div class="tag">اختبار 6</div><div class="icon">📊</div>
           <strong>اختبار 6 – مهارات نافس</strong>
           <span>نص عن تنظيم الوقت والتعلم مع أسئلة على مهارات نافس المتقدمة.</span>
@@ -445,7 +474,7 @@
           <span>نص طويل عن «مدينة استيقظت بالعلم» مع أسئلة على التحليل والتفسير والنقد.</span>
         </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam9');return false;">
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam9');return false%;">
           <div class="tag">اختبار 9</div><div class="icon">📘</div>
           <strong>اختبار 9 – محاكي نافس إضافي</strong>
           <span>نص طويل بأسلوب نافس لزيادة التدريب على الفهم والاستنتاج.</span>
@@ -463,13 +492,13 @@
           <span>نص تاريخي عن عدل عمر رضي الله عنه مع أسئلة على التحليل والاستنتاج.</span>
         </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam12');return false;">
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam12');return false%;">
           <div class="tag">اختبار 12</div><div class="icon">🎯</div>
           <strong>اختبار 12 – محاكي نافس متقدم</strong>
           <span>اختبار إضافي لتقوية مهارات الفهم القرائي العليا قبل اختبار نافس.</span>
         </a>
 
-        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam13');return false;">
+        <a href="#" class="cardBtn" onclick="goToExam('nafis-exam13');return false%;">
           <div class="tag">اختبار 13</div><div class="icon">🔤</div>
           <strong>اختبار 13 – المفردات</strong>
           <span>تدريب على المرادفات والأضداد واستخدام الكلمة في السياق بأسلوب يشبه نافس.</span>
@@ -700,7 +729,7 @@
           </span>
         </div>
 
-        <a class="miniCard" href="https://wa.me/966593300313" target="_blank">
+        <a class="miniCard" href="https://wa.me/966555839722" target="_blank">
           <div class="miniCardIcon">💬</div>
           <div class="miniCardText">
             <strong>الدعم الفني – تواصل عبر الواتساب</strong>
