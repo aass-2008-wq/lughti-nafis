@@ -40,7 +40,7 @@ function home(){return '<section class="hero"><div class="hero-copy"><div class=
 function resources(){return '<div class="grid resource-cards">'+[
  ['teacher','لوحة المعلم','النتائج والمهارات وتقارير الطلاب.','#teacher','فتح لوحة المعلم'],
  ['book','الاختبارات السابقة','النسخ السابقة للتدريب والمراجعة.','#past-exams','فتح الاختبارات'],
- ['chat','قناة الواتساب','قناة التواصل والمواد التعليمية.','', 'الرابط قريبًا'],
+ ['chat','قناة الواتساب','قناة التواصل والمواد التعليمية.','https://whatsapp.com/channel/0029Vb6w53QJkK75ofdFIE3M', 'فتح القناة'],
  ['video','فيديو نافس','التعريف بنافس والاستعداد للاختبار.','https://www.youtube.com/watch?v=LtZKPUhr230','مشاهدة الفيديو'],
  ['print','النسخة المطبوعة','مواد القراءة والتدريب على الورق.','https://drive.google.com/file/d/1sRCLJFeUgwPiGjNFm1d_J6YXIwJbWxvt/view','فتح النسخة'],
  ['video','طريقة التظليل','تسجيل الإجابات في ورقة الاختبار.','https://www.youtube.com/watch?v=8CDEEv6Sjgo','مشاهدة الشرح']
