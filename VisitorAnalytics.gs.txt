@@ -1,0 +1,53 @@
+// إحصاءات زوار محاكي نافس. المفتاح محفوظ في خصائص النص البرمجي فقط.
+function teacherAnalytics_(request) {
+  teacherAuth_(request);
+  const token = String(PropertiesService.getScriptProperties().getProperty('GOATCOUNTER_API_TOKEN') || '').trim();
+  if (!token) fail_('ANALYTICS_SETUP', 'لم يكتمل إعداد إحصاءات الزيارات.');
+  const now = new Date();
+  const day = Utilities.formatDate(now, 'Asia/Riyadh', 'yyyy-MM-dd');
+  const midnight = new Date(day + 'T00:00:00+03:00');
+  const localWeekday = new Date(midnight.getTime() + 10800000).getUTCDay();
+  const starts = [midnight, new Date(midnight.getTime() - localWeekday * 86400000), new Date(day.slice(0, 7) + '-01T00:00:00+03:00'), new Date('2026-10-08T00:00:00+03:00')];
+  const key = 'nafis-analytics-v1:' + day + ':' + hash_(token).slice(0, 16);
+  const cache = CacheService.getScriptCache();
+  const cached = cache.get(key);
+  if (cached) return JSON.parse(cached);
+  // قفل مستقل عن قفل كتابة نتائج الطلاب.
+  const lock = LockService.getUserLock();
+  if (!lock.tryLock(1000)) fail_('ANALYTICS_BUSY', 'جارٍ تحديث الإحصاءات. أعد المحاولة بعد قليل.');
+  try {
+    const again = cache.get(key);
+    if (again) return JSON.parse(again);
+    const end = new Date(Math.ceil(now.getTime() / 3600000) * 3600000).toISOString();
+    const requests = starts.map(function (start) {
+      return {url:'https://nafis-mogren2026.goatcounter.com/api/v0/stats/total?start=' + encodeURIComponent(start.toISOString()) + '&end=' + encodeURIComponent(end) + '&path_by_name=true&include_paths=' + encodeURIComponent('/lughti-nafis'), method:'get', headers:{Authorization:'Bearer ' + token, 'Content-Type':'application/json'}, muteHttpExceptions:true, followRedirects:false};
+    });
+    let responses;
+    try { responses = UrlFetchApp.fetchAll(requests); }
+    catch (err) { fail_('ANALYTICS_CONNECTION', 'تعذر الاتصال بخدمة الإحصاءات.'); }
+    const data = responses.map(function (response) {
+      const status = response.getResponseCode();
+      if (status === 401 || status === 403) fail_('ANALYTICS_ACCESS', 'تعذر الوصول إلى إحصاءات الزيارات. تحقق من صلاحية مفتاح الإحصاءات.');
+      if (status === 429) fail_('ANALYTICS_BUSY', 'خدمة الإحصاءات مشغولة. أعد المحاولة بعد قليل.');
+      if (status !== 200) fail_('ANALYTICS_CONNECTION', 'تعذر تحميل إحصاءات الزيارات حاليًا.');
+      let value;
+      try { value = JSON.parse(response.getContentText()); } catch (err) { fail_('ANALYTICS_DATA', 'تعذر قراءة إحصاءات الزيارات.'); }
+      if (!Number.isInteger(value.total) || value.total < 0) fail_('ANALYTICS_DATA', 'بيانات إحصاءات الزيارات غير مكتملة.');
+      return value;
+    });
+    const result = {ok:true, updatedAt:now.toISOString(), since:'2026-10-08', today:data[0].total, week:data[1].total, month:data[2].total, total:data[3].total,
+      daily:(data[2].stats || []).filter(function (s) {return /^\d{4}-\d{2}-\d{2}$/.test(s.day) && s.day <= day && Number.isInteger(s.daily) && s.daily >= 0;}).map(function (s) {return {day:s.day, count:s.daily};}).slice(-31)};
+    cache.put(key, JSON.stringify(result), 300);
+    return result;
+  } finally { lock.releaseLock(); }
+}
+
+// تُشغَّل مرة واحدة من المحرر لمنح إذن الاتصال بالخدمة؛ لا تطبع المفتاح.
+function authorizeVisitorAnalytics() {
+  const token = String(PropertiesService.getScriptProperties().getProperty('GOATCOUNTER_API_TOKEN') || '').trim();
+  if (!token) throw new Error('أضف GOATCOUNTER_API_TOKEN إلى خصائص النص البرمجي أولًا.');
+  const day = Utilities.formatDate(new Date(), 'Asia/Riyadh', 'yyyy-MM-dd');
+  const response = UrlFetchApp.fetch('https://nafis-mogren2026.goatcounter.com/api/v0/stats/total?start=' + encodeURIComponent(day + 'T00:00:00+03:00'), {headers:{Authorization:'Bearer ' + token}, muteHttpExceptions:true, followRedirects:false});
+  if (response.getResponseCode() !== 200) throw new Error('لم ينجح الربط. تحقق من المفتاح وصلاحية Read statistics.');
+  console.log('نجح الاتصال بخدمة إحصاءات الزيارات.');
+}
